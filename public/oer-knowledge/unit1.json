@@ -1,0 +1,80 @@
+{
+  "unit": 1,
+  "name": "The Global Tapestry",
+  "dateRange": "1200–1450",
+  "overview": "A period of diverse political and cultural developments across Afro-Eurasia and the Americas, featuring the consolidation of powerful states, the spread of religions, and sophisticated trade networks before major transoceanic contact.",
+  "keyTopics": [
+    {
+      "region": "East Asia",
+      "empires": ["Song Dynasty", "Yuan Dynasty (Mongol China)"],
+      "highlights": {
+        "social": "Neo-Confucian revival reinforced patriarchal hierarchy; civil service exams expanded access to scholar-gentry class; foot binding became widespread among elite women.",
+        "political": "Song maintained centralized bureaucracy with meritocratic civil service exams; Mongol Yuan Dynasty used foreign administrators and maintained separate legal systems for Mongols and Chinese.",
+        "interactions": "Major maritime trade through South China Sea; Grand Canal facilitated internal trade; Mongol conquest connected China to broader Eurasian trade networks.",
+        "cultural": "Neo-Confucianism synthesized Buddhist and Daoist ideas with Confucian ethics; landscape painting, poetry, and porcelain production flourished.",
+        "economic": "World's most commercialized economy; first paper money; iron and steel production; rice cultivation in south enabled population growth.",
+        "technological": "Gunpowder weapons, magnetic compass, movable type printing, advanced shipbuilding techniques."
+      }
+    },
+    {
+      "region": "South and Southeast Asia",
+      "empires": ["Delhi Sultanate", "Vijayanagara Empire", "Khmer Empire"],
+      "highlights": {
+        "social": "Hindu caste system persisted under Muslim Delhi Sultanate rule; bhakti and Sufi movements created syncretic devotional practices crossing social boundaries.",
+        "political": "Delhi Sultanate brought Islamic governance to South Asia; Vijayanagara served as Hindu counterweight in the south; Southeast Asian states drew from both Hindu and Buddhist political traditions.",
+        "interactions": "Indian Ocean trade connected South Asia to East Africa, Middle East, and Southeast Asia; monsoon winds shaped seasonal trade patterns.",
+        "cultural": "Islam and Hinduism coexisted and influenced each other; temple complexes like Angkor Wat reflected Hindu-Buddhist syncretism.",
+        "economic": "Textile production (cotton, silk) for export; spice trade; Indian merchants established diaspora communities across Indian Ocean.",
+        "technological": "Advanced irrigation systems; temple engineering; textile dyeing techniques."
+      }
+    },
+    {
+      "region": "Dar al-Islam (Islamic World)",
+      "empires": ["Abbasid Caliphate (declining)", "Mamluk Sultanate"],
+      "highlights": {
+        "social": "Ulama (scholars) held social authority; slavery existed but enslaved people could gain status (Mamluks were enslaved soldiers who became rulers); women's roles varied by region.",
+        "political": "Abbasid political authority fragmented into regional sultanates; Mamluks seized power in Egypt; Islamic law (sharia) provided unifying legal framework across diverse regions.",
+        "interactions": "Dar al-Islam connected Afro-Eurasia through trade, pilgrimage (hajj), and scholarly networks; caravansaries facilitated overland trade.",
+        "cultural": "House of Wisdom preserved and transmitted Greek, Persian, and Indian knowledge; Arabic became lingua franca of scholarship; Islamic art and architecture (mosques, geometric patterns).",
+        "economic": "Banking instruments (sakk/check), letters of credit; trade in luxury goods; agricultural innovations spread across Islamic world.",
+        "technological": "Advances in algebra, astronomy, optics, medicine (Ibn Sina); water management systems; astrolabe refinement."
+      }
+    },
+    {
+      "region": "Sub-Saharan Africa",
+      "empires": ["Mali Empire", "Great Zimbabwe", "Ethiopian Kingdom"],
+      "highlights": {
+        "social": "Griots preserved oral histories and genealogies; social organization around kinship and age-grade systems; slavery existed as domestic institution.",
+        "political": "Mali Empire under Mansa Musa demonstrated vast wealth and Islamic governance; Great Zimbabwe showed sophisticated stone architecture and centralized authority; Ethiopia maintained Christian kingdom.",
+        "interactions": "Trans-Saharan trade connected West Africa to Mediterranean; Swahili coast cities traded across Indian Ocean; Bantu migrations continued.",
+        "cultural": "Islam spread through trade in West and East Africa; indigenous religions persisted; Mansa Musa's hajj (1324) displayed Mali's wealth to the world.",
+        "economic": "Gold and salt trade dominated trans-Saharan routes; Swahili city-states traded gold, ivory, enslaved people for cloth, porcelain; cowrie shells used as currency.",
+        "technological": "Iron smelting; gold mining techniques; stone construction at Great Zimbabwe."
+      }
+    },
+    {
+      "region": "Europe",
+      "empires": ["Byzantine Empire", "Medieval Western Europe"],
+      "highlights": {
+        "social": "Feudal hierarchy of lords, vassals, and serfs; Catholic Church provided social cohesion; limited social mobility; women's roles constrained but some power through convents.",
+        "political": "Feudal decentralization in Western Europe; Byzantine Empire maintained centralized administration from Constantinople; conflict between papal and royal authority.",
+        "interactions": "Crusades brought contact with Islamic world; Viking trade networks connected Northern Europe to Byzantine and Islamic worlds; limited long-distance trade compared to Asia.",
+        "cultural": "Catholic Christianity dominated; Gothic cathedrals; scholasticism attempted to reconcile faith and reason; universities emerged (Bologna, Paris, Oxford).",
+        "economic": "Manorial agriculture; growth of towns and merchant class; Hanseatic League in northern trade; wool trade.",
+        "technological": "Heavy plow, horse collar, three-field rotation improved agriculture; water and windmills; Gothic architectural innovations."
+      }
+    },
+    {
+      "region": "The Americas",
+      "empires": ["Aztec Empire", "Inca Empire", "Maya (post-classic)"],
+      "highlights": {
+        "social": "Aztec society hierarchical with nobles, commoners, enslaved people; Inca used mit'a labor system; Maya city-states had priest-king rulers.",
+        "political": "Aztec tribute empire controlled through military dominance and alliance systems; Inca built centralized bureaucratic empire connected by road system; Maya remained politically fragmented.",
+        "interactions": "No sustained contact with Afro-Eurasia; trade networks within the Americas; Inca road system facilitated communication across Andes.",
+        "cultural": "Aztec and Maya practiced human sacrifice tied to cosmological beliefs; Inca sun worship; quipu record-keeping; monumental architecture (Tenochtitlan, Machu Picchu).",
+        "economic": "Aztec chinampas (floating gardens); Inca terrace farming; no large domesticated animals; tribute systems rather than currency-based economies.",
+        "technological": "Chinampas agriculture; Inca terrace farming and freeze-drying; Maya calendar and mathematics; no iron or wheel technology."
+      }
+    }
+  ]
+}

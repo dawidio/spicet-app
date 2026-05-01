@@ -1,0 +1,68 @@
+{
+  "unit": 9,
+  "name": "Globalization",
+  "dateRange": "1900–present",
+  "overview": "Accelerating globalization in the late 20th and early 21st centuries has connected the world through economic integration, digital technology, mass migration, and shared environmental challenges. While globalization has generated unprecedented wealth and cultural exchange, it has also produced inequality, environmental degradation, and resistance movements challenging its consequences.",
+  "keyTopics": [
+    {
+      "region": "Global (Economic Globalization)",
+      "empires": ["International Institutions (WTO, IMF, World Bank)", "Multinational Corporations"],
+      "highlights": {
+        "social": "Globalization has lifted hundreds of millions out of poverty (especially in China and India) while widening inequality within and between nations; a global consumer culture has emerged alongside debates about cultural homogenization.",
+        "political": "International institutions (WTO, IMF, World Bank) promote free trade and economic liberalization; trade agreements (NAFTA/USMCA, EU) reduce barriers; debates over sovereignty versus international governance intensify.",
+        "interactions": "Global supply chains connect producers and consumers across continents; financial crises (1997 Asian crisis, 2008 global recession) demonstrated the interconnectedness and fragility of the global economy.",
+        "cultural": "American popular culture (Hollywood, social media, fast food) has global reach but local cultures adapt and hybridize rather than simply adopting Western norms; the concept of 'glocalization' captures this dynamic.",
+        "economic": "Free trade, foreign direct investment, and outsourcing have restructured global production; manufacturing shifted from developed to developing nations; the service and knowledge economies grew in wealthy nations; global GDP increased dramatically.",
+        "technological": "Container shipping, commercial aviation, and digital communication enabled global supply chains; the internet and e-commerce transformed how goods, services, and information move across borders."
+      }
+    },
+    {
+      "region": "Global (Technology and Communication)",
+      "empires": ["Technology Companies", "Various States"],
+      "highlights": {
+        "social": "Social media has transformed how people communicate, organize, and form identities; the digital divide separates those with internet access from those without; screen time and mental health concerns have emerged.",
+        "political": "The internet has enabled both democratic movements (Arab Spring, 2011) and authoritarian surveillance and censorship (China's Great Firewall); cybersecurity and digital privacy are major governance challenges.",
+        "interactions": "Instant global communication has accelerated the spread of ideas, news, and misinformation; social media platforms operate across borders, complicating national regulation.",
+        "cultural": "Digital platforms have democratized cultural production; K-pop, Bollywood, and other non-Western cultural forms have achieved global audiences; concerns about misinformation and echo chambers challenge democratic discourse.",
+        "economic": "Technology companies (Apple, Google, Amazon, Alibaba) have become among the world's most valuable corporations; the gig economy and automation are reshaping labor markets; cryptocurrency and fintech challenge traditional banking.",
+        "technological": "The personal computer, internet, smartphone, and artificial intelligence represent transformative technologies; biotechnology (genetic engineering, mRNA vaccines) has reshaped medicine; renewable energy technology addresses climate change."
+      }
+    },
+    {
+      "region": "Global (Migration)",
+      "empires": ["Multiple Nations"],
+      "highlights": {
+        "social": "International migration has created multicultural societies worldwide; refugees from conflict zones (Syria, Afghanistan, Central America) face dangerous journeys and uncertain reception; diaspora communities maintain transnational identities.",
+        "political": "Immigration policy is a contentious political issue in many nations; debates over border control, refugee rights, and citizenship reflect tensions between national sovereignty and humanitarian obligations.",
+        "interactions": "Guest worker programs (Middle East, Europe) create temporary labor migration; human trafficking and smuggling networks exploit vulnerable migrants; brain drain from developing nations is a persistent concern.",
+        "cultural": "Migrants bring languages, cuisines, religions, and cultural practices to host societies, enriching but also challenging existing cultural norms; xenophobia and anti-immigrant movements have risen in many countries.",
+        "economic": "Migrant workers fill labor shortages in agriculture, construction, and domestic work; remittances to home countries exceed foreign aid in many cases; economic inequality between nations is a primary driver of migration.",
+        "technological": "Smartphones and social media help migrants navigate journeys and maintain family connections; biometric technology is used for border control and refugee registration; transportation improvements facilitate movement."
+      }
+    },
+    {
+      "region": "Global (Environmental Challenges)",
+      "empires": ["All Nations"],
+      "highlights": {
+        "social": "Environmental degradation disproportionately affects poor and marginalized communities (environmental justice); youth-led climate movements (Fridays for Future) have mobilized globally; debates about consumption and sustainability reshape social values.",
+        "political": "International climate agreements (Kyoto Protocol, 1997; Paris Agreement, 2015) attempt to coordinate global responses; disputes between developed and developing nations over responsibility and burden-sharing complicate negotiations.",
+        "interactions": "Climate change, deforestation, ocean pollution, and biodiversity loss are inherently transnational problems requiring international cooperation; environmental refugees are a growing phenomenon.",
+        "cultural": "Environmental awareness has become a significant cultural force; indigenous environmental knowledge is increasingly valued; tensions between economic growth and environmental protection shape public discourse worldwide.",
+        "economic": "The transition from fossil fuels to renewable energy represents a massive economic restructuring; green technology is a growing sector; debates continue over whether economic growth is compatible with environmental sustainability.",
+        "technological": "Solar, wind, and battery technologies have become increasingly cost-competitive with fossil fuels; satellite monitoring tracks deforestation and pollution; genetically modified crops raise debates about food security and environmental impact."
+      }
+    },
+    {
+      "region": "Global (Resistance to Globalization)",
+      "empires": ["Various Movements and States"],
+      "highlights": {
+        "social": "Anti-globalization movements argue that economic liberalization increases inequality and undermines workers' rights; indigenous peoples' movements defend land rights and cultural survival against global capitalism.",
+        "political": "Populist and nationalist movements in many countries reject international institutions and trade agreements; Brexit (2016) represented a dramatic rejection of regional integration; authoritarian leaders have used anti-globalization sentiment to consolidate power.",
+        "interactions": "The World Social Forum and transnational activist networks coordinate resistance to corporate globalization; fair trade movements and ethical consumption campaigns seek to reform rather than reject global trade.",
+        "cultural": "Cultural resistance movements defend local languages, traditions, and identities against perceived Westernization; religious fundamentalist movements in multiple faiths reject secular globalization; slow food and localism movements promote alternatives to global consumer culture.",
+        "economic": "Critics argue that free trade agreements benefit corporations at the expense of workers and the environment; alternative economic models (cooperatives, community-supported agriculture, microfinance) challenge corporate globalization.",
+        "technological": "Activists use the same technologies (internet, social media) they sometimes critique to organize resistance; debates over technology governance, data privacy, and AI ethics reflect broader concerns about who controls and benefits from innovation."
+      }
+    }
+  ]
+}

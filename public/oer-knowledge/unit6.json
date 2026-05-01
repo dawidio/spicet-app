@@ -1,0 +1,68 @@
+{
+  "unit": 6,
+  "name": "Consequences of Industrialization",
+  "dateRange": "1750–1900",
+  "overview": "The Industrial Revolution, beginning in Britain and spreading globally, transformed economies from agrarian to industrial, reshaped social structures, fueled European imperialism, triggered massive migrations, and generated reform movements demanding political and social change.",
+  "keyTopics": [
+    {
+      "region": "Western Europe (Britain)",
+      "empires": ["British Empire"],
+      "highlights": {
+        "social": "Industrialization created a new urban working class living in crowded, unsanitary conditions; child labor was widespread; a growing middle class (bourgeoisie) gained social influence; traditional rural communities declined.",
+        "political": "Reform Acts (1832, 1867) gradually expanded voting rights; Factory Acts regulated working conditions; labor unions organized despite initial legal suppression; liberalism and socialism emerged as competing political ideologies.",
+        "interactions": "Britain's industrial head start gave it global economic and military dominance; industrialized nations sought raw materials and markets worldwide, driving imperialism.",
+        "cultural": "Romanticism and later realism in art and literature responded to industrial change; Charles Dickens depicted urban poverty; utilitarianism (Bentham, Mill) and Marxism offered competing visions of industrial society.",
+        "economic": "Factory system replaced cottage industry; steam power and mechanized production dramatically increased output; capitalism and wage labor became the dominant economic model; boom-bust business cycles created instability.",
+        "technological": "Steam engine (Watt), spinning jenny, power loom, and Bessemer steel process transformed production; railroads and steamships revolutionized transportation; telegraph enabled instant long-distance communication."
+      }
+    },
+    {
+      "region": "Continental Europe and North America",
+      "empires": ["United States", "German Empire", "French Republic"],
+      "highlights": {
+        "social": "Mass immigration (especially to the United States) provided factory labor; urbanization accelerated; women entered textile factories in large numbers but faced gender-based wage discrimination.",
+        "political": "Governments promoted industrialization through tariffs, infrastructure investment, and public education; the United States experienced tensions between industrial North and agrarian South, contributing to the Civil War.",
+        "interactions": "Industrial competition among European powers intensified rivalries that contributed to imperialism and eventually World War I; the U.S. emerged as an industrial power rivaling Britain by 1900.",
+        "cultural": "The idea of progress became central to Western culture; public education expanded to create literate workers and citizens; labor movements developed distinct working-class cultures and institutions.",
+        "economic": "Germany and the U.S. industrialized rapidly in the late 19th century, surpassing Britain in steel and chemical production; corporations and trusts concentrated economic power.",
+        "technological": "Internal combustion engine, electricity, telephone, and chemical industries defined a 'Second Industrial Revolution' after 1870; assembly-line production methods emerged."
+      }
+    },
+    {
+      "region": "Asia and Africa (Imperialism)",
+      "empires": ["British Raj (India)", "Various European Colonial Powers"],
+      "highlights": {
+        "social": "Colonial rule disrupted existing social structures; racial hierarchies placed Europeans at top; Western-educated indigenous elites emerged who would later lead independence movements.",
+        "political": "European powers used industrial military technology to conquer vast territories; the Scramble for Africa (Berlin Conference, 1884–1885) partitioned the continent with no regard for existing boundaries or peoples.",
+        "interactions": "Industrial nations imposed unequal treaties on non-industrialized states (e.g., Treaty of Nanjing on China); colonial economies were restructured to serve imperial needs.",
+        "cultural": "Christian missionaries accompanied colonial expansion; Western education systems were imposed; colonized peoples experienced cultural disruption but also selectively adopted and adapted Western ideas.",
+        "economic": "Colonies were forced into producing raw materials (cotton, rubber, minerals) for European factories while importing manufactured goods; deindustrialization occurred in places like India where local textile production was undercut.",
+        "technological": "Maxim gun, quinine (anti-malaria), steamships, and telegraph gave European powers decisive military and logistical advantages over non-industrialized peoples."
+      }
+    },
+    {
+      "region": "Global Migration Patterns",
+      "empires": ["Multiple"],
+      "highlights": {
+        "social": "Millions of Europeans migrated to the Americas, Australia, and South Africa; Chinese and Indian laborers were recruited (often as indentured servants) to work in plantations and mines across the colonial world.",
+        "political": "Anti-immigrant sentiment led to exclusionary laws (e.g., U.S. Chinese Exclusion Act, 1882; White Australia policy); migration reshaped the demographics and politics of receiving countries.",
+        "interactions": "Global labor migration connected distant regions; steamship travel made transoceanic migration faster and cheaper; diaspora communities maintained connections to homelands.",
+        "cultural": "Immigrant communities transplanted languages, religions, and customs to new lands, creating multicultural societies; nativist reactions sometimes led to discrimination and violence.",
+        "economic": "Migration was driven by economic push factors (poverty, famine, land scarcity) and pull factors (industrial jobs, cheap land); remittances flowed back to home countries.",
+        "technological": "Steamships reduced Atlantic crossing from weeks to days; railroads opened interior lands for settlement; telegraphs allowed migrants to maintain contact with families."
+      }
+    },
+    {
+      "region": "Reform Movements (Global)",
+      "empires": ["Multiple"],
+      "highlights": {
+        "social": "Abolitionism ended slavery in the British Empire (1833), the U.S. (1865), and Brazil (1888); women's suffrage movements organized across Europe and North America; temperance movements targeted alcohol abuse.",
+        "political": "Socialism (Marx, Engels) and communism called for workers to seize the means of production; labor unions won legal recognition and bargained for better wages and conditions; feminist movements demanded political equality.",
+        "interactions": "Reform movements were transnational—abolitionists, feminists, and socialists communicated and organized across borders; international conferences and organizations connected reformers worldwide.",
+        "cultural": "Social Darwinism was used to justify inequality and imperialism; counter-movements emphasized human dignity and universal rights; religious revivals and social gospel movements motivated reform.",
+        "economic": "Labor movements fought for shorter working hours, minimum wages, and workplace safety; cooperative movements and mutual aid societies provided alternatives to pure capitalism.",
+        "technological": "The printing press enabled mass production of reform literature, pamphlets, and newspapers; the telegraph facilitated rapid communication among reform networks."
+      }
+    }
+  ]
+}

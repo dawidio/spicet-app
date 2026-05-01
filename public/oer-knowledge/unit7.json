@@ -1,0 +1,68 @@
+{
+  "unit": 7,
+  "name": "Global Conflict",
+  "dateRange": "1900–present",
+  "overview": "The 20th century was marked by two devastating world wars, the rise and fall of totalitarian ideologies, genocides, and the development of weapons of mass destruction. These global conflicts reshaped borders, toppled empires, and created international institutions aimed at preventing future wars.",
+  "keyTopics": [
+    {
+      "region": "Europe (World War I)",
+      "empires": ["Ottoman Empire", "Austro-Hungarian Empire", "Russian Empire", "German Empire"],
+      "highlights": {
+        "social": "Total war mobilized entire civilian populations; women entered the workforce in unprecedented numbers; class distinctions blurred in the trenches; the war generated widespread disillusionment.",
+        "political": "Alliance systems (Triple Alliance vs. Triple Entente), nationalism, militarism, and imperial rivalries caused the war; the war destroyed four empires (Ottoman, Austro-Hungarian, Russian, German) and redrew the map of Europe and the Middle East.",
+        "interactions": "A European conflict became global as colonial subjects were recruited to fight; the Treaty of Versailles (1919) imposed harsh terms on Germany and created the League of Nations; mandate system redistributed Ottoman territories.",
+        "cultural": "The 'Lost Generation' of writers and artists expressed disillusionment (All Quiet on the Western Front); traditional faith in progress was shattered; propaganda became a tool of mass persuasion.",
+        "economic": "War economies required unprecedented government control of production and labor; war debts crippled European economies; the U.S. emerged as the world's leading creditor nation.",
+        "technological": "Machine guns, poison gas, tanks, airplanes, and submarines transformed warfare; trench warfare created a devastating stalemate on the Western Front; industrial production determined military outcomes."
+      }
+    },
+    {
+      "region": "Global (Interwar Period)",
+      "empires": ["Soviet Union", "Fascist Italy", "Nazi Germany", "Imperial Japan"],
+      "highlights": {
+        "social": "The Great Depression caused mass unemployment and poverty worldwide; fascism and communism offered competing visions of social organization; antisemitism intensified in Nazi Germany with Nuremberg Laws.",
+        "political": "The Russian Revolution (1917) established the world's first communist state; fascism rose in Italy (Mussolini, 1922) and Germany (Hitler, 1933); Japan's military government pursued aggressive expansionism in Asia.",
+        "interactions": "The League of Nations failed to prevent aggression (Japanese invasion of Manchuria, Italian invasion of Ethiopia); appeasement of Hitler at Munich (1938) failed to prevent war.",
+        "cultural": "Totalitarian regimes used propaganda, censorship, and mass rallies to control culture; socialist realism in the USSR; glorification of the state and race in Nazi Germany; jazz and cinema provided cultural resistance and escape.",
+        "economic": "The Great Depression (1929) devastated global economies; protectionist trade policies worsened the crisis; authoritarian governments used state-directed economies (New Deal in U.S., five-year plans in USSR, autarky in Germany).",
+        "technological": "Radio and film became powerful propaganda tools; military technology advanced rapidly (aircraft, tanks, radar); industrialized mass production supported rearmament."
+      }
+    },
+    {
+      "region": "Global (World War II)",
+      "empires": ["Allied Powers", "Axis Powers"],
+      "highlights": {
+        "social": "The Holocaust killed six million Jews along with Roma, disabled people, and other targeted groups; Japanese atrocities in China (Nanjing Massacre) and forced labor across Asia caused millions of deaths; women again entered the workforce en masse.",
+        "political": "Axis aggression (Germany, Italy, Japan) was met by the Allied coalition (Britain, USSR, U.S., China, and others); the war ended with Germany's unconditional surrender and the atomic bombings of Hiroshima and Nagasaki.",
+        "interactions": "WWII was the deadliest conflict in human history (estimated 70–85 million dead); the United Nations was established (1945) to maintain international peace; the war set the stage for decolonization and the Cold War.",
+        "cultural": "The Holocaust became a defining moral catastrophe of the 20th century; the Universal Declaration of Human Rights (1948) articulated global standards; war crimes trials at Nuremberg established the principle of individual criminal responsibility.",
+        "economic": "The war destroyed European and Asian economies; the U.S. emerged as the dominant economic power; the Marshall Plan rebuilt Western Europe; Bretton Woods institutions (IMF, World Bank) created a new international economic order.",
+        "technological": "Radar, jet engines, rockets (V-2), and the atomic bomb represented quantum leaps in military technology; the Manhattan Project demonstrated the relationship between science, industry, and state power."
+      }
+    },
+    {
+      "region": "Multiple Regions (Genocides and Mass Atrocities)",
+      "empires": ["Various States"],
+      "highlights": {
+        "social": "Genocides targeted ethnic, religious, and political groups: Armenian Genocide (1915), Holocaust (1941–1945), Cambodian Genocide (1975–1979), Rwandan Genocide (1994), Bosnian Genocide (1995).",
+        "political": "Genocides were carried out by state actors using bureaucratic and military apparatus; the UN Genocide Convention (1948) defined genocide as a crime under international law; enforcement remained inconsistent.",
+        "interactions": "International failure to prevent genocides exposed weaknesses in global governance; the International Criminal Court (est. 2002) was created partly in response to these failures.",
+        "cultural": "Survivor testimony and memorialization (museums, memorials, education) became central to post-genocide societies; 'Never Again' became a rallying cry but was repeatedly tested.",
+        "economic": "Genocides devastated the economies of affected regions by destroying human capital, infrastructure, and social trust; post-genocide reconstruction required massive international aid.",
+        "technological": "Modern technologies (railroads, industrial killing methods, radio propaganda, machetes distributed en masse) were used to carry out genocide with terrible efficiency."
+      }
+    },
+    {
+      "region": "Global (Ideological Struggles)",
+      "empires": ["Communist States", "Fascist States", "Liberal Democracies"],
+      "highlights": {
+        "social": "Communism promised classless societies but often produced authoritarian rule; fascism glorified the state, military, and racial/national superiority; liberal democracies championed individual rights but struggled with inequality and colonial contradictions.",
+        "political": "The 20th century saw intense competition among these ideologies; fascism was defeated in WWII; communism and liberal democracy competed during the Cold War; liberal democracy appeared triumphant after 1991 but faced new challenges.",
+        "interactions": "Ideological competition shaped international alliances, proxy wars, and foreign aid; colonial subjects adapted these ideologies to their own liberation struggles.",
+        "cultural": "Each ideology produced distinctive cultural forms: socialist realism, fascist monumentalism, and democratic consumer culture; propaganda and censorship were tools of ideological states.",
+        "economic": "Command economies (communism), state-directed capitalism (fascism), and free-market capitalism (liberal democracies) competed to demonstrate economic superiority; the Cold War was partly an economic contest.",
+        "technological": "The space race and arms race demonstrated how ideological competition drove technological innovation; nuclear weapons created the possibility of total annihilation."
+      }
+    }
+  ]
+}

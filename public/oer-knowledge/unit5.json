@@ -1,0 +1,80 @@
+{
+  "unit": 5,
+  "name": "Revolutions",
+  "dateRange": "1750–1900",
+  "overview": "Enlightenment ideas about natural rights, popular sovereignty, and social contracts inspired a wave of political revolutions across the Atlantic world. These revolutions challenged monarchical authority, colonial rule, and social hierarchies, establishing new nation-states founded on principles of liberty, equality, and self-governance—though often with significant limitations.",
+  "keyTopics": [
+    {
+      "region": "Europe (Intellectual Foundations)",
+      "empires": ["Enlightenment Thinkers", "European Monarchies"],
+      "highlights": {
+        "social": "Enlightenment thinkers challenged traditional social hierarchies based on birth; salons and coffeehouses became spaces for intellectual exchange across social classes; literacy rates increased with print culture.",
+        "political": "Philosophers like Locke, Montesquieu, Voltaire, and Rousseau articulated ideas of natural rights, separation of powers, religious tolerance, and the social contract that challenged absolutism.",
+        "interactions": "Enlightenment ideas spread through printed books, pamphlets, and correspondence networks across Europe and the Atlantic world; the Encyclopedia compiled and disseminated knowledge widely.",
+        "cultural": "The Enlightenment elevated reason and empiricism over tradition and religious authority; it influenced art (neoclassicism), literature, and education reform across Europe.",
+        "economic": "Adam Smith's Wealth of Nations (1776) advocated free-market economics and critiqued mercantilism; economic liberalism became closely linked to political liberalism.",
+        "technological": "The Scientific Revolution preceded and informed the Enlightenment; improvements in printing technology accelerated the spread of revolutionary ideas."
+      }
+    },
+    {
+      "region": "North America",
+      "empires": ["British Colonial America", "United States"],
+      "highlights": {
+        "social": "The revolution primarily benefited white, property-owning men; enslaved people, women, and indigenous peoples were largely excluded from the new republic's promises of liberty and equality.",
+        "political": "Colonial grievances over taxation without representation led to the Declaration of Independence (1776); the U.S. Constitution (1787) established a federal republic with separation of powers and checks and balances.",
+        "interactions": "French military and financial support was crucial to American victory; the American Revolution inspired later revolutions in France, Haiti, and Latin America.",
+        "cultural": "Republican ideals of civic virtue and self-governance became central to American identity; the revolution produced foundational documents (Declaration of Independence, Bill of Rights) with global influence.",
+        "economic": "Disputes over British taxation and trade regulation (Stamp Act, Tea Act) were immediate causes; the new nation pursued independent trade policies and westward economic expansion.",
+        "technological": "Colonial militias used guerrilla tactics alongside conventional warfare; the revolution itself was less technologically transformative than ideologically revolutionary."
+      }
+    },
+    {
+      "region": "France",
+      "empires": ["French Monarchy", "French Republic", "Napoleonic Empire"],
+      "highlights": {
+        "social": "The revolution abolished feudal privileges of the First (clergy) and Second (nobility) Estates; the Declaration of the Rights of Man proclaimed equality before the law, though women (as Olympe de Gouges protested) were excluded.",
+        "political": "Financial crisis and Enlightenment ideas fueled revolution in 1789; the revolution moved through phases from constitutional monarchy to radical republic (Reign of Terror) to Napoleon's authoritarian rule.",
+        "interactions": "The French Revolution and Napoleonic Wars reshaped European borders and spread revolutionary ideals across the continent; Napoleon's invasion of Spain weakened colonial control in Latin America.",
+        "cultural": "Revolutionary culture promoted secularism, metric system, and national identity; the tricolor flag and La Marseillaise became enduring symbols; the revolution deeply divided opinion across Europe.",
+        "economic": "Fiscal crisis from war debts (including support for American Revolution) and regressive taxation triggered the revolution; revolutionary governments abolished guild restrictions and feudal dues.",
+        "technological": "The levee en masse (mass conscription) created the first modern national army; the revolution promoted standardized weights and measures (metric system)."
+      }
+    },
+    {
+      "region": "Caribbean",
+      "empires": ["French Saint-Domingue", "Haiti"],
+      "highlights": {
+        "social": "The Haitian Revolution (1791–1804) was the only successful large-scale slave revolt in history; it was led by Toussaint Louverture and completed by Jean-Jacques Dessalines; it challenged racial hierarchies worldwide.",
+        "political": "Enslaved Africans, free people of color, and poor whites each pursued different political goals; Haiti became the first independent Black republic and the second independent nation in the Western Hemisphere.",
+        "interactions": "The revolution was inspired by French revolutionary ideals and the contradictions of the Declaration of the Rights of Man; it terrified slaveholders throughout the Americas and inspired enslaved people everywhere.",
+        "cultural": "Haitian revolutionaries drew on African cultural traditions, vodou religious practices, and Enlightenment ideals of freedom; the revolution demonstrated that universal rights claims could not be limited by race.",
+        "economic": "Saint-Domingue had been France's most profitable colony (sugar, coffee); the revolution destroyed the plantation economy; post-independence Haiti faced economic isolation and crippling debt imposed by France.",
+        "technological": "Enslaved revolutionaries used knowledge of terrain, guerrilla warfare, and the disease environment (yellow fever devastated French troops) as strategic advantages."
+      }
+    },
+    {
+      "region": "Latin America",
+      "empires": ["Spanish Colonial Empire", "Portuguese Brazil", "New Latin American Nations"],
+      "highlights": {
+        "social": "Creole elites led most independence movements; indigenous peoples and people of African descent had varied roles and often saw limited social change after independence; casta hierarchies largely persisted.",
+        "political": "Simon Bolivar and Jose de San Martin led independence movements across South America; Mexico's independence involved both creole and indigenous/mestizo movements (Hidalgo, Morelos); Brazil gained independence relatively peacefully under Pedro I.",
+        "interactions": "Napoleon's invasion of Spain (1808) created a power vacuum that triggered independence movements; the Monroe Doctrine (1823) signaled U.S. opposition to European recolonization.",
+        "cultural": "Independence movements drew on Enlightenment ideals and creole identity distinct from peninsular Spaniards; Bolivar envisioned pan-American unity but post-independence fragmentation prevailed.",
+        "economic": "Colonial economic grievances (trade restrictions, taxation) motivated independence; post-independence economies remained dependent on commodity exports and foreign (especially British) capital.",
+        "technological": "Military campaigns utilized European-style armies and tactics adapted to South American geography; no major technological innovations, but the printing press spread revolutionary ideas."
+      }
+    },
+    {
+      "region": "Europe (Nationalism)",
+      "empires": ["Various European States"],
+      "highlights": {
+        "social": "Nationalism created new collective identities based on shared language, culture, and history; it both unified peoples (German and Italian unification) and threatened multi-ethnic empires (Ottoman, Austrian, Russian).",
+        "political": "The Congress of Vienna (1815) attempted to restore conservative order but could not suppress nationalist movements; revolutions of 1830 and 1848 spread across Europe; German unification (1871) and Italian unification reshaped the European map.",
+        "interactions": "Nationalist movements were interconnected across Europe; exiles and revolutionaries communicated and supported each other; nationalist ideas later spread to colonial peoples worldwide.",
+        "cultural": "Romantic nationalism celebrated folk traditions, national languages, and heroic histories; national anthems, flags, and public education systems promoted shared identity.",
+        "economic": "Economic nationalism promoted protective tariffs and industrialization as tools of state power; the Zollverein (German customs union) demonstrated how economic integration could drive political unification.",
+        "technological": "Railroads, telegraphs, and mass-circulation newspapers helped create national communities by connecting distant populations and spreading shared information rapidly."
+      }
+    }
+  ]
+}

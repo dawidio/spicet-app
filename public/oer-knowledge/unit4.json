@@ -1,0 +1,68 @@
+{
+  "unit": 4,
+  "name": "Transoceanic Interconnections",
+  "dateRange": "1450–1750",
+  "overview": "European maritime expansion created new transoceanic connections that transformed global trade, demographics, and power structures. The Columbian Exchange, Atlantic slave trade, and rise of colonial empires reshaped societies on every continent and established patterns of global inequality that persisted for centuries.",
+  "keyTopics": [
+    {
+      "region": "The Americas and Europe",
+      "empires": ["Spanish Empire", "Portuguese Empire"],
+      "highlights": {
+        "social": "Colonial casta system in Spanish America created racial hierarchies (peninsulares, creoles, mestizos, mulattos, indigenous, enslaved Africans); indigenous populations suffered catastrophic decline from European diseases.",
+        "political": "Spain established viceroyalties in New Spain and Peru with centralized colonial bureaucracies; the encomienda and later repartimiento systems coerced indigenous labor; Portugal controlled Brazil through donatary captaincies.",
+        "interactions": "The Columbian Exchange transferred plants (potatoes, maize, tobacco to Old World; wheat, horses, cattle to New World), animals, and diseases across the Atlantic, transforming ecosystems and diets globally.",
+        "cultural": "Syncretism blended Catholicism with indigenous and African religious practices (e.g., Virgin of Guadalupe); forced conversion campaigns and mission systems sought to Christianize indigenous peoples.",
+        "economic": "Silver mining at Potosi and Zacatecas funded the Spanish Empire and fueled global trade; sugar plantations in Brazil relied on enslaved African labor; the Manila galleon connected the Americas to Asian markets.",
+        "technological": "Caravel and carrack ship designs enabled transoceanic voyaging; European steel weapons and gunpowder gave military advantage over indigenous peoples; mining techniques (mercury amalgamation) extracted silver."
+      }
+    },
+    {
+      "region": "Atlantic World",
+      "empires": ["Dutch Empire", "British Empire", "French Empire"],
+      "highlights": {
+        "social": "Plantation societies in the Caribbean and North America created rigid racial hierarchies; indentured servitude preceded and coexisted with chattel slavery; European settler colonies developed distinct social structures.",
+        "political": "The Dutch established the VOC (Dutch East India Company) as a powerful quasi-governmental trading corporation; Britain and France competed for colonial territory through charter companies and royal colonies.",
+        "interactions": "Triangular trade connected Europe, Africa, and the Americas: manufactured goods to Africa, enslaved people to the Americas, and raw materials (sugar, tobacco, cotton) back to Europe.",
+        "cultural": "African diaspora communities preserved and adapted cultural traditions including music, religion (vodou, candomble), and oral histories; creole languages developed in plantation societies.",
+        "economic": "Mercantilism drove colonial policy as European states sought favorable trade balances; plantation agriculture (sugar, tobacco, rice) generated enormous profits dependent on enslaved labor.",
+        "technological": "Joint-stock companies pooled capital for expensive overseas ventures; improvements in navigation (chronometer, better maps) reduced sailing risks; sugar-processing technology shaped plantation design."
+      }
+    },
+    {
+      "region": "Africa",
+      "empires": ["Kingdom of Kongo", "Asante Empire (emerging)", "Various West African States"],
+      "highlights": {
+        "social": "The Atlantic slave trade devastated African societies by removing millions of working-age people; gender ratios were skewed as predominantly men were enslaved; internal slavery expanded.",
+        "political": "Some African states (Dahomey, Asante) gained power by participating in the slave trade; the Kingdom of Kongo initially allied with Portugal but was destabilized by the slave trade; political fragmentation increased in affected regions.",
+        "interactions": "An estimated 12.5 million Africans were forcibly transported across the Atlantic between 1500 and 1900; European trading posts (factories) along the West African coast facilitated the trade.",
+        "cultural": "African cultural practices, languages, and religious traditions were carried to the Americas by enslaved people, profoundly influencing New World cultures; Islam continued to spread in parts of West Africa.",
+        "economic": "European demand for enslaved labor transformed African economies toward slave-raiding and trading; imported European goods (textiles, firearms) disrupted local production.",
+        "technological": "African iron-smelting and textile traditions continued but faced disruption from European imports; firearms acquired through the slave trade altered the balance of power among African states."
+      }
+    },
+    {
+      "region": "South and Southeast Asia",
+      "empires": ["Mughal Empire", "Portuguese Goa", "Dutch East Indies"],
+      "highlights": {
+        "social": "European presence in Asian port cities created small but influential mixed communities; existing social structures largely persisted as Europeans controlled trade rather than territory.",
+        "political": "Portuguese seized Goa and Malacca, establishing a maritime trading empire through naval force; the Dutch VOC displaced the Portuguese and dominated the spice trade through monopoly control of key islands.",
+        "interactions": "European demand for spices, textiles, and porcelain intensified Indian Ocean trade; Jesuit missionaries attempted (with limited success) to spread Christianity in India and Southeast Asia.",
+        "cultural": "Existing Hindu, Buddhist, and Islamic cultural traditions remained dominant; limited European cultural impact in this period compared to the Americas; some artistic exchange occurred in Mughal-European interactions.",
+        "economic": "India's cotton textile industry supplied global markets; the spice trade (pepper, cinnamon, cloves, nutmeg) drove European expansion; silver from the Americas flowed to Asia to pay for Asian goods.",
+        "technological": "European naval technology (cannons on ships) gave military advantage at sea but not on land; Asian shipbuilding and textile production remained advanced."
+      }
+    },
+    {
+      "region": "East Asia",
+      "empires": ["Ming Dynasty", "Qing Dynasty", "Tokugawa Japan"],
+      "highlights": {
+        "social": "Limited European social impact; Tokugawa Japan expelled most foreigners and Christians after 1639; Chinese society remained structured around Confucian hierarchies.",
+        "political": "Ming and Qing China restricted European trade to specific ports (Canton system); Tokugawa Japan's sakoku (closed country) policy limited foreign contact to a single Dutch trading post at Dejima, Nagasaki.",
+        "interactions": "Jesuit missionaries like Matteo Ricci gained limited access to the Chinese court through scientific knowledge; silver imports from the Americas via Manila were essential to the Chinese economy.",
+        "cultural": "Jesuits introduced European astronomy, cartography, and clock-making to China while transmitting Chinese philosophy (Confucianism) back to Europe, influencing Enlightenment thinkers.",
+        "economic": "China and Japan were massive economies that European traders sought access to; Chinese demand for silver drove global trade patterns; tea, silk, and porcelain exports created trade imbalances favoring Asia.",
+        "technological": "East Asian technologies (porcelain, silk production, printing) were sought by Europeans; Jesuit transmission of European science to China included astronomy and cartography."
+      }
+    }
+  ]
+}

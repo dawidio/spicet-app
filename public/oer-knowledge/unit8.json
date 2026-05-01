@@ -1,0 +1,68 @@
+{
+  "unit": 8,
+  "name": "Cold War and Decolonization",
+  "dateRange": "1900–present",
+  "overview": "The Cold War between the United States and the Soviet Union defined global politics from 1945 to 1991, while simultaneously, colonized peoples across Asia and Africa achieved independence. Superpower rivalry, proxy wars, and the non-aligned movement shaped the trajectories of newly independent nations navigating between competing ideological blocs.",
+  "keyTopics": [
+    {
+      "region": "Global (Cold War Overview)",
+      "empires": ["United States", "Soviet Union"],
+      "highlights": {
+        "social": "Cold War tensions permeated daily life through nuclear anxiety, McCarthyism in the U.S., and political repression in the Soviet bloc; competing systems promised different visions of social progress.",
+        "political": "The U.S. pursued containment of communism through NATO, the Truman Doctrine, and military alliances; the Soviet Union responded with the Warsaw Pact and support for communist movements worldwide; the Cuban Missile Crisis (1962) brought the world closest to nuclear war.",
+        "interactions": "The Cold War was fought through proxy wars (Korea, Vietnam, Afghanistan), espionage, propaganda, and economic competition rather than direct superpower conflict; the arms race consumed enormous resources on both sides.",
+        "cultural": "Cultural diplomacy included the space race, Olympic competition, and exchange programs; Radio Free Europe and Soviet propaganda battled for hearts and minds; American consumer culture and Soviet socialist ideals competed globally.",
+        "economic": "The U.S. promoted capitalism through the Marshall Plan, Bretton Woods institutions, and free trade; the Soviet Union promoted central planning and provided economic aid to allies; economic stagnation ultimately contributed to Soviet collapse.",
+        "technological": "The nuclear arms race produced hydrogen bombs and ICBMs capable of global destruction; the space race (Sputnik, 1957; Moon landing, 1969) showcased technological prowess; satellite and computer technology developed from military research."
+      }
+    },
+    {
+      "region": "South and Southeast Asia",
+      "empires": ["British India", "French Indochina", "Dutch East Indies"],
+      "highlights": {
+        "social": "Independence movements drew on diverse social bases; Gandhi's nonviolent resistance mobilized millions across caste and class lines in India; partition of India and Pakistan (1947) caused massive displacement and sectarian violence.",
+        "political": "India gained independence in 1947 through sustained nationalist struggle; Indonesia declared independence from the Netherlands in 1945; Vietnam's independence struggle evolved into a Cold War proxy war (French Indochina War, then Vietnam War).",
+        "interactions": "The Bandung Conference (1955) in Indonesia brought together newly independent Asian and African nations; India under Nehru became a leader of the Non-Aligned Movement, seeking a path between the superpowers.",
+        "cultural": "Post-colonial nations grappled with questions of national identity, language policy, and the legacy of colonial education; cultural nationalism promoted indigenous languages and traditions.",
+        "economic": "Newly independent nations faced the challenge of economic development after colonial extraction; India pursued mixed-economy planning; Southeast Asian nations followed varied paths from state socialism to export-oriented capitalism.",
+        "technological": "The Green Revolution brought high-yield crop varieties to South Asia, increasing food production but also creating new dependencies on chemical inputs and benefiting wealthy farmers disproportionately."
+      }
+    },
+    {
+      "region": "Africa",
+      "empires": ["British, French, Portuguese, Belgian Colonial Empires"],
+      "highlights": {
+        "social": "Independence movements united diverse ethnic groups against colonial rule but post-independence ethnic tensions often emerged; apartheid in South Africa institutionalized racial segregation until 1994.",
+        "political": "Ghana (1957, led by Kwame Nkrumah) was the first sub-Saharan African colony to gain independence; most African nations gained independence in the 1960s; post-independence challenges included military coups, single-party rule, and Cold War interference.",
+        "interactions": "African nations were courted by both superpowers during the Cold War; the Organization of African Unity (1963) promoted Pan-African solidarity; liberation struggles in Portuguese colonies (Angola, Mozambique) became Cold War proxy conflicts.",
+        "cultural": "Negritude movement (Senghor, Cesaire) celebrated African cultural identity; post-independence cultural policies promoted African languages and art; Pan-Africanism provided an intellectual framework for unity.",
+        "economic": "Colonial economies left African nations dependent on commodity exports; neocolonial economic relationships persisted through trade agreements and debt; structural adjustment programs imposed by international lenders caused social hardship.",
+        "technological": "Limited industrial infrastructure inherited from colonial rule constrained development; Cold War military aid sometimes outpaced development assistance; agricultural technology transfer had mixed results."
+      }
+    },
+    {
+      "region": "Middle East",
+      "empires": ["British and French Mandates", "State of Israel", "Arab States"],
+      "highlights": {
+        "social": "The creation of Israel (1948) displaced hundreds of thousands of Palestinians, creating a refugee crisis that persists today; secular nationalism and political Islam competed for social influence across the region.",
+        "political": "Mandate territories gained independence (Syria, Lebanon, Iraq, Jordan); the Arab-Israeli conflict became a central issue; Cold War rivalry played out through alliances (U.S.-Israel, USSR-Egypt/Syria); the Iranian Revolution (1979) established an Islamic republic.",
+        "interactions": "Oil gave Middle Eastern nations enormous geopolitical leverage; OPEC oil embargo (1973) demonstrated this power; the region became a focal point of Cold War competition and post-Cold War intervention.",
+        "cultural": "Arab nationalism (Nasser) and political Islam (Muslim Brotherhood, Iranian Revolution) offered competing visions for post-colonial identity; the Palestinian cause became a unifying cultural symbol across the Arab world.",
+        "economic": "Oil wealth transformed Gulf states but created rentier economies dependent on a single resource; wealth was unevenly distributed within and among Middle Eastern nations; oil revenues funded modernization but also authoritarian rule.",
+        "technological": "Oil extraction and petrochemical industries drove technological development; military technology flowed into the region from Cold War patrons; desalination and irrigation technologies addressed water scarcity."
+      }
+    },
+    {
+      "region": "Latin America and the Cold War",
+      "empires": ["United States (influence)", "Various Latin American States"],
+      "highlights": {
+        "social": "Cold War-era Latin America saw sharp social polarization between wealthy elites and impoverished masses; liberation theology blended Catholic social teaching with calls for economic justice; indigenous rights movements emerged.",
+        "political": "The Cuban Revolution (1959) brought communism to the Western Hemisphere; the U.S. supported anti-communist military dictatorships (Chile, Argentina, Brazil, Guatemala); the Sandinista Revolution in Nicaragua (1979) and Salvadoran Civil War reflected Cold War tensions.",
+        "interactions": "The U.S. intervened extensively in Latin America to prevent communist expansion (Bay of Pigs, Operation Condor, support for Contras); Cuba aligned with the Soviet Union; the Non-Aligned Movement attracted some Latin American nations.",
+        "cultural": "Revolutionary culture (Che Guevara imagery, protest music, muralism) spread across the region; military dictatorships suppressed dissent through censorship and disappearances; truth and reconciliation processes followed democratic transitions.",
+        "economic": "Import substitution industrialization was widely adopted but produced mixed results; dependency theory argued Latin American underdevelopment resulted from global economic structures favoring wealthy nations.",
+        "technological": "Cold War military aid equipped authoritarian regimes; limited technology transfer for civilian development; agricultural modernization benefited large landowners over small farmers."
+      }
+    }
+  ]
+}

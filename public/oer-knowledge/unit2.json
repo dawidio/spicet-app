@@ -1,0 +1,68 @@
+{
+  "unit": 2,
+  "name": "Networks of Exchange",
+  "dateRange": "1200–1450",
+  "overview": "An era defined by the expansion of interregional trade networks—the Silk Roads, Indian Ocean routes, and Trans-Saharan trails—facilitated by Mongol unification, new maritime technologies, and merchant diasporas that accelerated cross-cultural exchange of goods, ideas, and diseases.",
+  "keyTopics": [
+    {
+      "region": "Central and East Asia",
+      "empires": ["Mongol Empire", "Yuan Dynasty"],
+      "highlights": {
+        "social": "Mongol conquest displaced populations and reorganized social hierarchies; the Pax Mongolica allowed merchants, missionaries, and scholars to travel safely across Eurasia.",
+        "political": "Genghis Khan unified Mongol tribes and built the largest contiguous land empire; successor khanates (Golden Horde, Chagatai, Ilkhanate, Yuan) maintained loose political unity through shared legal code (yassa).",
+        "interactions": "The Mongol Empire revitalized the Silk Roads by ensuring security and building relay stations (yam system); diplomats like Marco Polo and Ibn Battuta traversed the empire.",
+        "cultural": "Mongols practiced religious tolerance, patronizing Buddhism, Islam, and Christianity; cultural exchange flourished as artisans, scholars, and technologies moved across khanate borders.",
+        "economic": "Mongol control lowered transaction costs on Silk Road trade; paper money was introduced in Ilkhanate Persia; trade in silk, porcelain, and spices intensified across Eurasia.",
+        "technological": "Gunpowder, printing, and compass technology diffused westward from China; Mongols adopted siege warfare techniques from Chinese and Islamic engineers."
+      }
+    },
+    {
+      "region": "Indian Ocean Basin",
+      "empires": ["Swahili City-States", "Chola Dynasty (legacy)", "Sultanate of Kilwa"],
+      "highlights": {
+        "social": "Merchant communities (Arabs, Indians, Malays, Chinese) formed cosmopolitan diaspora networks in port cities; intermarriage created blended cultural identities along the Swahili coast.",
+        "political": "No single empire controlled Indian Ocean trade; instead, city-states like Kilwa, Calicut, and Malacca competed for commercial dominance through strategic location and diplomatic alliances.",
+        "interactions": "Monsoon winds shaped seasonal trade patterns connecting East Africa, Arabia, India, Southeast Asia, and China; Zheng He's voyages (1405–1433) demonstrated Ming China's naval power.",
+        "cultural": "Islam spread through merchant networks to Southeast Asia and East Africa; Swahili language emerged as a Bantu-Arabic hybrid reflecting centuries of Indian Ocean interaction.",
+        "economic": "Luxury goods (spices, textiles, porcelain, gold, ivory) dominated trade; credit instruments and bills of exchange facilitated long-distance transactions without transporting currency.",
+        "technological": "Lateen sails, dhow construction, and astrolabe navigation enabled reliable ocean voyaging; Chinese junks were among the largest and most advanced vessels of the era."
+      }
+    },
+    {
+      "region": "Trans-Saharan Africa",
+      "empires": ["Mali Empire", "Songhai Empire (emerging)", "Kanem-Bornu"],
+      "highlights": {
+        "social": "Merchant and scholarly classes rose in prominence in cities like Timbuktu and Djenne; enslaved people were traded northward as part of trans-Saharan commerce.",
+        "political": "Mali Empire under Mansa Musa demonstrated centralized Islamic governance; control of gold-producing regions gave West African rulers enormous political leverage.",
+        "interactions": "Camel caravans linked West Africa to North Africa and the Mediterranean, exchanging gold and salt; Mansa Musa's 1324 hajj publicized Mali's wealth internationally.",
+        "cultural": "Islam spread gradually through trade contacts and ruling elites while coexisting with indigenous African religions; Timbuktu became a renowned center of Islamic learning with major libraries and madrasas.",
+        "economic": "Gold-salt trade formed the backbone of trans-Saharan commerce; cowrie shells served as currency; West African gold significantly influenced Mediterranean and European economies.",
+        "technological": "Camel saddle innovations enabled efficient desert transport; salt-mining techniques; advanced mud-brick architecture (Great Mosque of Djenne)."
+      }
+    },
+    {
+      "region": "Silk Roads (Overland Eurasia)",
+      "empires": ["Mongol Khanates", "Various Central Asian States"],
+      "highlights": {
+        "social": "Caravansaries served as social hubs where travelers from diverse backgrounds exchanged stories, languages, and customs; nomadic pastoralists facilitated trade as intermediaries.",
+        "political": "Mongol political unification of much of Eurasia removed barriers between previously hostile states; the fragmentation of the Mongol Empire after 1350 disrupted overland trade security.",
+        "interactions": "The Silk Roads connected China, Central Asia, Persia, and Europe; the Black Death (bubonic plague) spread along these same networks, devastating populations from China to Europe in the 14th century.",
+        "cultural": "Buddhism, Islam, Christianity, and Manichaeism all traveled the Silk Roads; artistic styles blended as Persian miniatures, Chinese ceramics, and Byzantine textiles influenced one another.",
+        "economic": "Silk, spices, precious metals, and horses were primary trade goods; luxury items moved west while silver flowed east; merchant associations and credit networks reduced trade risks.",
+        "technological": "Paper-making spread from China to the Islamic world and then to Europe; gunpowder weapons diffused westward; water-management and irrigation techniques were shared across regions."
+      }
+    },
+    {
+      "region": "Effects of Cross-Cultural Interaction",
+      "empires": ["Multiple Civilizations"],
+      "highlights": {
+        "social": "Increased travel spread new dietary habits, fashion, and social customs; merchant diasporas created multicultural urban communities in major trading cities worldwide.",
+        "political": "States that controlled key trade routes gained wealth and political power; the spread of the Black Death destabilized governments from Yuan China to Western Europe.",
+        "interactions": "The 14th-century plague pandemic demonstrated how interconnected Afro-Eurasia had become; the disease killed an estimated one-third of Europe's population and similarly devastated other regions.",
+        "cultural": "Cross-cultural exchange led to syncretic religious practices, multilingual literary traditions, and shared scientific knowledge; travelers like Ibn Battuta documented the interconnected world.",
+        "economic": "Long-distance trade enriched merchant classes and funded state-building; however, the Black Death caused massive labor shortages that restructured economies across Eurasia.",
+        "technological": "Transfer of key technologies (gunpowder, compass, printing) from East Asia to Western Europe laid foundations for later European expansion; agricultural techniques spread across climate zones."
+      }
+    }
+  ]
+}
