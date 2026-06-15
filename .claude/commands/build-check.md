@@ -1,6 +1,6 @@
 ---
 description: Run the production build and report any errors as the correctness check
-allowed-tools: Bash(npm install), Bash(npm run build), Read
+allowed-tools: Bash(npm install), Bash(npm ci), Bash(npm run build), Read
 ---
 
 This project has no test suite or linter, so `npm run build` is the canonical

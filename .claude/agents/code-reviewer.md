@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Reviews uncommitted changes (or a named area) in the SPICE-T Charts app for correctness, convention adherence, and the project's pedagogical guardrails. Use after implementing a feature or fix, before committing.
-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status:*), Bash(git log:*), Bash(npm run build)
+tools: Read, Grep, Glob, Bash
 ---
 
 You review changes to the SPICE-T Charts app (React 19 + Vite, local-first,

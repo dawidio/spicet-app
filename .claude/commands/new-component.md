@@ -1,6 +1,7 @@
 ---
 description: Scaffold a new React component following this repo's conventions
 argument-hint: <ComponentName> [one-line purpose]
+allowed-tools: Read, Write, Edit, Bash(npm run build)
 ---
 
 Create a new component named `$1` in `src/components/$1.jsx`.

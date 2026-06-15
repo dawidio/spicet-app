@@ -14,11 +14,11 @@
       "Bash(git add:*)",
       "Bash(git restore:*)",
       "Bash(git stash:*)",
-      "Read(//home/user/spicet-app/**)"
+      "Read(./**)"
     ],
     "deny": [
-      "Read(//home/user/spicet-app/.env)",
-      "Read(//home/user/spicet-app/.env.*)"
+      "Read(./.env)",
+      "Read(./.env.*)"
     ]
   },
   "hooks": {
@@ -27,7 +27,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if [ -f package.json ] && [ ! -d node_modules ]; then echo 'spicet-app: installing dependencies (node_modules missing)...'; npm install --no-audit --no-fund >/dev/null 2>&1 && echo 'spicet-app: dependencies ready.' || echo 'spicet-app: npm install failed — run it manually.'; fi"
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" 2>/dev/null; if [ -f package.json ] && [ ! -d node_modules ]; then echo 'spicet-app: installing dependencies (node_modules missing)...'; npm install --no-audit --no-fund >/dev/null 2>&1 && echo 'spicet-app: dependencies ready.' || echo 'spicet-app: npm install failed — run it manually.'; fi"
           }
         ]
       }
