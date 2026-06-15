@@ -149,8 +149,13 @@ claude-local() {
   ANTHROPIC_DEFAULT_SONNET_MODEL="$MODEL" \\
   ANTHROPIC_DEFAULT_OPUS_MODEL="$MODEL" \\
   ANTHROPIC_DEFAULT_HAIKU_MODEL="$MODEL" \\
+  MAX_THINKING_TOKENS=0 \\
+  CLAUDE_CODE_EFFORT_LEVEL=low \\
   command claude --model "$MODEL" "\$@"
 }
+# MAX_THINKING_TOKENS=0 + low effort skip the heavy "extended thinking" that
+# makes small local models crawl. Remove those two lines if you want the model
+# to reason more (slower). Your cloud 'claude' is unaffected.
 $END
 PROFILE_BLOCK
 
