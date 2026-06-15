@@ -102,9 +102,13 @@ cat > "$PLIST_PATH" <<PLIST
 </plist>
 PLIST
 
-# Reload the agent (bootout may fail the first time; that's fine).
-launchctl bootout "gui/$(id -u)/${PLIST_LABEL}" 2>/dev/null || true
-launchctl bootstrap "gui/$(id -u)" "$PLIST_PATH"
+# (Re)load the agent. All of these are best-effort: on a re-run the agent is
+# already loaded, so bootout/bootstrap can error harmlessly — never abort here.
+DOMAIN="gui/$(id -u)"
+launchctl bootout "${DOMAIN}/${PLIST_LABEL}" 2>/dev/null || true
+launchctl bootstrap "${DOMAIN}" "$PLIST_PATH" 2>/dev/null || true
+launchctl enable "${DOMAIN}/${PLIST_LABEL}" 2>/dev/null || true
+launchctl kickstart -k "${DOMAIN}/${PLIST_LABEL}" 2>/dev/null || true
 say "Ollama will now start automatically at login (and is starting now)."
 
 # Give the server a moment to come up before pulling.
