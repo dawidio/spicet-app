@@ -145,7 +145,7 @@ claude-local() {
   ANTHROPIC_DEFAULT_SONNET_MODEL="$MODEL" \\
   ANTHROPIC_DEFAULT_OPUS_MODEL="$MODEL" \\
   ANTHROPIC_DEFAULT_HAIKU_MODEL="$MODEL" \\
-  command claude "\$@"
+  command claude --model "$MODEL" "\$@"
 }
 $END
 PROFILE_BLOCK
