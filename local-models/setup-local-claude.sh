@@ -134,13 +134,19 @@ if grep -qF "$BEGIN" "$PROFILE" 2>/dev/null; then
 fi
 cat >> "$PROFILE" <<PROFILE_BLOCK
 $BEGIN
-# Point Claude Code at the local Ollama server (Anthropic Messages API compatible).
-# Comment out this whole block (or run \`unset\` on these) to go back to cloud Claude.
-export ANTHROPIC_BASE_URL="http://localhost:11434"
-export ANTHROPIC_AUTH_TOKEN="ollama"   # local server ignores this; placeholder only
-export ANTHROPIC_DEFAULT_SONNET_MODEL="$MODEL"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="$MODEL"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="$MODEL"
+# Adds a 'claude-local' command that runs Claude Code against the local Ollama
+# model. Your normal 'claude' is UNCHANGED and keeps using cloud Claude /
+# your subscription as usual. Use whichever you want, per session:
+#   claude        -> cloud Claude (Opus, your subscription)
+#   claude-local  -> local model ($MODEL), free & offline
+claude-local() {
+  ANTHROPIC_BASE_URL="http://localhost:11434" \\
+  ANTHROPIC_AUTH_TOKEN="ollama" \\
+  ANTHROPIC_DEFAULT_SONNET_MODEL="$MODEL" \\
+  ANTHROPIC_DEFAULT_OPUS_MODEL="$MODEL" \\
+  ANTHROPIC_DEFAULT_HAIKU_MODEL="$MODEL" \\
+  command claude "\$@"
+}
 $END
 PROFILE_BLOCK
 
@@ -148,7 +154,6 @@ say "Done!"
 echo
 echo "Next steps:"
 echo "  1. Open a NEW terminal (or run: source \"$PROFILE\")"
-echo "  2. Run: claude    # it now uses $MODEL via local Ollama"
-echo
-echo "To switch back to cloud Claude: comment out the managed block in $PROFILE,"
-echo "open a new terminal, and run 'claude' again."
+echo "  2. Use whichever you want, per session:"
+echo "       claude        -> your normal cloud Claude (Opus / subscription)"
+echo "       claude-local  -> the local $MODEL model (free & offline)"

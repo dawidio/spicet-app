@@ -14,9 +14,13 @@ chmod +x local-models/setup-local-claude.sh
 ./local-models/setup-local-claude.sh
 ```
 
-Then open a new terminal and run `claude` — it now uses your local model.
+Then open a new terminal. You now have **two commands**:
 
-The script is idempotent; re-run it any time (e.g. after changing `MODEL`).
+- `claude` — your normal cloud Claude (Opus / subscription), unchanged.
+- `claude-local` — the local Ollama model, free and offline.
+
+Pick whichever you want per session. The script is idempotent; re-run it any
+time (e.g. after changing `MODEL`).
 
 ## Choosing a model
 
@@ -38,19 +42,35 @@ MODEL=qwen2.5-coder:14b ./local-models/setup-local-claude.sh
 - **Ollama** via Homebrew (if not already present).
 - A **launchd LaunchAgent** at `~/Library/LaunchAgents/com.spicet.ollama.plist`
   that runs `ollama serve` at login (logs to `~/Library/Logs/ollama.log`).
-- A **managed env block** in your `~/.zshrc` (or `~/.bashrc`) setting
-  `ANTHROPIC_BASE_URL` and the model mappings Claude Code reads.
+- A **managed block** in your `~/.zshrc` (or `~/.bashrc`) defining the
+  `claude-local` shell function. Your plain `claude` command is left untouched.
 
-## Switching back to cloud Claude
+## Cloud vs local — they coexist
 
-Comment out the managed block in your shell profile and open a new terminal, or
-run the uninstaller:
+Nothing is forced. Within any terminal:
+
+```bash
+claude         # cloud Claude (Opus / your subscription)
+claude-local   # local Ollama model — free & offline
+```
+
+`claude-local` sets the Ollama env vars for that one invocation only, so it
+never affects your normal cloud `claude`.
+
+> Want the cloud model to *automatically* offload small/background tasks to the
+> local model within a single session? That requires
+> [Claude Code Router](https://github.com/musistudio/claude-code-router) (a
+> proxy), and the cloud side must use an Anthropic **API key** (pay-per-token) —
+> Anthropic does not permit routing a Pro/Max subscription through third-party
+> proxies. The simple `claude` / `claude-local` split above avoids that.
+
+## Removing the setup
 
 ```bash
 ./local-models/uninstall-local-claude.sh
 ```
 
-(The uninstaller removes the auto-start agent and env block. It does **not**
+(Removes the auto-start agent and the `claude-local` block. Does **not**
 uninstall Ollama or delete downloaded models.)
 
 ## Honest caveats
