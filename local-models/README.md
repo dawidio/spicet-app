@@ -40,8 +40,8 @@ MODEL=qwen2.5-coder:14b ./local-models/setup-local-claude.sh
 ## What gets installed
 
 - **Ollama** via Homebrew (if not already present).
-- A **launchd LaunchAgent** at `~/Library/LaunchAgents/com.spicet.ollama.plist`
-  that runs `ollama serve` at login (logs to `~/Library/Logs/ollama.log`).
+- Ollama running as a **`brew services`** background service, which also
+  auto-starts it at login (`brew services list` shows its status).
 - A **managed block** in your `~/.zshrc` (or `~/.bashrc`) defining the
   `claude-local` shell function. Your plain `claude` command is left untouched.
 

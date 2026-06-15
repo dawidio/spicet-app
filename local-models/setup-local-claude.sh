@@ -5,7 +5,7 @@
 # What it does (idempotent — safe to re-run):
 #   1. Installs Ollama (via Homebrew) if it's not already present.
 #   2. Pulls the coding model you choose below.
-#   3. Installs a launchd LaunchAgent so `ollama serve` starts at login.
+#   3. Starts Ollama via 'brew services' so it runs and auto-starts at login.
 #   4. Adds a Claude Code env block to your shell profile so `claude` uses it.
 #
 # Requires Ollama >= 0.14.0 (Jan 2026), which speaks the Anthropic Messages API
@@ -69,47 +69,19 @@ OLLAMA_BIN="$(command -v ollama)"
 say "Using ollama binary at: $OLLAMA_BIN"
 
 # ----------------------------------------------------------------------------
-# 2. Install launchd agent so Ollama starts at login
+# 2. Run Ollama as a login service (via Homebrew's service manager)
 # ----------------------------------------------------------------------------
-say "Writing LaunchAgent -> $PLIST_PATH"
-mkdir -p "$(dirname "$PLIST_PATH")" "$LOG_DIR"
-cat > "$PLIST_PATH" <<PLIST
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>${PLIST_LABEL}</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>${OLLAMA_BIN}</string>
-        <string>serve</string>
-    </array>
-    <key>EnvironmentVariables</key>
-    <dict>
-        <key>OLLAMA_CONTEXT_LENGTH</key>
-        <string>${CONTEXT_LENGTH}</string>
-    </dict>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>StandardOutPath</key>
-    <string>${LOG_DIR}/ollama.log</string>
-    <key>StandardErrorPath</key>
-    <string>${LOG_DIR}/ollama.log</string>
-</dict>
-</plist>
-PLIST
+# Homebrew's 'brew services' is far more reliable than a hand-rolled
+# LaunchAgent. Remove any old agent left by earlier versions of this script.
+launchctl bootout "gui/$(id -u)/${PLIST_LABEL}" 2>/dev/null || true
+rm -f "$PLIST_PATH"
 
-# (Re)load the agent. All of these are best-effort: on a re-run the agent is
-# already loaded, so bootout/bootstrap can error harmlessly — never abort here.
-DOMAIN="gui/$(id -u)"
-launchctl bootout "${DOMAIN}/${PLIST_LABEL}" 2>/dev/null || true
-launchctl bootstrap "${DOMAIN}" "$PLIST_PATH" 2>/dev/null || true
-launchctl enable "${DOMAIN}/${PLIST_LABEL}" 2>/dev/null || true
-launchctl kickstart -k "${DOMAIN}/${PLIST_LABEL}" 2>/dev/null || true
-say "Ollama will now start automatically at login (and is starting now)."
+# Claude Code sends large prompts, so give Ollama a generous context window.
+launchctl setenv OLLAMA_CONTEXT_LENGTH "$CONTEXT_LENGTH" 2>/dev/null || true
+
+say "Starting Ollama via 'brew services' (auto-starts at login)..."
+brew services restart ollama >/dev/null 2>&1 || brew services start ollama
+say "Ollama is running and will start automatically at login."
 
 # Give the server a moment to come up before pulling.
 sleep 3

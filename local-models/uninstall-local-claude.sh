@@ -15,7 +15,9 @@ else
   PROFILE="$HOME/.bashrc"
 fi
 
-echo "==> Stopping & removing LaunchAgent"
+echo "==> Stopping Ollama service"
+brew services stop ollama 2>/dev/null || true
+# Also remove any old hand-rolled LaunchAgent from earlier script versions.
 launchctl bootout "gui/$(id -u)/${PLIST_LABEL}" 2>/dev/null || true
 rm -f "$PLIST_PATH"
 
