@@ -83,8 +83,8 @@ The six categories — `social`, `political`, `interactions`, `cultural`,
 definition is `CATEGORY_CONFIG` / `CATEGORIES_ORDER` in `src/data/prompts.js`.
 
 ⚠️ **The category list is currently duplicated** in a few places (e.g. the
-hardcoded arrays in `db.js`'s `createEmptyChart` / `createEmptyAnnotations`, and
-the iteration in `ai-context.js`). If you add, remove, or rename a category you
+hardcoded `categories` object in `db.js`'s `createEmptyChart`, the hardcoded
+array in `createEmptyAnnotations`, and the iteration in `ai-context.js`). If you add, remove, or rename a category you
 **must** update every site or charts/AI context will silently drift. Prefer
 importing `CATEGORIES_ORDER` from `data/prompts.js` over re-hardcoding the list.
 Run `/check-spicet-consistency` after any category change.
