@@ -27,7 +27,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if [ -f package.json ] && [ ! -d node_modules ]; then echo 'spicet-app: installing dependencies (node_modules missing)...'; npm install --no-audit --no-fund >/dev/null 2>&1 && echo 'spicet-app: dependencies ready.' || echo 'spicet-app: npm install failed — run it manually.'; fi"
+            "command": "if [ -f package.json ] && [ ! -d node_modules ]; then echo 'spicet-app: installing dependencies (node_modules missing)...'; if [ -f package-lock.json ]; then inst='npm ci --no-audit --no-fund'; else inst='npm install --no-audit --no-fund'; fi; n=0; until [ \"$n\" -ge 3 ]; do $inst >/dev/null 2>&1 && break; n=$((n+1)); echo \"spicet-app: install attempt $n failed, retrying in $((n*3))s...\"; sleep $((n*3)); done; if [ -d node_modules ]; then echo 'spicet-app: dependencies ready.'; else echo 'spicet-app: npm install failed after retries — run it manually.'; fi; fi"
           }
         ]
       }
