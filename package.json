@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "eval:tutor": "node scripts/run-tutor-evals.js"
   },
   "dependencies": {
     "@mlc-ai/web-llm": "^0.2.79",
