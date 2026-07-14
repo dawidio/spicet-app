@@ -4,6 +4,11 @@
  */
 
 import { getSetting, setSetting } from './db';
+import { withTurnReminder } from './ai-context';
+// withTurnReminder appends the just-in-time guardrail reminder to the student's
+// latest turn right before generation — "context at the decision point." It
+// lives in ai-context.js so the eval runner can exercise the real function
+// (this module can't run under Node — it pulls in Dexie).
 
 // ── State ───────────────────────────────────────────────────────
 let webllmEngine = null;
@@ -140,7 +145,7 @@ async function chatWebLLM(systemPrompt, messages, onChunk) {
 
   const llmMessages = [
     { role: 'system', content: systemPrompt },
-    ...messages.map((m) => ({ role: m.role, content: m.content })),
+    ...withTurnReminder(messages),
   ];
 
   let fullResponse = '';
@@ -173,7 +178,7 @@ async function chatGemini(systemPrompt, messages, onChunk, apiKey) {
   currentBackend = 'gemini';
 
   // Build Gemini request — using the v1beta generateContent endpoint
-  const geminiMessages = messages.map((m) => ({
+  const geminiMessages = withTurnReminder(messages).map((m) => ({
     role: m.role === 'assistant' ? 'model' : 'user',
     parts: [{ text: m.content }],
   }));
