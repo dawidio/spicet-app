@@ -10,7 +10,7 @@ with exit + prequestions. Only the middle changes.
 | 0–12 | Cumulative retrieval opener | Lagged quiz or brain dump → immediate whole-class feedback → students mark each item knew / lucky / wrong in their tracker |
 | 12–17 | Sentence sprint | because/but/so expansion or rubric-frame drill on current content |
 | 17–30 | Targeted clarification | NOT first exposure — address what the entry checks showed was misunderstood. Mayer-clean slides: no decoration, no reading aloud |
-| 30–60 | Studio block | Rotate: theme-chart work in the app, 2-document HAPPY drill, peer-instruction stimulus MCQs (individual commit → pair argument → revote), or anchor-project work |
+| 30–60 | Studio block | Rotate: theme-chart work in the app, 2-document HAPP drill, peer-instruction stimulus MCQs (individual commit → pair argument → revote), or anchor-project work |
 | 60–72 | Component writing rep | SAQ (ACE) / thesis rep / paragraph — scoring mode from the rotation below |
 | 72–75 | Exit + preview | One retrieval item + one calibration judgment; prequestions for tonight's video; deck-due reminder |
 

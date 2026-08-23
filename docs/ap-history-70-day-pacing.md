@@ -21,7 +21,7 @@ Allocation logic: blocks proportional to exam weight (U1–2: 16–20% → 9 blo
 |---|---|---|---|
 | 3 | 1.1–1.2 | A | Song China + Dar al-Islam studio: charts, empire-discrimination sets |
 | 4 | 1.3–1.5 | A | S/SE Asia, Americas, Africa jigsaw → chart entries; **Block-1 experiment delayed test — show them their own crossover data** |
-| 5 | 1.6–1.7 | B | First Document Day: state-building sources; HAPPY introduced on 2 documents |
+| 5 | 1.6–1.7 | B | First Document Day: state-building sources; HAPP introduced on 2 documents |
 | 6 | U1 close | A | Cross-region CompareView + first SAQ rep scored together against real CB samples (norming begins) |
 | 7 | 2.1–2.2 | A | Silk Roads + Mongols studio; map-from-memory debut |
 | 8 | 2.3–2.4 | A | Indian Ocean + Trans-Saharan; trade-network comparison chart |
@@ -75,7 +75,7 @@ Allocation logic: blocks proportional to exam weight (U1–2: 16–20% → 9 blo
 | # | Topic | Type | Main event |
 |---|---|---|---|
 | 36 | 6.1–6.2 | A | Imperialism rationales + state expansion; ideology-vs-person prompt-verb drills |
-| 37 | 6.3 | B | Indigenous responses document day (Sepoy, Xhosa, Yaa Asantewaa, Ghost Dance pattern); non-text sources (maps/cartoons) in the HAPPY rotation — **SAQ3 2027 prep** |
+| 37 | 6.3 | B | Indigenous responses document day (Sepoy, Xhosa, Yaa Asantewaa, Ghost Dance pattern); non-text sources (maps/cartoons) in the HAPP rotation — **SAQ3 2027 prep** |
 | 38 | — | E | Spiral Day (U1–5 + current) |
 | 39 | 6.4–6.5 | A | Global economy + economic imperialism; Opium War counterfactual thought experiment → causation thesis reps |
 | 40 | 6.6–6.7 | A | Migration causes/effects studio; migration-flows map-from-memory |
@@ -119,7 +119,7 @@ Structure follows the convergent review-season model + the spacing math. Student
 | 66 | A | **Item autopsy:** personal error analysis → each student's final-two-weeks plan; class-level reteach of the top 2 weakest skills from the report |
 | 67 | E | Targeted reteach + relearning passes (final pass on weakest decks — this is the 2–4-weeks-out Cepeda window) |
 | 68 | C | Mock #2 FRQ-only (or full, if calendar allows): SAQ set + DBQ under time; peer/self-score same day |
-| 69 | E | Rubric-point triage: thesis formulas checked, context anchors per period, HAPPY bank review, prompt-verb drills; light relearning |
+| 69 | E | Rubric-point triage: thesis formulas checked, context anchors per period, HAPP bank review, prompt-verb drills; light relearning |
 | 70 | A | Taper + logistics: Bluebook mechanics, section timing strategy (bank the cheap points; 5 ≈ 73%), confidence calibration review, sleep lecture. No new content — the spiral did the work |
 
 ---
