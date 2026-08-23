@@ -1,5 +1,6 @@
 import Dexie from 'dexie';
 import { CATEGORIES_ORDER } from '../data/prompts';
+import { createReviewState, applyMark } from './spacing';
 
 // Dexie database name is a persisted identifier — do not rename (existing
 // student data lives under it), even though the app now brands as AP Theme Charts.
@@ -11,10 +12,41 @@ db.version(1).stores({
   settings: 'key',
 });
 
+// v2: retrieval scheduling. Adds a stable `id` to every chart entry (review
+// rows point at entries across edits) and a `reviews` store keyed by
+// `${chartId}:${categoryKey}:${entryId}` holding successive-relearning state.
+db.version(2)
+  .stores({
+    charts: '++id, empireName, unitNumber, createdAt, updatedAt',
+    comparisons: '++id, createdAt',
+    settings: 'key',
+    reviews: 'id, nextDue, chartId',
+  })
+  .upgrade(async (tx) => {
+    await tx
+      .table('charts')
+      .toCollection()
+      .modify((chart) => {
+        for (const cat of Object.values(chart.categories || {})) {
+          for (const entry of cat.entries || []) {
+            if (!entry.id) entry.id = makeEntryId();
+          }
+        }
+      });
+  });
+
+export function makeEntryId() {
+  return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+}
+
+export function createEmptyEntry() {
+  return { id: makeEntryId(), claim: '', evidence: '', citation: '' };
+}
+
 // Default empty category data
 export function createEmptyCategory() {
   return {
-    entries: [{ claim: '', evidence: '', citation: '' }],
+    entries: [createEmptyEntry()],
   };
 }
 
@@ -127,6 +159,79 @@ export async function saveComparison(comparison) {
 
 export async function deleteComparison(id) {
   await db.comparisons.delete(id);
+}
+
+// ── Retrieval scheduling (successive relearning over the student's own entries) ──
+
+// Reconcile the reviews store with current chart content: every entry with a
+// non-empty claim gets a review row; rows for deleted/emptied entries go away.
+// Also backfills entry ids defensively for any entry created without one.
+export async function syncReviews() {
+  const charts = await db.charts.toArray();
+  const validIds = new Set();
+
+  for (const chart of charts) {
+    let chartDirty = false;
+    for (const [catKey, cat] of Object.entries(chart.categories || {})) {
+      for (const entry of cat.entries || []) {
+        if (!entry.id) {
+          entry.id = makeEntryId();
+          chartDirty = true;
+        }
+        if (!entry.claim?.trim()) continue;
+        const reviewId = `${chart.id}:${catKey}:${entry.id}`;
+        validIds.add(reviewId);
+        const existing = await db.reviews.get(reviewId);
+        if (!existing) {
+          await db.reviews.put({
+            id: reviewId,
+            chartId: chart.id,
+            categoryKey: catKey,
+            entryId: entry.id,
+            ...createReviewState(),
+          });
+        }
+      }
+    }
+    if (chartDirty) await db.charts.put(chart);
+  }
+
+  const stale = (await db.reviews.toArray()).filter((r) => !validIds.has(r.id));
+  for (const r of stale) await db.reviews.delete(r.id);
+}
+
+// Due queue, joined with live entry content. Call after syncReviews().
+export async function getDueReviews(now = Date.now()) {
+  const due = await db.reviews.where('nextDue').belowOrEqual(now).toArray();
+  if (due.length === 0) return [];
+
+  const chartIds = [...new Set(due.map((r) => r.chartId))];
+  const charts = await db.charts.bulkGet(chartIds);
+  const chartById = new Map(charts.filter(Boolean).map((c) => [c.id, c]));
+
+  const cards = [];
+  for (const review of due) {
+    const chart = chartById.get(review.chartId);
+    const entry = chart?.categories?.[review.categoryKey]?.entries?.find(
+      (e) => e.id === review.entryId
+    );
+    if (!entry || !entry.claim?.trim()) continue;
+    cards.push({ review, entry, chart });
+  }
+  return cards;
+}
+
+export async function getDueReviewCount(now = Date.now()) {
+  await syncReviews();
+  return db.reviews.where('nextDue').belowOrEqual(now).count();
+}
+
+export async function recordReviewMark(reviewId, mark, now = Date.now()) {
+  const row = await db.reviews.get(reviewId);
+  if (!row) return null;
+  const next = { ...row, ...applyMark(row, mark, now) };
+  await db.reviews.put(next);
+  return next;
 }
 
 export default db;

@@ -47,13 +47,13 @@ Audit of your existing assets against the research, with the verdict for each.
 | **WHP/OER alignment file** (in lesson planner) | WHP lessons mapped to CED topics/themes/skills | OER Project's WHP AP is free, College-Board-audit-approved, with multi-Lexile leveled articles — the research's top free asset. You already mapped it | Promoted from "supplementary ideas" to a primary content pipeline for flipped acquisition |
 | **frame / teaching-dispatcher / model-router / close** | Workflow intake, routing, session hygiene | — | Unchanged; Appendix C shows where each fires in the weekly rhythm |
 
-**The honest gap list — what you don't have and the evidence says matters most:**
+**The gap list — now closed, and where each closure lives:**
 
-1. **A retrieval/spacing scheduler.** Nothing in your toolkit tracks *when* each piece of content gets retrieved again. This is the engine of the whole design (Part 4.2–4.3).
-2. **A flipped content pipeline with accountability.** Your lesson template assumes in-class content delivery; on 70 days that arithmetic fails.
-3. **A student-side scoring layer.** Your grading stack is teacher-centric (excellent, but throughput-bound). Peer/self-scoring after rubric norming is meta-analytically supported and is itself instruction (Part 9).
-4. **Exam-weighted pacing.** A deliberate calendar that spends days where the exam spends points (Part 6).
-5. **Structured game film.** You have the stress-test for *your* calibration; students need the equivalent — scoring anchor papers themselves before they ever get scored.
+1. **A retrieval/spacing scheduler.** ✅ **Built into the app**: every chart entry with a claim enters a successive-relearning queue (`src/lib/spacing.js` — 3-correct mastery, then 7d → 14d → 28d passes); the Dashboard shows what's due and Review mode quizzes students *from their own entries* with knew/lucky/wrong calibration marks.
+2. **A flipped content pipeline with accountability.** ✅ **`/spiral-studio` skill** + `references/flipped-pipeline.md`: every pre-work assignment ships with an accountability artifact (AP Classroom Topic Questions or autograded Schoology quiz, completion-credit only), and the entry-check item analysis drives the block's clarification segment.
+3. **A student-side scoring layer.** ✅ **`/spiral-studio` → `references/day-skeletons.md`**: a scoring-mode rotation (norm → peer rubric-row → self sample-matching → teacher spot-score) with a monthly calibration audit; your stress-test pipeline stays the gradebook layer.
+4. **Exam-weighted pacing.** ✅ **`docs/ap-history-70-day-pacing.md`**, operationalized by `/spiral-studio` (give it the block number, get the week's plans).
+5. **Structured game film.** ✅ **`references/norming-protocol.md`**: the anchor-paper norming session script, the peer-scoring contract, and the sequencing law — no one peer-scores a skill before the class has normed on it.
 
 ---
 
@@ -387,14 +387,14 @@ Three coherent versions; all share Parts 4–9. Pick per course, not globally �
 | Sub days | `ap-world-sub-plans` | "Spiral Day packet" (Type E) |
 | Friday | `close` | Session wrap; decisions into memory |
 
-## Appendix D — Theme-chart app build list (the system's missing software)
+## Appendix D — Theme-chart app build list
 
-Ordered by leverage; each is a natural extension of the existing local-first stack:
+Status after the first build pass:
 
-1. **Relearning scheduler:** per-entry/per-ID review dates on the successive-relearning protocol (3-correct → +2wk → +5wk → April); a "due today" queue on the Dashboard. This is the imposed schedule the research says is the actual intervention.
-2. **Retrieval mode:** the app quizzes the student *from their own chart entries* (claim shown → recall evidence; term shown → recall significance), knew/lucky/wrong self-marks logged — feedback-driven metacognition on their own work, fully inside the existing guardrails.
-3. **Lagged-opener generator (teacher view):** pull N items from current unit + M from ≥2 units back across the class's charts/OER base; export to slide.
-4. **Calibration tracker:** the knew/lucky/wrong history per category per unit — the student's April review plan generates itself.
+1. **Relearning scheduler** — ✅ shipped (`src/lib/spacing.js` + `reviews` store in `db.js`, Dexie v2): successive-relearning protocol, per-entry review state, "due today" queue on the Dashboard. Mark history is retained per entry, so a full calibration view (item 4) has its data already.
+2. **Retrieval mode** — ✅ shipped (`src/components/ReviewSession.jsx`): quizzes the student from their own entries (claim → recall evidence + significance), knew/lucky/wrong self-marks, in-session requeue until the 3-correct criterion, per-theme session summary. Fully inside the guardrails — no AI generation involved.
+3. **Lagged-opener generator (teacher view):** pull N items from current unit + M from ≥2 units back across the class's charts/OER base; export to slide. *(Next up.)*
+4. **Calibration tracker view:** surface the stored knew/lucky/wrong history per theme per unit — the student's April review plan generates itself. *(Data already captured by #1.)*
 5. **Defense-prep mode:** tutor asks the student 3 escalating questions about their own comparison annotations (already guardrail-compliant) — rehearsal for Type D days.
 
 ---
