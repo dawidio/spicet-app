@@ -247,7 +247,7 @@ export default function Settings({ profile, onProfileSave, onBack }) {
           <h3 className="font-semibold text-red-700">Danger Zone</h3>
         </div>
         <p className="text-sm text-gray-600 mb-4">
-          This will permanently delete all of your SPICE-T charts and
+          This will permanently delete all of your theme charts and
           comparisons. This cannot be undone.
         </p>
         <button

@@ -12,8 +12,8 @@ Allocation logic: blocks proportional to exam weight (U1–2: 16–20% → 9 blo
 
 | # | Type | Main event |
 |---|---|---|
-| 1 | A | Norms; **the retrieval-vs-reread live experiment** (learn two matched lists two ways; predict outcomes; delayed test scheduled for Block 4); course systems installed (decks, tracker, SPICE-T accounts); first because/but/so sprint |
-| 2 | A | Unit 1 launch: framing narrative (your one real lecture — the 1200 world tour, 25 min, Mayer-clean); first SPICE-T chart opened (Song China); ACE introduced on a warm-up SAQ |
+| 1 | A | Norms; **the retrieval-vs-reread live experiment** (learn two matched lists two ways; predict outcomes; delayed test scheduled for Block 4); course systems installed (decks, tracker, AP Theme Charts accounts); first because/but/so sprint |
+| 2 | A | Unit 1 launch: framing narrative (your one real lecture — the 1200 world tour, 25 min, Mayer-clean); first theme chart opened (Song China); ACE introduced on a warm-up SAQ |
 
 ## Phase 1 — Units 1–2, The 1200–1450 World (Blocks 3–11)
 
@@ -66,7 +66,7 @@ Allocation logic: blocks proportional to exam weight (U1–2: 16–20% → 9 blo
 | 30 | 5.3–5.4 | A | Industrial Revolution begins/spreads; causation chain-building (multi-causal frames) |
 | 31 | 5.5–5.7 | A | Tech, state roles, economic developments; Qianlong decision-point simulation (Macartney mission) |
 | 32 | 5.8 | B | Reactions document day: Sadler Report, Marx, Meiji sources |
-| 33 | 5.9–5.10 | A | Society & CCOT studio; SPICE-T CCOT annotations 1750→1900 |
+| 33 | 5.9–5.10 | A | Society & CCOT studio; theme-chart CCOT annotations 1750→1900 |
 | 34 | — | C | **LEQ instruction begins** (rubric is a DBQ subset; the 2027 orienting statement as scaffold); thesis + context reps; outside-evidence 90-second sprints debut |
 | 35 | U5 close | C | Full timed LEQ (40 min — train the clock); peer-score after norming; U5 check |
 
@@ -93,7 +93,7 @@ Allocation logic: blocks proportional to exam weight (U1–2: 16–20% → 9 blo
 | 47 | — | E | Spiral Day (U1–6 + current) |
 | 48 | 7.9 | C | Causation LEQ full write (WWI or WWII prompt); redaction + sourcing drills on returned work |
 | 49 | U7 close | A | U7 check; **museum-exhibit anchor launched** (spans U7–9: sources + captions + curatorial thesis) |
-| 50 | 8.1–8.2 | A | Cold War origins studio; USA/USSR SPICE-T CompareView |
+| 50 | 8.1–8.2 | A | Cold War origins studio; USA/USSR theme-chart CompareView |
 | 51 | 8.3–8.4 | A | Effects + spread of communism; decision-point sim (Cuban Missile Crisis or non-alignment choice) |
 | 52 | 8.5–8.6 | B | Decolonization document day (Nkrumah, Ho Chi Minh, partition sources); non-text SAQ rep |
 | 53 | 8.7–8.9 | A | Resistance + end of Cold War; period-classification sprints (the CR's chronology drill) |

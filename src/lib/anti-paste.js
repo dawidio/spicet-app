@@ -1,5 +1,5 @@
 /**
- * Prevents paste events on SPICE-T entry fields.
+ * Prevents paste events on theme-chart entry fields.
  * Attaches to any element with the data-no-paste attribute.
  */
 export function preventPaste(e) {

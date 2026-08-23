@@ -4,7 +4,7 @@
 
 Built for: David Jacobson, Shanghai American School — 75-minute A/B blocks, ~70 teaching days per course, ~20 students per class, grades 10–12, near-native English speakers with full access to AI tools, SASPD competency-based grading.
 
-Compiled August 2026 from five parallel research threads (cognitive science of learning; AP exam intelligence; books and curricula; classroom materials and tools; radical pedagogical designs), then checked against the toolkit you already run — the SPICE-T app, your AP skill suite (lesson planner, assessment builder, AI-resistant redesigner, discussion questions, student feedback + grading stress-test, UDL/CRP, sub plans), SASPD bands, and the HAPPY/ACE routines. Every major claim carries an evidence tier. Fads are flagged as fads.
+Compiled August 2026 from five parallel research threads (cognitive science of learning; AP exam intelligence; books and curricula; classroom materials and tools; radical pedagogical designs), then checked against the toolkit you already run — the AP Theme Charts app (formerly SPICE-T; now organized by the six official CED themes — ENV, CDI, GOV, ECN, SIO, TEC), your AP skill suite (lesson planner, assessment builder, AI-resistant redesigner, discussion questions, student feedback + grading stress-test, UDL/CRP, sub plans), SASPD bands, and the HAPPY/ACE routines. Every major claim carries an evidence tier. Fads are flagged as fads.
 
 ---
 
@@ -17,10 +17,10 @@ Compiled August 2026 from five parallel research threads (cognitive science of l
 1. **Content acquisition leaves the classroom.** Video/reading + a mandatory entry check at home; the 75 minutes are too scarce for first-exposure lecture. (Flipped-model meta-analytic g ≈ 0.5–0.7; on 70 days it's also just arithmetic.)
 2. **Every block opens with cumulative retrieval.** 10–12 minutes, half current material, half from ≥2 units back, immediate feedback, calibration marks. This is the single highest evidence-per-minute activity known (classroom g ≈ 0.50; validated in actual history classrooms at roughly a letter grade of effect).
 3. **Writing is trained in components, daily and weekly.** Sentence-level moves every block; SAQ/thesis/paragraph reps weekly; full essays about once per unit. Scored at scale through norming + peer/self-scoring + your existing feedback pipeline — not through you grading everything.
-4. **Everything spirals toward May.** IDs and dates run on a successive-relearning schedule (3 correct now, relearn at ~2 weeks, ~5 weeks, April). SPICE-T comparisons are the interleaving engine. Review season is the last lap of a spiral that started in week one — not a separate unit.
+4. **Everything spirals toward May.** IDs and dates run on a successive-relearning schedule (3 correct now, relearn at ~2 weeks, ~5 weeks, April). Cross-period theme-chart comparisons are the interleaving engine. Review season is the last lap of a spiral that started in week one — not a separate unit.
 5. **Major work is defended out loud.** 5–8 minutes, reasoning-scored. You already designed this in the AI-resistant redesigner; the Spiral Studio makes it the default for every major product, which simultaneously solves assessment integrity and deepens learning.
 
-**What's genuinely new for you** (the rest is systematizing what you have): the retrieval/spacing scheduler, the flipped pipeline with accountability, the peer/self-scoring layer that buys 20+ writing reps per student, exam-weighted pacing, and a handful of high-value additions to the SPICE-T app (Appendix D).
+**What's genuinely new for you** (the rest is systematizing what you have): the retrieval/spacing scheduler, the flipped pipeline with accountability, the peer/self-scoring layer that buys 20+ writing reps per student, exam-weighted pacing, and a handful of high-value additions to the theme-chart app (Appendix D).
 
 **What this replaces:** unaccountable reading homework, one-and-done unit tests, end-loaded review, teacher-graded-everything, and rereading/highlighting as "studying."
 
@@ -34,7 +34,7 @@ Audit of your existing assets against the research, with the verdict for each.
 
 | Asset | What it is | Research verdict | Role in Spiral Studio |
 |---|---|---|---|
-| **SPICE-T app** | Chart builder per empire/unit; CompareView with similarities/differences/CCOT; AI tutor constrained to the student's own entries; anti-paste | The *comparative* use (two charts side by side) is exactly the discriminative interleaving history supports (Brunmair & Richter 2019); student-built charts beat received ones (generation effect); the constrained tutor matches the three conditions under which AI tutoring shows RCT gains | Core tool. Chart-building = generative study; CompareView = LEQ-comparison engine; tutor = supervised revision partner. Build list in Appendix D |
+| **AP Theme Charts app** | Chart builder per empire/unit; CompareView with similarities/differences/CCOT; AI tutor constrained to the student's own entries; anti-paste | The *comparative* use (two charts side by side) is exactly the discriminative interleaving history supports (Brunmair & Richter 2019); student-built charts beat received ones (generation effect); the constrained tutor matches the three conditions under which AI tutoring shows RCT gains | Core tool. Chart-building = generative study; CompareView = LEQ-comparison engine; tutor = supervised revision partner. Build list in Appendix D |
 | **SASPD grading + CB→SASPD conversions** (assessment-builder) | Competency bands, Exceeding→Insufficient, round-up rule, DBQ/LEQ/SAQ conversion tables | You already have what the "standards-based grading" movement is trying to build. Evidence says grading reform's payoff is alignment/motivation, not scores per se — you've captured it | The gradebook layer, unchanged. Add mastery re-takes on objective checks ("mastery within, deadlines between") |
 | **AI-resistant redesigner** | Process checkpoints, classroom-anchored evidence, oral defense, metacognitive reflection, honest-disclosure norm | Independently converges with the Denmark national precedent (oral defense of written work) and the process-portfolio evidence (NY Performance Standards Consortium). Ahead of most of the field | Becomes the *default architecture* for all major assessments, not a per-assignment retrofit |
 | **HAPPY + ACE** | Document-analysis and SAQ routines | Equivalent to the HIPP-family routines top AP teachers use; keep — one routine used always beats three used sometimes | The sourcing and SAQ grammar of the course. HAPPY's Y (broader significance) is your complexity-point trainer |
@@ -86,7 +86,7 @@ The catch that matters: when students self-regulate flashcards (drop cards early
 
 ### 2.5 Interleaving — powerful, narrow (T1 in math; principled extrapolation here)
 
-d = 0.83 in a preregistered math RCT (Rohrer et al. 2020), but the meta-analytic moderator is decisive: interleaving works for **discriminating confusable categories**, is null for expository text, negative for vocabulary (Brunmair & Richter 2019). History translation: mix the things students confuse — Ottoman/Safavid/Mughal, land vs. maritime empires, CCOT vs. comparison prompts, mixed-period SAQ sets. Don't interleave brand-new material; block first. **SPICE-T CompareView is this principle as software.**
+d = 0.83 in a preregistered math RCT (Rohrer et al. 2020), but the meta-analytic moderator is decisive: interleaving works for **discriminating confusable categories**, is null for expository text, negative for vocabulary (Brunmair & Richter 2019). History translation: mix the things students confuse — Ottoman/Safavid/Mughal, land vs. maritime empires, CCOT vs. comparison prompts, mixed-period SAQ sets. Don't interleave brand-new material; block first. **The theme-chart CompareView is this principle as software.**
 
 ### 2.6 The supporting cast
 
@@ -149,7 +149,7 @@ Read that as a treasure map: thesis and doc-use are largely solved by ordinary i
 | **Sourcing = restating the attribution line** | **Attribution-prediction**: from the source line alone, predict what the document will argue — then read and check. HAPPY's H/A/P/P must connect *to the argument*, not just label |
 | **Generic / out-of-period contextualization** | Context anchoring: name the watershed events bracketing the prompt period and explain how they created the prompt's conditions — as a standalone 3-sentence rep |
 | **Outside evidence drought (0.19!)** | This is what the ID decks and relearning system are for: every ID card's "so what" field is a deployable piece of outside evidence. Drill: "prompt → 3 pieces of outside evidence in 90 seconds" |
-| **Chronology silos** (facts locked in one unit) | Period-classification sprints (the CR recommends this verbatim); cross-period SPICE-T comparisons |
+| **Chronology silos** (facts locked in one unit) | Period-classification sprints (the CR recommends this verbatim); cross-period theme-chart comparisons |
 | **Rubric-gaming backfires** | CR data: essays using **all 7 docs and sourcing 4+** outperform minimal-compliance essays on *every* point. Teach abundance, not compliance |
 | **SAQ prompt-verb misreads** ("ideology" ≠ a person; "explain" ≠ "identify") | Prompt-verb drills; ACE already handles structure — aim it at the right noun |
 | **Monocausal arguments** | Because/but/so (4.4) is multi-causality training at sentence level; "two-sided effects" as the default LEQ frame |
@@ -187,7 +187,7 @@ Every block opens with 10–12 minutes of retrieval, **cumulative by design**:
 - **~40–60 IDs per unit max** (CED illustrative examples, not everything) + one **~50-date "spine of the course" deck** + process cards (HAPPY moves, rubric points, ACE).
 - Card grammar: term → what / **so what** / period + region.
 - Students build the cards (generation effect); you audit.
-- **Imposed schedule** (because self-regulated flashcarding loses the effect): to 3-correct in the unit's first week → relearn to 1-correct at ~2 weeks → ~5 weeks → April spiral. Tools ranked by mechanism: Anki > Knowt > Quizlet; Gimkit best of the games (resurfaces missed items); Kahoot fine in team mode; Blooket is engagement theater. Paper works. The schedule is the product — which is why this belongs in SPICE-T (Appendix D).
+- **Imposed schedule** (because self-regulated flashcarding loses the effect): to 3-correct in the unit's first week → relearn to 1-correct at ~2 weeks → ~5 weeks → April spiral. Tools ranked by mechanism: Anki > Knowt > Quizlet; Gimkit best of the games (resurfaces missed items); Kahoot fine in team mode; Blooket is engagement theater. Paper works. The schedule is the product — which is why this belongs in the app (Appendix D).
 
 ### 4.4 Component writing, daily and weekly — EXTEND (T3 + deliberate-practice logic; HAPPY/ACE are the grammar)
 
@@ -196,17 +196,17 @@ Every block opens with 10–12 minutes of retrieval, **cumulative by design**:
 - **Per unit:** one full timed DBQ (once DBQ instruction starts) or LEQ; **worked example first** — every new skill opens with an annotated College Board sample and a scaffold that fades.
 - Your near-native students don't need language scaffolds — they need **rubric-move precision**. Same drills, aimed at the complexity point instead of at English.
 
-### 4.5 Spiral assessment + SPICE-T as interleaving engine — HAVE/EXTEND (T1 mechanism)
+### 4.5 Spiral assessment + the theme-chart app as interleaving engine — HAVE/EXTEND (T1 mechanism)
 
 - Every quiz and prompt cumulative by design; themes revisited as comparison lenses across periods.
-- **SPICE-T cadence:** each new empire/period gets a chart (generative study); each unit closes with a CompareView against a *prior-period* chart plus CCOT annotations — that cross-period comparison is simultaneously interleaving, spacing, and LEQ prep. The tutor's constraint (reasons only over the student's own entries) makes chart quality visible: thin chart, thin tutoring session — itself feedback.
+- **Theme-chart cadence:** each new empire/period gets a chart (generative study); each unit closes with a CompareView against a *prior-period* chart plus CCOT annotations — that cross-period comparison is simultaneously interleaving, spacing, and LEQ prep. The tutor's constraint (reasons only over the student's own entries) makes chart quality visible: thin chart, thin tutoring session — itself feedback.
 - Unit tests: ~30% prior-unit material, announced as policy from day one. One-and-done is over.
 
 ### 4.6 Anchor experiences — EXTEND (T1 by extrapolation + T3)
 
 Three to four per year, project-shaped but exam-aimed, in the Knowledge in Action mold (the one radical architecture with RCT evidence of raising AP qualifying rates — +8–10pp in AP Gov/APES; no history RCT yet, flagged honestly):
 
-- **Empires Summit** (Units 3–4): teams own an empire, build the SPICE-T chart, defend comparative claims before a panel; the artifact feeds directly into the Unit 3/4 LEQ.
+- **Empires Summit** (Units 3–4): teams own an empire, build the theme chart, defend comparative claims before a panel; the artifact feeds directly into the Unit 3/4 LEQ.
 - **Decision-point simulations** (short, one block): "You are the Qianlong Emperor; the Macartney mission waits outside." Evidence favors short decision-point formats over multi-week immersions for retention per hour. One Reacting-style microgame max per semester (the 1911 Revolution game is locally resonant).
 - **Museum exhibit with curatorial argument** (Units 7–9): sources + captions + a defended thesis about selection.
 - **Structured Academic Controversy** where a genuine controversy exists: pairs master one side, present, **swap sides**, seek consensus — the side-swap is complexity-point training (Johnson & Johnson research base).
@@ -230,7 +230,7 @@ Every major written product gets a 5–8 minute defense; the essay is evidence, 
 | 0–12 | Cumulative retrieval opener | Lagged quiz or brain dump → immediate feedback → knew/lucky/wrong marks |
 | 12–17 | Sentence sprint | because/but/so or rubric-frame drill on current content |
 | 17–30 | Targeted direct instruction | The 10-minute version: clarify what the entry quizzes showed was misunderstood — not first exposure. Mayer-clean slides |
-| 30–60 | Studio block | SPICE-T chart work, 2-document HAPPY drill, peer-instruction stimulus MCQs (commit → pair argument → revote), or anchor-project work — rotating |
+| 30–60 | Studio block | theme-chart work, 2-document HAPPY drill, peer-instruction stimulus MCQs (commit → pair argument → revote), or anchor-project work — rotating |
 | 60–72 | Component writing rep | SAQ or thesis rep; some days peer-scored on the spot |
 | 72–75 | Exit + preview | One retrieval item + one calibration judgment; prequestions for tonight's video |
 
@@ -248,7 +248,7 @@ Full-period mixed retrieval and repair: interleaved MCQ sets from AP Classroom q
 
 ### 5.2 A model week (A/B block, one course)
 
-- **Block 1 (Mon):** Studio Day. Home before: Heimler 4.5 + entry quiz. In class: opener with Unit 2 lag items; sentence sprint on Atlantic economies; 12-min clarification of entry-quiz misconceptions; SPICE-T chart block (Portuguese trading post empire); thesis reps ×3; exit + prequestions.
+- **Block 1 (Mon):** Studio Day. Home before: Heimler 4.5 + entry quiz. In class: opener with Unit 2 lag items; sentence sprint on Atlantic economies; 12-min clarification of entry-quiz misconceptions; theme-chart block (Portuguese trading post empire); thesis reps ×3; exit + prequestions.
 - **Block 2 (Wed):** Document Day. RLH-style set on the Middle Passage sources; tiered discussion; ACE paragraph out the door.
 - **Block 3 (Fri):** Studio Day. Opener (lag: Unit 1 + this week); HAPPY drill on 2 documents; peer-instruction stimulus MCQs; SAQ rep peer-scored; card session logged (3-correct on this week's IDs).
 - **Weekend homework:** one WHP article + retrieval guide; 15-minute relearning session (app-scheduled, 2-week-old deck).
@@ -258,7 +258,7 @@ Full-period mixed retrieval and repair: interleaved MCQ sets from AP Classroom q
 1. **Launch block:** unit prequestions + framing narrative (your one real lecture — 25 minutes, Mayer-clean, the story arc of the unit) + first chart opened.
 2. **3–5 Studio/Document blocks** on the topic sequence (flipped pipeline running underneath).
 3. **Writing Workshop block(s):** unit-relevant skill focus (one rubric row at a time).
-4. **Close block:** cross-period CompareView + CCOT annotations in SPICE-T; unit check (30% lagged content, mastery-retake eligible); defense slots if the unit carried an anchor.
+4. **Close block:** cross-period CompareView + CCOT annotations in the app; unit check (30% lagged content, mastery-retake eligible); defense slots if the unit carried an anchor.
 5. **Week +2 and +5:** the unit's ID deck resurfaces automatically in openers and relearning sessions. Nothing is ever "done."
 
 ### 5.4 Where your skills fire in the rhythm
@@ -330,7 +330,7 @@ The principle: **teacher scoring is for calibration and the gradebook; volume co
 
 ## Part 10 — The AI layer (your unfair advantage)
 
-The credible AI-tutoring results (Kestin et al. 2025 Harvard physics RCT: ~2× gains in less time; World Bank Nigeria: ~0.3σ from supervised structured sessions) share three conditions: the AI serves a **structured curriculum** rather than inventing one; sessions are **scheduled and supervised**; the tutor is **pedagogically constrained** — Socratic, stepwise, never answer-dumping. That is a description of SPICE-T's existing guardrails. Local-first WebLLM additionally clears the network/privacy constraints that make cloud AI awkward in China.
+The credible AI-tutoring results (Kestin et al. 2025 Harvard physics RCT: ~2× gains in less time; World Bank Nigeria: ~0.3σ from supervised structured sessions) share three conditions: the AI serves a **structured curriculum** rather than inventing one; sessions are **scheduled and supervised**; the tutor is **pedagogically constrained** — Socratic, stepwise, never answer-dumping. That is a description of the app's existing guardrails. Local-first WebLLM additionally clears the network/privacy constraints that make cloud AI awkward in China.
 
 The honest flags: the Kestin effect comes from convergent physics problems — transfer to contested historical interpretation is unproven. And the cautionary tale is Alpha School: "2-hour learning / 2.6× growth" is internally computed, unverified, incentive-confounded, and the platform is adaptive drill software — an existence proof of marketing, not learning. Your instinct (AI reasons over the student's own work, never generates content) is the defensible position, and the classroom architecture that makes it stick is Part 4.7's oral defense.
 
@@ -368,7 +368,7 @@ Three coherent versions; all share Parts 4–9. Pick per course, not globally �
 
 ## Appendix B — The first 10 days
 
-1. **D1:** norms; the retrieval-vs-reread live experiment (predict → learn two matched lists two ways → schedule the delayed test for D5); first SPICE-T chart opened; first because/but/so sprint.
+1. **D1:** norms; the retrieval-vs-reread live experiment (predict → learn two matched lists two ways → schedule the delayed test for D5); first theme chart opened; first because/but/so sprint.
 2. **D2–4:** Unit 1 at speed on the flipped pipeline; first brain dumps; first lagged opener (yes, already — lag within the week); ID decks built, first 3-correct sessions logged.
 3. **D5:** the delayed test — show them their own crossover data. This buys you a year of buy-in.
 4. **D5–7:** first Document Day; first SAQ rep scored together against real samples (norming begins immediately); HAPPY introduced on two documents.
@@ -387,7 +387,7 @@ Three coherent versions; all share Parts 4–9. Pick per course, not globally �
 | Sub days | `ap-world-sub-plans` | "Spiral Day packet" (Type E) |
 | Friday | `close` | Session wrap; decisions into memory |
 
-## Appendix D — SPICE-T app build list (the system's missing software)
+## Appendix D — Theme-chart app build list (the system's missing software)
 
 Ordered by leverage; each is a natural extension of the existing local-first stack:
 

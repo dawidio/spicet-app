@@ -200,7 +200,7 @@ export default function AITutor({ comparison, compareCharts }) {
                     </span>
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    I can help you analyze your SPICE-T charts using AP
+                    I can help you analyze your theme charts using AP
                     historical thinking skills — comparison, CCOT, causation,
                     and contextualization. Ask me anything about the charts
                     you've created!

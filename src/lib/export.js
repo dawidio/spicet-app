@@ -15,7 +15,7 @@ const COLORS = {
 const PRIMARY = [30, 64, 175];
 
 /**
- * Export a single SPICE-T chart as PDF
+ * Export a single theme chart as PDF
  */
 export function exportChartPDF(chart, profile) {
   const doc = new jsPDF('p', 'mm', 'a4');
@@ -55,7 +55,7 @@ export function exportChartPDF(chart, profile) {
   doc.line(margin, y, pageWidth - margin, y);
   y += 6;
 
-  // Each SPICE-T category as a table
+  // Each CED theme as a table
   for (const catKey of CATEGORIES_ORDER) {
     const config = CATEGORY_CONFIG[catKey];
     const entries = chart.categories?.[catKey]?.entries || [];
@@ -132,7 +132,7 @@ export function exportChartPDF(chart, profile) {
   // Footer
   addFooter(doc);
 
-  doc.save(`SPICET_${sanitizeFilename(chart.empireName || 'chart')}.pdf`);
+  doc.save(`ThemeChart_${sanitizeFilename(chart.empireName || 'chart')}.pdf`);
 }
 
 /**
@@ -296,7 +296,7 @@ export function exportComparisonPDF(charts, comparison, profile) {
   addFooter(doc);
 
   const names = charts.map((c) => sanitizeFilename(c.empireName || 'chart')).join('_vs_');
-  doc.save(`SPICET_Compare_${names}.pdf`);
+  doc.save(`ThemeChart_Compare_${names}.pdf`);
 }
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -308,7 +308,7 @@ function drawHeader(doc, pageWidth, margin, profile) {
   doc.setFontSize(14);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(255, 255, 255);
-  doc.text('SPICE-T Chart', margin, 12);
+  doc.text('AP Theme Chart', margin, 12);
 
   doc.setFontSize(8);
   doc.setFont('helvetica', 'normal');
@@ -351,10 +351,10 @@ function drawPromptBlock(doc, singleChart, multiCharts, pageWidth, margin, y) {
 
   let prompt;
   if (singleChart) {
-    prompt = `Using my SPICE-T chart for the ${singleChart.empireName || 'this empire'}${singleChart.dateRange ? ` (${singleChart.dateRange})` : ''}, help me: 1) Identify the most important connections between the SPICE-T categories. 2) Suggest what I should compare this empire/region to and why. 3) Ask me 3 Socratic questions that would deepen my understanding.`;
+    prompt = `Using my AP theme chart for the ${singleChart.empireName || 'this empire'}${singleChart.dateRange ? ` (${singleChart.dateRange})` : ''}, help me: 1) Identify the most important connections between the CED themes. 2) Suggest what I should compare this empire/region to and why. 3) Ask me 3 Socratic questions that would deepen my understanding.`;
   } else if (multiCharts) {
     const names = multiCharts.map((c) => c.empireName || 'Untitled').join(', ');
-    prompt = `Using my SPICE-T comparison of ${names}, help me: 1) Identify the strongest similarities and most significant differences across these societies. 2) Trace one change and one continuity over time across these charts. 3) Explain how developments in one society may have caused or influenced developments in another.`;
+    prompt = `Using my AP theme-chart comparison of ${names}, help me: 1) Identify the strongest similarities and most significant differences across these societies. 2) Trace one change and one continuity over time across these charts. 3) Explain how developments in one society may have caused or influenced developments in another.`;
   }
 
   if (prompt) {
@@ -381,7 +381,7 @@ function addFooter(doc) {
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(156, 163, 175);
     doc.text(
-      `SPICE-T Charts — AP World History: Modern  |  Page ${i} of ${pageCount}`,
+      `AP Theme Charts — AP World History: Modern  |  Page ${i} of ${pageCount}`,
       pageWidth / 2,
       pageHeight - 7,
       { align: 'center' }

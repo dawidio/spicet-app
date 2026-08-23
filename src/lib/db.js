@@ -1,5 +1,8 @@
 import Dexie from 'dexie';
+import { CATEGORIES_ORDER } from '../data/prompts';
 
+// Dexie database name is a persisted identifier — do not rename (existing
+// student data lives under it), even though the app now brands as AP Theme Charts.
 const db = new Dexie('SpiceTApp');
 
 db.version(1).stores({
@@ -24,14 +27,9 @@ export function createEmptyChart() {
     unitNumber: null,
     createdAt: Date.now(),
     updatedAt: Date.now(),
-    categories: {
-      social: createEmptyCategory(),
-      political: createEmptyCategory(),
-      interactions: createEmptyCategory(),
-      cultural: createEmptyCategory(),
-      economic: createEmptyCategory(),
-      technological: createEmptyCategory(),
-    },
+    categories: Object.fromEntries(
+      CATEGORIES_ORDER.map((key) => [key, createEmptyCategory()])
+    ),
   };
 }
 
@@ -83,8 +81,7 @@ export async function deleteChart(id) {
 // Comparison helpers
 export function createEmptyAnnotations() {
   const annotations = {};
-  const categories = ['social', 'political', 'interactions', 'cultural', 'economic', 'technological'];
-  for (const cat of categories) {
+  for (const cat of CATEGORIES_ORDER) {
     annotations[cat] = { similarities: '', differences: '', ccot: '' };
   }
   return annotations;

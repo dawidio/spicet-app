@@ -171,7 +171,7 @@ export default function Dashboard({ onEditChart, onNewChart, onCompare }) {
                 No charts yet
               </h2>
               <p className="text-gray-500 mb-6">
-                Create your first SPICE-T chart to start studying!
+                Create your first theme chart to start studying!
               </p>
               <button
                 onClick={onNewChart}
