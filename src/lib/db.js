@@ -1,24 +1,15 @@
 import Dexie from 'dexie';
 import { getCategoriesOrder } from '../data/prompts';
 import { createReviewState, applyMark } from './spacing';
+import {
+  remapCategoryKeys,
+  needsCategoryRemap,
+  remapReviewRow,
+} from './category-remap';
 
 // Dexie database name is a persisted identifier — do not rename (existing
 // student data lives under it), even though the app now brands as AP Theme Charts.
 const db = new Dexie('SpiceTApp');
-
-// Old SPICE-T category keys → CED theme keys. Used by the v4 upgrade to remap
-// both chart category keys and the categoryKey segment of review row ids.
-const SPICET_TO_CED = {
-  interactions: 'ENV',
-  cultural: 'CDI',
-  political: 'GOV',
-  economic: 'ECN',
-  social: 'SIO',
-  technological: 'TEC',
-};
-
-const APWHM_KEYS = ['ENV', 'CDI', 'GOV', 'ECN', 'SIO', 'TEC'];
-const APUSH_KEYS = ['NAT', 'WOR', 'GEO', 'MIG', 'PCE', 'WXT', 'SOC', 'ARC'];
 
 db.version(1).stores({
   charts: '++id, empireName, unitNumber, createdAt, updatedAt',
@@ -60,9 +51,10 @@ db.version(3).stores({
 
 // v4: dual-course support. Charts gain a `course` index (defaulting to
 // 'apwhm') and their SPICE-T category keys are remapped to CED theme keys.
-// Review rows carry the category key inside their primary key, so the same
-// remap is applied there — otherwise every existing review orphans against a
-// category key that no longer exists.
+// Every other store that keys data by category is remapped in the same pass:
+// review rows carry the category key inside their primary key, and comparison
+// annotations are keyed by category too. Miss either one and that data orphans
+// against a category key the UI no longer iterates.
 db.version(4)
   .stores({
     charts: '++id, empireName, unitNumber, course, createdAt, updatedAt',
@@ -78,20 +70,17 @@ db.version(4)
       .modify((chart) => {
         if (!chart.course) chart.course = 'apwhm';
         if (!chart.categories) return;
+        chart.categories = remapCategoryKeys(chart.categories) || chart.categories;
+      });
 
-        const newCats = {};
-        for (const [oldKey, newKey] of Object.entries(SPICET_TO_CED)) {
-          if (chart.categories[oldKey] !== undefined) {
-            newCats[newKey] = chart.categories[oldKey];
-          }
-        }
-        // Pass through any keys that are already CED acronyms
-        for (const key of [...APWHM_KEYS, ...APUSH_KEYS]) {
-          if (chart.categories[key] !== undefined && !newCats[key]) {
-            newCats[key] = chart.categories[key];
-          }
-        }
-        chart.categories = newCats;
+    // Comparison annotations are keyed by category the same way charts are.
+    await tx
+      .table('comparisons')
+      .toCollection()
+      .modify((comparison) => {
+        if (!needsCategoryRemap(comparison.annotations)) return;
+        comparison.annotations =
+          remapCategoryKeys(comparison.annotations) || comparison.annotations;
       });
 
     // Review ids embed the category key, so they must be rewritten, not
@@ -101,24 +90,10 @@ db.version(4)
     let anyRemapped = false;
 
     for (const row of reviews) {
-      const parts = typeof row.id === 'string' ? row.id.split(':') : [];
-      const oldKey = row.categoryKey ?? (parts.length === 3 ? parts[1] : undefined);
-      const newKey = SPICET_TO_CED[oldKey];
-      if (!newKey) {
-        remapped.push(row);
-        continue;
-      }
-      anyRemapped = true;
-      const chartId = row.chartId ?? (parts.length === 3 ? Number(parts[0]) : undefined);
-      const entryId = row.entryId ?? (parts.length === 3 ? parts[2] : undefined);
       // nextDue / stage / successes / history all ride along untouched.
-      remapped.push({
-        ...row,
-        categoryKey: newKey,
-        chartId,
-        entryId,
-        id: `${chartId}:${newKey}:${entryId}`,
-      });
+      const next = remapReviewRow(row);
+      if (next) anyRemapped = true;
+      remapped.push(next || row);
     }
 
     if (anyRemapped) {
