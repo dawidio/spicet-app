@@ -78,7 +78,7 @@ export default function WelcomeSetup({ onSave }) {
                 <div className="flex items-center gap-1.5">
                   <Lock size={14} className="text-gray-600" />
                   <span className="text-sm font-medium text-gray-800">
-                    Keep my data 100% local
+                    Stay local only
                   </span>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">

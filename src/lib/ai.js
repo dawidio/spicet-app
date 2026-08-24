@@ -122,7 +122,7 @@ export async function chat(systemPrompt, messages, onChunk) {
   const stayLocal = await getStayLocalOnly();
   if (stayLocal && !webllmReady) {
     throw new Error(
-      'AI tutor is only available with the local model. Go to Settings → AI to download it, or uncheck “Stay local only” to enable the Gemini fallback.'
+      'AI tutor is only available with the local model. Go to Settings → AI to download it, or uncheck "Stay local only" to enable the Gemini fallback.'
     );
   }
 
