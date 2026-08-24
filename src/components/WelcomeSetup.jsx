@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Lock } from 'lucide-react';
 
 export default function WelcomeSetup({ onSave }) {
   const [name, setName] = useState('');
   const [classPeriod, setClassPeriod] = useState('');
+  const [stayLocalOnly, setStayLocalOnly] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() && classPeriod.trim()) {
-      onSave(name.trim(), classPeriod.trim());
+      onSave(name.trim(), classPeriod.trim(), stayLocalOnly);
     }
   };
 
@@ -23,7 +24,7 @@ export default function WelcomeSetup({ onSave }) {
             Welcome to AP Theme Charts
           </h1>
           <p className="text-gray-600">
-            AP World History: Modern study tool
+            AP World History: Modern &middot; AP United States History study tool
           </p>
         </div>
 
@@ -62,6 +63,29 @@ export default function WelcomeSetup({ onSave }) {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none transition"
               required
             />
+          </div>
+
+          {/* Privacy preference */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={stayLocalOnly}
+                onChange={(e) => setStayLocalOnly(e.target.checked)}
+                className="mt-0.5 w-4 h-4 accent-primary cursor-pointer"
+              />
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <Lock size={14} className="text-gray-600" />
+                  <span className="text-sm font-medium text-gray-800">
+                    Keep my data 100% local
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  Your charts stay on this device only. Uncheck to allow the AI tutor to use Google's Gemini API if the local model isn't available.
+                </p>
+              </div>
+            </label>
           </div>
 
           <button

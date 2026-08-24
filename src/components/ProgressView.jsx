@@ -1,10 +1,20 @@
 import { useState, useEffect } from 'react';
 import { getReviewStats } from '../lib/db';
-import { CATEGORIES_ORDER, CATEGORY_CONFIG } from '../data/prompts';
+import {
+  APWHM_CATEGORIES_ORDER,
+  APUSH_CATEGORIES_ORDER,
+  APWHM_CATEGORY_CONFIG,
+  APUSH_CATEGORY_CONFIG,
+} from '../data/prompts';
 import { ArrowLeft, TrendingUp } from 'lucide-react';
 
+// Review stats are keyed by CED theme key, and the two courses' keys are
+// disjoint — so one merged lookup covers charts from either course.
+const ALL_CATEGORIES_ORDER = [...APWHM_CATEGORIES_ORDER, ...APUSH_CATEGORIES_ORDER];
+const ALL_CATEGORY_CONFIG = { ...APWHM_CATEGORY_CONFIG, ...APUSH_CATEGORY_CONFIG };
+
 // Literal class maps so Tailwind generates the category colors (same pattern
-// as CategorySection / ReviewSession).
+// as CategorySection / ReviewSession). Keyed by each theme's `color` token.
 const badgeClasses = {
   social: 'bg-social text-white',
   political: 'bg-political text-white',
@@ -12,6 +22,14 @@ const badgeClasses = {
   cultural: 'bg-cultural text-white',
   economic: 'bg-economic text-white',
   technological: 'bg-technological text-white',
+  nat: 'bg-nat text-white',
+  wor: 'bg-wor text-white',
+  geo: 'bg-geo text-white',
+  mig: 'bg-mig text-white',
+  pce: 'bg-pce text-white',
+  wxt: 'bg-wxt text-white',
+  soc: 'bg-soc text-white',
+  arc: 'bg-arc text-white',
 };
 const barClasses = {
   social: 'bg-social',
@@ -20,6 +38,14 @@ const barClasses = {
   cultural: 'bg-cultural',
   economic: 'bg-economic',
   technological: 'bg-technological',
+  nat: 'bg-nat',
+  wor: 'bg-wor',
+  geo: 'bg-geo',
+  mig: 'bg-mig',
+  pce: 'bg-pce',
+  wxt: 'bg-wxt',
+  soc: 'bg-soc',
+  arc: 'bg-arc',
 };
 
 export default function ProgressView({ onBack }) {
@@ -37,7 +63,7 @@ export default function ProgressView({ onBack }) {
     );
   }
 
-  const themes = CATEGORIES_ORDER.filter((cat) => stats[cat]?.total > 0);
+  const themes = ALL_CATEGORIES_ORDER.filter((cat) => stats[cat]?.total > 0);
   const totals = themes.reduce(
     (acc, cat) => {
       const s = stats[cat];
@@ -109,7 +135,7 @@ export default function ProgressView({ onBack }) {
       <div className="space-y-3">
         {themes.map((cat) => {
           const s = stats[cat];
-          const config = CATEGORY_CONFIG[cat];
+          const config = ALL_CATEGORY_CONFIG[cat];
           const attempts = s.marks.knew + s.marks.lucky + s.marks.wrong;
           const knewPct = attempts > 0 ? Math.round((s.marks.knew / attempts) * 100) : 0;
           const masteredPct = s.total > 0 ? Math.round((s.mastered / s.total) * 100) : 0;
@@ -117,9 +143,11 @@ export default function ProgressView({ onBack }) {
             <div key={cat} className="bg-white border border-gray-200 rounded-xl p-4">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span
-                  className={`px-2.5 py-1 rounded-full text-xs font-medium ${badgeClasses[cat]}`}
+                  className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                    badgeClasses[config?.color] || 'bg-gray-500 text-white'
+                  }`}
                 >
-                  {config.label}
+                  {config?.label || cat}
                 </span>
                 <span className="text-xs text-gray-400 ml-auto">
                   {s.total} {s.total === 1 ? 'entry' : 'entries'} · {s.mastered} mastered
@@ -127,7 +155,7 @@ export default function ProgressView({ onBack }) {
               </div>
               <div className="h-2 rounded-full bg-gray-100 overflow-hidden mb-2">
                 <div
-                  className={`h-full rounded-full ${barClasses[cat]}`}
+                  className={`h-full rounded-full ${barClasses[config?.color] || 'bg-gray-400'}`}
                   style={{ width: `${masteredPct}%` }}
                   title={`${masteredPct}% mastered`}
                 />

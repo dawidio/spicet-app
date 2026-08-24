@@ -1,23 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1e40af;
-  --color-primary-light: #3b82f6;
-  --color-primary-dark: #1e3a8a;
-  --color-accent: #f59e0b;
-  --color-accent-light: #fbbf24;
-  --color-social: #ef4444;
-  --color-political: #3b82f6;
-  --color-interactions: #10b981;
-  --color-cultural: #8b5cf6;
-  --color-economic: #f59e0b;
-  --color-technological: #6366f1;
+  /* myhistoryclasses.com live site palette — white/black/navy with Inter + Instrument Serif italic accents */
+  --color-paper: #ffffff;
+  --color-paper-soft: #fafafa;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #18181b;
+  --color-muted: #71717a;
+  --color-rule: #e4e4e7;
+  --color-rule-soft: #f4f4f5;
+  --color-accent: #1a2b4b;
+  --color-accent-light: #2a3e63;
+
+  --color-primary: #0a0a0a;
+  --color-primary-light: #27272a;
+  --color-primary-dark: #000000;
+
+  /* AP theme colors — kept distinct, desaturated to sit on white */
+  --color-social: #a83232;
+  --color-political: #2c5282;
+  --color-interactions: #2f7a4f;
+  --color-cultural: #6b46c1;
+  --color-economic: #8a5a2b;
+  --color-technological: #4a5568;
   --color-social-bg: #fef2f2;
   --color-political-bg: #eff6ff;
-  --color-interactions-bg: #ecfdf5;
-  --color-cultural-bg: #f5f3ff;
-  --color-economic-bg: #fffbeb;
-  --color-technological-bg: #eef2ff;
+  --color-interactions-bg: #f0fdf4;
+  --color-cultural-bg: #faf5ff;
+  --color-economic-bg: #fef3c7;
+  --color-technological-bg: #f3f4f6;
+
+  /* APUSH theme colors */
+  --color-nat: #b91c1c;
+  --color-wor: #1d4ed8;
+  --color-geo: #15803d;
+  --color-mig: #b45309;
+  --color-pce: #7e22ce;
+  --color-wxt: #4338ca;
+  --color-soc: #be123c;
+  --color-arc: #0f766e;
+  --color-nat-bg: #fef2f2;
+  --color-wor-bg: #eff6ff;
+  --color-geo-bg: #f0fdf4;
+  --color-mig-bg: #fefce8;
+  --color-pce-bg: #faf5ff;
+  --color-wxt-bg: #eef2ff;
+  --color-soc-bg: #fff1f2;
+  --color-arc-bg: #f0fdfa;
+
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -27,10 +60,33 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: #ffffff;
+  color: #0a0a0a;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 #root {
   min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+}
+
+.display {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  color: #0a0a0a;
+}
+.display .em, .em {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #1a2b4b;
 }

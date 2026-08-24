@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
-import { User, Save, AlertTriangle, Key, Cpu, CheckCircle } from 'lucide-react';
+import { User, Save, AlertTriangle, Key, Cpu, CheckCircle, Lock, FolderOpen } from 'lucide-react';
 import db from '../lib/db';
+import { getSetting, setSetting } from '../lib/db';
 import { getGeminiKey, setGeminiKey, initWebLLM, getBackend, onStatus } from '../lib/ai';
+import {
+  FSSA_SUPPORTED,
+  requestFolderAccess,
+  hasAutoExportFolder,
+  getAutoExportFolderName,
+  disableAutoExport,
+} from '../lib/auto-export';
 
 export default function Settings({ profile, onProfileSave, onBack }) {
   const [name, setName] = useState(profile.name);
@@ -12,6 +20,9 @@ export default function Settings({ profile, onProfileSave, onBack }) {
   const [hasKey, setHasKey] = useState(false);
   const [modelStatus, setModelStatus] = useState(null);
   const [modelLoading, setModelLoading] = useState(false);
+  const [stayLocalOnly, setStayLocalOnly] = useState(true);
+  const [autoExportActive, setAutoExportActive] = useState(false);
+  const [folderName, setFolderName] = useState(null);
 
   useEffect(() => {
     getGeminiKey().then((key) => {
@@ -25,6 +36,14 @@ export default function Settings({ profile, onProfileSave, onBack }) {
     if (backend === 'webllm') {
       setModelStatus('ready');
     }
+
+    getSetting('stayLocalOnly').then((val) => {
+      setStayLocalOnly(val === null ? true : val);
+    });
+
+    // Check auto-export state
+    setAutoExportActive(hasAutoExportFolder());
+    setFolderName(getAutoExportFolderName());
   }, []);
 
   useEffect(() => {
@@ -69,6 +88,25 @@ export default function Settings({ profile, onProfileSave, onBack }) {
   async function handleDownloadModel() {
     setModelLoading(true);
     await initWebLLM();
+  }
+
+  async function handleToggleStayLocal(checked) {
+    setStayLocalOnly(checked);
+    await setSetting('stayLocalOnly', checked);
+  }
+
+  async function handleChooseFolder() {
+    const handle = await requestFolderAccess();
+    if (handle) {
+      setAutoExportActive(true);
+      setFolderName(handle.name);
+    }
+  }
+
+  async function handleDisableAutoExport() {
+    await disableAutoExport();
+    setAutoExportActive(false);
+    setFolderName(null);
   }
 
   async function handleClearAll() {
@@ -239,6 +277,68 @@ export default function Settings({ profile, onProfileSave, onBack }) {
           printable backups.
         </div>
       </div>
+
+      {/* Privacy section */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
+        <div className="flex items-center gap-2 mb-4">
+          <Lock size={20} className="text-primary" />
+          <h3 className="font-semibold text-gray-800">Privacy</h3>
+        </div>
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="stayLocalOnly"
+            checked={stayLocalOnly}
+            onChange={(e) => handleToggleStayLocal(e.target.checked)}
+            className="mt-0.5 w-4 h-4 accent-primary cursor-pointer"
+          />
+          <label htmlFor="stayLocalOnly" className="cursor-pointer">
+            <p className="text-sm font-medium text-gray-800">Stay local only</p>
+            <p className="text-xs text-gray-500 mt-0.5">
+              {stayLocalOnly
+                ? 'AI tutor uses local model only. Gemini API is disabled.'
+                : 'Gemini API can be used as fallback when the local model is unavailable.'}
+            </p>
+          </label>
+        </div>
+      </div>
+
+      {/* Auto-Save section (Chromium only) */}
+      {FSSA_SUPPORTED && (
+        <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <FolderOpen size={20} className="text-primary" />
+            <h3 className="font-semibold text-gray-800">Auto-Save to Folder</h3>
+          </div>
+          <p className="text-sm text-gray-600 mb-4">
+            Automatically save chart JSON files to a folder on your computer as you edit.
+          </p>
+          {autoExportActive && folderName ? (
+            <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-3 py-2.5">
+              <div className="flex items-center gap-2">
+                <CheckCircle size={16} className="text-green-600" />
+                <span className="text-sm text-green-800 font-medium">
+                  Saving to: <span className="font-mono">{folderName}</span>
+                </span>
+              </div>
+              <button
+                onClick={handleDisableAutoExport}
+                className="text-xs text-gray-500 hover:text-red-600 ml-3"
+              >
+                Disable
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={handleChooseFolder}
+              className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+            >
+              <FolderOpen size={16} />
+              Choose folder...
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Danger zone */}
       <div className="bg-white rounded-xl border border-red-200 p-6 shadow-sm">
