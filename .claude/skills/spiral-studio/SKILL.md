@@ -26,6 +26,9 @@ software: the app's Review mode, `src/lib/spacing.js`.)
    from what he says he taught last. Everything keys off this.
 3. **Disruptions** — lost days, sub days, schedule changes this week. Apply
    the calendar's cut-order rules, never silently skip writing reps or openers.
+4. **Calendar shape** — if the real section calendar gives fewer review
+   blocks than the default 12, use the compressed-review variant in the
+   pacing doc (6 blocks; the daily openers carry the spiral).
 
 ## The weekly build
 
@@ -42,8 +45,10 @@ Read `docs/ap-history-70-day-pacing.md` for the blocks in scope, then read
    pre-work without a check.
 4. **Lagged opener spec**: 4–6 items, ~half current unit, ~half from the
    spiral sources listed in the calendar row (or ≥2 units back by default).
-   Draw real items from the AP Classroom Question Bank where possible;
-   `ap-world-assessment-builder` writes the rest.
+   **Wire before you write**: check David's existing banks first (the field
+   audit found a 180-item recall bank + key in `Warm-Ups/`) and map bank
+   items to the spiral calendar; then AP Classroom Question Bank; only then
+   have `ap-world-assessment-builder` author new items.
 5. **Writing rep + scoring mode** from the rotation table in
    `references/day-skeletons.md`. If the rep's skill is being peer-scored for
    the first time, schedule the norming session FIRST

@@ -173,8 +173,11 @@ compare in July).
   mini-lecture default), assessment-builder (SASPD tables), discussion-questions,
   ai-resistant-redesigner, grading-stress-test → student-feedback, sub-plans,
   udl-crp, frame, david-voice, docx, close.
-- **Pending manual fix on his side:** assessment-builder and lesson-planner
-  skills still document HAPPY — update their tables to HAPP (drop the Y row).
+- **Pending manual fixes on his side:** (1) assessment-builder and
+  lesson-planner skills still document HAPPY — update their tables to HAPP
+  (drop the Y row); (2) the field audit found **HIPP** is the incumbent
+  acronym in live teaching materials (e.g. the Day 18 DBQ primer) — sweep
+  primers, skills docs, and student-facing handouts for HIPP/HAPPY → HAPP.
 
 ## Part 5 — How David uses this handoff
 

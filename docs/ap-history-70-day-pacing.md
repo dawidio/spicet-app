@@ -124,6 +124,20 @@ Structure follows the convergent review-season model + the spacing math. Student
 
 ---
 
+## Compressed-review variant (the field calendar: ~71 meetings, review = 6 blocks)
+
+The 2026-08-24 field audit found the real APWHM calendar runs content through ~Day 65 with **6 review blocks, not 12**. In that shape, the daily lagged openers and relearning schedule carry most of the spiral, and review season compresses to:
+
+| # | Main event |
+|---|---|
+| 66 | Review sweep 1: Units 1–4 mixed retrieval + outside-evidence sprints (oldest first — deepest relearning need) |
+| 67 | Review sweep 2: Units 5–9 + non-text source reps (SAQ3) |
+| 68–69 | **Full mock, 2027-format, Bluebook conditions** (split across the two blocks) |
+| 70 | Item autopsy → personal final-week plans; class reteach of the top 2 weakest skills |
+| 71 | Rubric-point triage (context anchors, HAPP bank, prompt-verb drills) + taper and Bluebook logistics |
+
+What this variant gives up: the second mock (assign FRQ-only take-home, peer-scored) and the unit-by-unit review cycles — acceptable **only if** the openers stayed cumulative all year. If the spiral lapsed mid-year, protect review days before content days at the margin.
+
 ## If you lose days (and you will)
 
 Cut in this order, never touching the openers or the writing reps:

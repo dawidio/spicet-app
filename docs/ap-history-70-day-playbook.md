@@ -50,7 +50,7 @@ Audit of your existing assets against the research, with the verdict for each.
 **The gap list — now closed, and where each closure lives:**
 
 1. **A retrieval/spacing scheduler.** ✅ **Built into the app**: every chart entry with a claim enters a successive-relearning queue (`src/lib/spacing.js` — 3-correct mastery, then 7d → 14d → 28d passes); the Dashboard shows what's due and Review mode quizzes students *from their own entries* with knew/lucky/wrong calibration marks.
-2. **A flipped content pipeline with accountability.** ✅ **`/spiral-studio` skill** + `references/flipped-pipeline.md`: every pre-work assignment ships with an accountability artifact (AP Classroom Topic Questions or autograded Schoology quiz, completion-credit only), and the entry-check item analysis drives the block's clarification segment.
+2. **A flipped content pipeline with accountability.** ✅ **`/spiral-studio` skill** + `references/flipped-pipeline.md`: every pre-work assignment ships with an accountability artifact (AP Classroom Topic Questions or autograded Schoology quiz, completion-credit only), and the entry-check item analysis drives the block's clarification segment. *Field note: for openers, check existing banks before authoring — the audit found a 180-item recall bank with answer key already in `Warm-Ups/`; that build is a wiring job (map bank items to the spiral calendar), not a writing job.*
 3. **A student-side scoring layer.** ✅ **`/spiral-studio` → `references/day-skeletons.md`**: a scoring-mode rotation (norm → peer rubric-row → self sample-matching → teacher spot-score) with a monthly calibration audit; your stress-test pipeline stays the gradebook layer.
 4. **Exam-weighted pacing.** ✅ **`docs/ap-history-70-day-pacing.md`**, operationalized by `/spiral-studio` (give it the block number, get the week's plans).
 5. **Structured game film.** ✅ **`references/norming-protocol.md`**: the anchor-paper norming session script, the peer-scoring contract, and the sequencing law — no one peer-scores a skill before the class has normed on it.
@@ -115,7 +115,7 @@ The AP history exam updates take effect **this cohort's exam**. What changes (ap
 - **DBQ:** evidence may now come from **across the entire course** (effectively 1200–2001). Same 7-point rubric, 25%.
 - **MCQ unchanged** (55 questions / 55 min / 40%). Rubrics and course content unchanged. Fully digital in Bluebook (since May 2025): typed essays, in-app highlighting, auto-submit.
 
-**Strategic consequences:** (a) no more "pick your strongest LEQ period" triage — spiral review across *all* periods is now mandatory, which raises the value of keeping Units 1–2 alive all year and is exactly what the Spiral Studio does anyway; (b) **non-text source analysis becomes a guaranteed, drillable target** — add image/map/chart HAPP reps to the rotation; (c) train against the LEQ's orienting statement as a free scaffold; (d) current prep books all model the old format — the AP Classroom updated practice exams are the only fully current FRQ practice. **No class sets of prep books this cycle.**
+**Strategic consequences:** (a) no more "pick your strongest LEQ period" triage — spiral review across *all* periods is now mandatory, which raises the value of keeping Units 1–2 alive all year and is exactly what the Spiral Studio does anyway; (b) **non-text source analysis becomes a guaranteed, drillable target** — add image/map/chart HAPP reps to the rotation; (c) train against the LEQ's orienting statement as a free scaffold; (d) current prep books all model the old format — the AP Classroom updated practice exams are the only fully current FRQ practice, **and your own assessments are ahead of the market here**: the field audit found your Unit 3 test already built to the 2027 format with non-text stimuli throughout. **No class sets of prep books this cycle.**
 
 ### 3.2 Unit weighting — where the exam spends its points [CB]
 
@@ -200,7 +200,8 @@ Every block opens with 10–12 minutes of retrieval, **cumulative by design**:
 
 - Every quiz and prompt cumulative by design; themes revisited as comparison lenses across periods.
 - **Theme-chart cadence:** each new empire/period gets a chart (generative study); each unit closes with a CompareView against a *prior-period* chart plus CCOT annotations — that cross-period comparison is simultaneously interleaving, spacing, and LEQ prep. The tutor's constraint (reasons only over the student's own entries) makes chart quality visible: thin chart, thin tutoring session — itself feedback.
-- Unit tests: ~30% prior-unit material, announced as policy from day one. One-and-done is over.
+- Unit tests: ~30% prior-unit material, announced as policy from day one. One-and-done is over. (Working precedent from your own materials: the Unit 3 test already embeds 5/25 MCQs from Units 1–2 by pacing-guide design — the 30% target is a turn of an existing dial, not a new ask.)
+- **Running Theme Tracker** (backported from your field materials — stronger than the ID-card "so what" field for theme continuity): one page per CED theme, each a 9-row table (one row per unit, CONTINUED vs CHANGED), filled in ~15 minutes at every unit close. By April each page shows one theme moving across the whole course — ready-made CCOT and LEQ evidence. Standard course artifact; also a natural future app feature (Appendix D).
 
 ### 4.6 Anchor experiences — EXTEND (T1 by extrapolation + T3)
 
@@ -236,6 +237,8 @@ Every major written product gets a 5–8 minute defense; the essay is evidence, 
 
 **Type B — Document Day (~1 per week)**
 Opener (12) → RLH-style document lesson around a central historical question — the Reading Like a Historian model, the strongest-evidenced history-specific curriculum in existence (Reisman 2012: gains in historical thinking, factual knowledge, *and* reading transfer) — using DIG lessons or your discussion-questions skill for the tiered question set (25–40) → whole-class argument over the central question (15) → written synthesis: one ACE paragraph answering the question (10).
+
+*Field-proven B-day variant — the **recall-check anchor** (backported from your Unit 3 materials): a multi-day sequence — DBQ skills primer with a collected prediction write → document working session with half the room on closed laptops and half directing an AI → a surprise, silent, handwritten free-recall check the next class ("write everything you remember"). A designed retention experiment and an integrity architecture in one; run it once per semester and keep the recall data.*
 
 **Type C — Writing Workshop Day (~3 per unit once essay instruction starts)**
 Opener (10) → worked example: annotate a real scored CB sample against the rubric, class scores it first (15) → timed component or full write (25–40) → norm-and-score: self-score with rubric, swap for peer score, discrepancies argued to the rubric text (15). You collect everything, spot-score a third, whole-class feedback next block.
@@ -396,6 +399,9 @@ Status after the first build pass:
 3. **Lagged-opener generator (teacher view):** pull N items from current unit + M from ≥2 units back across the class's charts/OER base; export to slide. *(Next up.)*
 4. **Calibration tracker view:** surface the stored knew/lucky/wrong history per theme per unit — the student's April review plan generates itself. *(Data already captured by #1.)*
 5. **Defense-prep mode:** tutor asks the student 3 escalating questions about their own comparison annotations (already guardrail-compliant) — rehearsal for Type D days.
+6. **Running Theme Tracker view** *(field-audit backport)*: one page per CED theme × 9 unit rows (CONTINUED vs CHANGED), filled at unit close — the app already holds per-unit, per-theme entries, so this is largely a rendering of existing data.
+
+*Field audits from comparison-protocol runs live at `docs/field-audit-*.md` — findings there amend this document.*
 
 ---
 
