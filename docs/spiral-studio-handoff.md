@@ -56,7 +56,7 @@ orally 5–8 min, reasoning-scored (also the AI-integrity architecture).
 
 **Five day types:** A Studio (default: opener → sentence sprint →
 clarification-not-lecture → studio block → writing rep → exit+prequestions) ·
-B Document Day (one central question, HAPP on pre-excerpted sources, ACE
+B Document Day (one central question, HIPP on pre-excerpted sources, ACE
 close) · C Writing Workshop (worked example → timed write → score-and-argue) ·
 D Summit/Defense (3 stations, trained peer panelists, 8-min slots) ·
 E Spiral Day (full-period mixed retrieval + repair; default sub plan).
@@ -174,10 +174,11 @@ compare in July).
   ai-resistant-redesigner, grading-stress-test → student-feedback, sub-plans,
   udl-crp, frame, david-voice, docx, close.
 - **Pending manual fixes on his side:** (1) assessment-builder and
-  lesson-planner skills still document HAPPY — update their tables to HAPP
-  (drop the Y row); (2) the field audit found **HIPP** is the incumbent
-  acronym in live teaching materials (e.g. the Day 18 DBQ primer) — sweep
-  primers, skills docs, and student-facing handouts for HIPP/HAPPY → HAPP.
+  lesson-planner skills still document HAPPY — update their tables to **HIPP**
+  (Historical situation, Intended audience, Point of view, Purpose; drop the
+  trailing Y row); (2) sweep primers, skills docs, and student-facing handouts
+  so HIPP is the only sourcing acronym in circulation — HAPPY and HAPP
+  references are historical.
 
 ## Part 5 — How David uses this handoff
 
