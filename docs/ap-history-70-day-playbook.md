@@ -4,7 +4,7 @@
 
 Built for: David Jacobson, Shanghai American School — 75-minute A/B blocks, ~70 teaching days per course, ~20 students per class, grades 10–12, near-native English speakers with full access to AI tools, SASPD competency-based grading.
 
-Compiled August 2026 from five parallel research threads (cognitive science of learning; AP exam intelligence; books and curricula; classroom materials and tools; radical pedagogical designs), then checked against the toolkit you already run — the AP Theme Charts app (formerly SPICE-T; now organized by the six official CED themes — ENV, CDI, GOV, ECN, SIO, TEC), your AP skill suite (lesson planner, assessment builder, AI-resistant redesigner, discussion questions, student feedback + grading stress-test, UDL/CRP, sub plans), SASPD bands, and the HAPP/ACE routines. Every major claim carries an evidence tier. Fads are flagged as fads.
+Compiled August 2026 from five parallel research threads (cognitive science of learning; AP exam intelligence; books and curricula; classroom materials and tools; radical pedagogical designs), then checked against the toolkit you already run — the AP Theme Charts app (formerly SPICE-T; now organized by the six official CED themes — ENV, CDI, GOV, ECN, SIO, TEC), your AP skill suite (lesson planner, assessment builder, AI-resistant redesigner, discussion questions, student feedback + grading stress-test, UDL/CRP, sub plans), SASPD bands, and the HIPP/ACE routines. Every major claim carries an evidence tier. Fads are flagged as fads.
 
 ---
 
@@ -37,7 +37,7 @@ Audit of your existing assets against the research, with the verdict for each.
 | **AP Theme Charts app** | Chart builder per empire/unit; CompareView with similarities/differences/CCOT; AI tutor constrained to the student's own entries; anti-paste | The *comparative* use (two charts side by side) is exactly the discriminative interleaving history supports (Brunmair & Richter 2019); student-built charts beat received ones (generation effect); the constrained tutor matches the three conditions under which AI tutoring shows RCT gains | Core tool. Chart-building = generative study; CompareView = LEQ-comparison engine; tutor = supervised revision partner. Build list in Appendix D |
 | **SASPD grading + CB→SASPD conversions** (assessment-builder) | Competency bands, Exceeding→Insufficient, round-up rule, DBQ/LEQ/SAQ conversion tables | You already have what the "standards-based grading" movement is trying to build. Evidence says grading reform's payoff is alignment/motivation, not scores per se — you've captured it | The gradebook layer, unchanged. Add mastery re-takes on objective checks ("mastery within, deadlines between") |
 | **AI-resistant redesigner** | Process checkpoints, classroom-anchored evidence, oral defense, metacognitive reflection, honest-disclosure norm | Independently converges with the Denmark national precedent (oral defense of written work) and the process-portfolio evidence (NY Performance Standards Consortium). Ahead of most of the field | Becomes the *default architecture* for all major assessments, not a per-assignment retrofit |
-| **HAPP + ACE** | Document-analysis and SAQ routines (HAPP = Historical situation, Audience, Purpose, Point of view — this year's routine for both classes, modeled from the CED) | HAPP is the rubric's own four sourcing elements verbatim ("POV, purpose, historical situation, and/or audience"), so the drill maps 1:1 onto the sourcing point; one routine used always beats three used sometimes | The sourcing and SAQ grammar of the course. The "so what"/significance move (formerly HAPPY's Y) now lives in the ID-card so-what field and the thesis/complexity reps |
+| **HIPP + ACE** | Document-analysis and SAQ routines (HIPP = Historical situation, Intended audience, Point of view, Purpose — this year's routine for both classes, modeled from the CED) | HIPP is the rubric's own four sourcing elements verbatim ("POV, purpose, historical situation, and/or audience"), so the drill maps 1:1 onto the sourcing point; one routine used always beats three used sometimes | The sourcing and SAQ grammar of the course. The "so what"/significance move — once carried by an added trailing "Y" on the old acronym — is unchanged: it still lives in the ID-card so-what field and the thesis/complexity reps |
 | **Lesson planner** (75-min template, reasoning-skill objectives, SASPD criteria) | Structured plan generator | Its example structure is transmission-shaped (mini-lecture mid-block). Evidence wants retrieval at the open and production in the middle | Keep the tool; swap its default skeleton for the Studio block (Part 5). One-line change in how you brief it |
 | **Discussion-questions skill** (3 tiers, stems, facilitation) | Tiered Socratic/fishbowl/debate builder | Matches the discussion-quality literature (structured, text-based, low entry/high ceiling) | Feeds Document Days and seminars as-is |
 | **Student-feedback + grading-stress-test** | Verbatim-quote feedback engine; independent score + six-reviewer red team | This is a *calibration* system most departments dream of. Its limit is throughput: it scales your grading, not students' reps | Reserved for gradebook-bound work and calibration. The new peer/self-scoring layer (Part 9) handles the volume of formative reps |
@@ -115,7 +115,7 @@ The AP history exam updates take effect **this cohort's exam**. What changes (ap
 - **DBQ:** evidence may now come from **across the entire course** (effectively 1200–2001). Same 7-point rubric, 25%.
 - **MCQ unchanged** (55 questions / 55 min / 40%). Rubrics and course content unchanged. Fully digital in Bluebook (since May 2025): typed essays, in-app highlighting, auto-submit.
 
-**Strategic consequences:** (a) no more "pick your strongest LEQ period" triage — spiral review across *all* periods is now mandatory, which raises the value of keeping Units 1–2 alive all year and is exactly what the Spiral Studio does anyway; (b) **non-text source analysis becomes a guaranteed, drillable target** — add image/map/chart HAPP reps to the rotation; (c) train against the LEQ's orienting statement as a free scaffold; (d) current prep books all model the old format — the AP Classroom updated practice exams are the only fully current FRQ practice, **and your own assessments are ahead of the market here**: the field audit found your Unit 3 test already built to the 2027 format with non-text stimuli throughout. **No class sets of prep books this cycle.**
+**Strategic consequences:** (a) no more "pick your strongest LEQ period" triage — spiral review across *all* periods is now mandatory, which raises the value of keeping Units 1–2 alive all year and is exactly what the Spiral Studio does anyway; (b) **non-text source analysis becomes a guaranteed, drillable target** — add image/map/chart HIPP reps to the rotation; (c) train against the LEQ's orienting statement as a free scaffold; (d) current prep books all model the old format — the AP Classroom updated practice exams are the only fully current FRQ practice, **and your own assessments are ahead of the market here**: the field audit found your Unit 3 test already built to the 2027 format with non-text stimuli throughout. **No class sets of prep books this cycle.**
 
 ### 3.2 Unit weighting — where the exam spends its points [CB]
 
@@ -146,7 +146,7 @@ Read that as a treasure map: thesis and doc-use are largely solved by ordinary i
 | CR failure pattern | The drill |
 |---|---|
 | **Quote-dumping** (worse since digital copy/paste) | The CR's own **redaction drill**: strip every quoted word from a draft — what argument remains? Run monthly |
-| **Sourcing = restating the attribution line** | **Attribution-prediction**: from the source line alone, predict what the document will argue — then read and check. HAPP's H/A/P/P must connect *to the argument*, not just label |
+| **Sourcing = restating the attribution line** | **Attribution-prediction**: from the source line alone, predict what the document will argue — then read and check. HIPP's H/I/P/P must connect *to the argument*, not just label |
 | **Generic / out-of-period contextualization** | Context anchoring: name the watershed events bracketing the prompt period and explain how they created the prompt's conditions — as a standalone 3-sentence rep |
 | **Outside evidence drought (0.19!)** | This is what the ID decks and relearning system are for: every ID card's "so what" field is a deployable piece of outside evidence. Drill: "prompt → 3 pieces of outside evidence in 90 seconds" |
 | **Chronology silos** (facts locked in one unit) | Period-classification sprints (the CR recommends this verbatim); cross-period theme-chart comparisons |
@@ -184,15 +184,15 @@ Every block opens with 10–12 minutes of retrieval, **cumulative by design**:
 
 ### 4.3 The successive-relearning system — NEW (T1)
 
-- **~40–60 IDs per unit max** (CED illustrative examples, not everything) + one **~50-date "spine of the course" deck** + process cards (HAPP moves, rubric points, ACE).
+- **~40–60 IDs per unit max** (CED illustrative examples, not everything) + one **~50-date "spine of the course" deck** + process cards (HIPP moves, rubric points, ACE).
 - Card grammar: term → what / **so what** / period + region.
 - Students build the cards (generation effect); you audit.
 - **Imposed schedule** (because self-regulated flashcarding loses the effect): to 3-correct in the unit's first week → relearn to 1-correct at ~2 weeks → ~5 weeks → April spiral. Tools ranked by mechanism: Anki > Knowt > Quizlet; Gimkit best of the games (resurfaces missed items); Kahoot fine in team mode; Blooket is engagement theater. Paper works. The schedule is the product — which is why this belongs in the app (Appendix D).
 
-### 4.4 Component writing, daily and weekly — EXTEND (T3 + deliberate-practice logic; HAPP/ACE are the grammar)
+### 4.4 Component writing, daily and weekly — EXTEND (T3 + deliberate-practice logic; HIPP/ACE are the grammar)
 
 - **Daily (5 min):** sentence-level moves à la Hochman/*The Writing Revolution* — **because/but/so** expansions on historical claims ("The Ottomans expanded rapidly *because*… / *but*… / *so*…" is causation practice, retrieval, and complexity-sentence construction at once); sentence combining with unit vocabulary; subordinate-clause drills using rubric frames ("Although X, Y because Z").
-- **Weekly:** SAQ reps (ACE) 1–2×; thesis-only reps ("10 theses in 20 minutes"); single body paragraphs; 2-document HAPP drills. Components before wholes — reps on parts beat reps on full essays for skill acquisition.
+- **Weekly:** SAQ reps (ACE) 1–2×; thesis-only reps ("10 theses in 20 minutes"); single body paragraphs; 2-document HIPP drills. Components before wholes — reps on parts beat reps on full essays for skill acquisition.
 - **Per unit:** one full timed DBQ (once DBQ instruction starts) or LEQ; **worked example first** — every new skill opens with an annotated College Board sample and a scaffold that fades.
 - Your near-native students don't need language scaffolds — they need **rubric-move precision**. Same drills, aimed at the complexity point instead of at English.
 
@@ -231,7 +231,7 @@ Every major written product gets a 5–8 minute defense; the essay is evidence, 
 | 0–12 | Cumulative retrieval opener | Lagged quiz or brain dump → immediate feedback → knew/lucky/wrong marks |
 | 12–17 | Sentence sprint | because/but/so or rubric-frame drill on current content |
 | 17–30 | Targeted direct instruction | The 10-minute version: clarify what the entry quizzes showed was misunderstood — not first exposure. Mayer-clean slides |
-| 30–60 | Studio block | theme-chart work, 2-document HAPP drill, peer-instruction stimulus MCQs (commit → pair argument → revote), or anchor-project work — rotating |
+| 30–60 | Studio block | theme-chart work, 2-document HIPP drill, peer-instruction stimulus MCQs (commit → pair argument → revote), or anchor-project work — rotating |
 | 60–72 | Component writing rep | SAQ or thesis rep; some days peer-scored on the spot |
 | 72–75 | Exit + preview | One retrieval item + one calibration judgment; prequestions for tonight's video |
 
@@ -253,7 +253,7 @@ Full-period mixed retrieval and repair: interleaved MCQ sets from AP Classroom q
 
 - **Block 1 (Mon):** Studio Day. Home before: Heimler 4.5 + entry quiz. In class: opener with Unit 2 lag items; sentence sprint on Atlantic economies; 12-min clarification of entry-quiz misconceptions; theme-chart block (Portuguese trading post empire); thesis reps ×3; exit + prequestions.
 - **Block 2 (Wed):** Document Day. RLH-style set on the Middle Passage sources; tiered discussion; ACE paragraph out the door.
-- **Block 3 (Fri):** Studio Day. Opener (lag: Unit 1 + this week); HAPP drill on 2 documents; peer-instruction stimulus MCQs; SAQ rep peer-scored; card session logged (3-correct on this week's IDs).
+- **Block 3 (Fri):** Studio Day. Opener (lag: Unit 1 + this week); HIPP drill on 2 documents; peer-instruction stimulus MCQs; SAQ rep peer-scored; card session logged (3-correct on this week's IDs).
 - **Weekend homework:** one WHP article + retrieval guide; 15-minute relearning session (app-scheduled, 2-week-old deck).
 
 ### 5.3 The unit template (≈ 6–8 blocks for a mid-weight unit)
@@ -374,7 +374,7 @@ Three coherent versions; all share Parts 4–9. Pick per course, not globally �
 1. **D1:** norms; the retrieval-vs-reread live experiment (predict → learn two matched lists two ways → schedule the delayed test for D5); first theme chart opened; first because/but/so sprint.
 2. **D2–4:** Unit 1 at speed on the flipped pipeline; first brain dumps; first lagged opener (yes, already — lag within the week); ID decks built, first 3-correct sessions logged.
 3. **D5:** the delayed test — show them their own crossover data. This buys you a year of buy-in.
-4. **D5–7:** first Document Day; first SAQ rep scored together against real samples (norming begins immediately); HAPP introduced on two documents.
+4. **D5–7:** first Document Day; first SAQ rep scored together against real samples (norming begins immediately); HIPP introduced on two documents.
 5. **D8–10:** first peer-scored rep; first Spiral mini-session; thesis reps begin; announce the unit-check spiral policy (30% lagged, retakes live).
 
 ## Appendix C — Skill-integration map
