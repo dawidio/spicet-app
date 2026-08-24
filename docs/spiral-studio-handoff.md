@@ -27,7 +27,7 @@ Doubao, Kimi). 75-minute A/B blocks, **~70 teaching days per course**.
 - **HAPP, not HAPPY** — document sourcing routine for both classes: Historical
   situation, Audience, Purpose, Point of view (the rubric's four sourcing
   elements verbatim). ACE for SAQs. The significance move formerly carried by
-  HAPPY's Y lives in ID-card "so what" fields and thesis/complexity reps.
+  HAPPY's Y lives in ID-card "so what" fields and thesis/complexity reps. **[SUPERSEDED 2026-08-24 by David: the sourcing acronym for BOTH courses is HIPP (Historical situation, Intended audience, Point of view, Purpose). Read docs/field-audit-2026-08-24-apwhm-unit3.md amendment 2. Every other HAPP mention in this document is historical record.]**
 - **Platforms:** AP Classroom (Progress Checks, Question Bank, entry checks)
   + Schoology (gradebook). Only SASPD-converted summative marks post to
   Schoology; peer/self/formative scores never do.
