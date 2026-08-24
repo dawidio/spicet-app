@@ -3,7 +3,7 @@
  * Exposes a unified interface for the chat UI.
  */
 
-import { getSetting, setSetting } from './db';
+import { getSetting, setSetting, getStayLocalOnly } from './db';
 
 // ── State ───────────────────────────────────────────────────────
 let webllmEngine = null;
@@ -116,7 +116,17 @@ export async function chat(systemPrompt, messages, onChunk) {
 
   if (webllmReady && webllmEngine) {
     return chatWebLLM(systemPrompt, messages, onChunk);
-  } else if (geminiKey) {
+  }
+
+  // Check stayLocalOnly before falling back to Gemini
+  const stayLocal = await getStayLocalOnly();
+  if (stayLocal && !webllmReady) {
+    throw new Error(
+      'AI tutor is only available with the local model. Go to Settings → AI to download it, or uncheck “Stay local only” to enable the Gemini fallback.'
+    );
+  }
+
+  if (geminiKey) {
     return chatGemini(systemPrompt, messages, onChunk, geminiKey);
   } else {
     throw new Error(
