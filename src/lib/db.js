@@ -1,10 +1,24 @@
 import Dexie from 'dexie';
-import { CATEGORIES_ORDER } from '../data/prompts';
+import { getCategoriesOrder } from '../data/prompts';
 import { createReviewState, applyMark } from './spacing';
 
 // Dexie database name is a persisted identifier — do not rename (existing
 // student data lives under it), even though the app now brands as AP Theme Charts.
 const db = new Dexie('SpiceTApp');
+
+// Old SPICE-T category keys → CED theme keys. Used by the v4 upgrade to remap
+// both chart category keys and the categoryKey segment of review row ids.
+const SPICET_TO_CED = {
+  interactions: 'ENV',
+  cultural: 'CDI',
+  political: 'GOV',
+  economic: 'ECN',
+  social: 'SIO',
+  technological: 'TEC',
+};
+
+const APWHM_KEYS = ['ENV', 'CDI', 'GOV', 'ECN', 'SIO', 'TEC'];
+const APUSH_KEYS = ['NAT', 'WOR', 'GEO', 'MIG', 'PCE', 'WXT', 'SOC', 'ARC'];
 
 db.version(1).stores({
   charts: '++id, empireName, unitNumber, createdAt, updatedAt',
@@ -35,6 +49,84 @@ db.version(2)
       });
   });
 
+// v3: study-session logging. Purely additive — no data migration needed.
+db.version(3).stores({
+  charts: '++id, empireName, unitNumber, createdAt, updatedAt',
+  comparisons: '++id, createdAt',
+  settings: 'key',
+  reviews: 'id, nextDue, chartId',
+  studySessions: '++id, mode, startedAt, endedAt, itemsTotal, itemsCorrect',
+});
+
+// v4: dual-course support. Charts gain a `course` index (defaulting to
+// 'apwhm') and their SPICE-T category keys are remapped to CED theme keys.
+// Review rows carry the category key inside their primary key, so the same
+// remap is applied there — otherwise every existing review orphans against a
+// category key that no longer exists.
+db.version(4)
+  .stores({
+    charts: '++id, empireName, unitNumber, course, createdAt, updatedAt',
+    comparisons: '++id, createdAt',
+    settings: 'key',
+    reviews: 'id, nextDue, chartId',
+    studySessions: '++id, mode, startedAt, endedAt, itemsTotal, itemsCorrect',
+  })
+  .upgrade(async (tx) => {
+    await tx
+      .table('charts')
+      .toCollection()
+      .modify((chart) => {
+        if (!chart.course) chart.course = 'apwhm';
+        if (!chart.categories) return;
+
+        const newCats = {};
+        for (const [oldKey, newKey] of Object.entries(SPICET_TO_CED)) {
+          if (chart.categories[oldKey] !== undefined) {
+            newCats[newKey] = chart.categories[oldKey];
+          }
+        }
+        // Pass through any keys that are already CED acronyms
+        for (const key of [...APWHM_KEYS, ...APUSH_KEYS]) {
+          if (chart.categories[key] !== undefined && !newCats[key]) {
+            newCats[key] = chart.categories[key];
+          }
+        }
+        chart.categories = newCats;
+      });
+
+    // Review ids embed the category key, so they must be rewritten, not
+    // modified in place (Dexie will not let you change a primary key).
+    const reviews = await tx.table('reviews').toArray();
+    const remapped = [];
+    let anyRemapped = false;
+
+    for (const row of reviews) {
+      const parts = typeof row.id === 'string' ? row.id.split(':') : [];
+      const oldKey = row.categoryKey ?? (parts.length === 3 ? parts[1] : undefined);
+      const newKey = SPICET_TO_CED[oldKey];
+      if (!newKey) {
+        remapped.push(row);
+        continue;
+      }
+      anyRemapped = true;
+      const chartId = row.chartId ?? (parts.length === 3 ? Number(parts[0]) : undefined);
+      const entryId = row.entryId ?? (parts.length === 3 ? parts[2] : undefined);
+      // nextDue / stage / successes / history all ride along untouched.
+      remapped.push({
+        ...row,
+        categoryKey: newKey,
+        chartId,
+        entryId,
+        id: `${chartId}:${newKey}:${entryId}`,
+      });
+    }
+
+    if (anyRemapped) {
+      await tx.table('reviews').clear();
+      await tx.table('reviews').bulkPut(remapped);
+    }
+  });
+
 export function makeEntryId() {
   return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
 }
@@ -50,17 +142,18 @@ export function createEmptyCategory() {
   };
 }
 
-// Default empty chart
-export function createEmptyChart() {
+// Default empty chart, scoped to a course's CED themes
+export function createEmptyChart(course = 'apwhm') {
   return {
     empireName: '',
     region: '',
     dateRange: '',
     unitNumber: null,
+    course,
     createdAt: Date.now(),
     updatedAt: Date.now(),
     categories: Object.fromEntries(
-      CATEGORIES_ORDER.map((key) => [key, createEmptyCategory()])
+      getCategoriesOrder(course).map((key) => [key, createEmptyCategory()])
     ),
   };
 }
@@ -73,6 +166,16 @@ export async function getSetting(key) {
 
 export async function setSetting(key, value) {
   await db.settings.put({ key, value });
+}
+
+export async function getStayLocalOnly() {
+  const val = await getSetting('stayLocalOnly');
+  return val === null ? true : val;
+}
+
+export async function getAutoExportEnabled() {
+  const val = await getSetting('autoExportEnabled');
+  return val === null ? false : val;
 }
 
 // Student profile helpers
@@ -90,6 +193,11 @@ export async function setStudentProfile(name, classPeriod) {
 // Chart CRUD
 export async function getAllCharts() {
   return db.charts.orderBy('updatedAt').reverse().toArray();
+}
+
+export async function getChartsForCourse(course) {
+  const all = await getAllCharts();
+  return all.filter((c) => (c.course || 'apwhm') === course);
 }
 
 export async function getChart(id) {
@@ -111,18 +219,19 @@ export async function deleteChart(id) {
 }
 
 // Comparison helpers
-export function createEmptyAnnotations() {
+export function createEmptyAnnotations(course = 'apwhm') {
   const annotations = {};
-  for (const cat of CATEGORIES_ORDER) {
+  for (const cat of getCategoriesOrder(course)) {
     annotations[cat] = { similarities: '', differences: '', ccot: '' };
   }
   return annotations;
 }
 
-export function createEmptyComparison(chartIds) {
+export function createEmptyComparison(chartIds, course = 'apwhm') {
   return {
     chartIds,
-    annotations: createEmptyAnnotations(),
+    course,
+    annotations: createEmptyAnnotations(course),
     createdAt: Date.now(),
     updatedAt: Date.now(),
   };
@@ -203,14 +312,24 @@ export async function syncReviews() {
 // Due queue, joined with live entry content. Call after syncReviews().
 export async function getDueReviews(now = Date.now()) {
   const due = await db.reviews.where('nextDue').belowOrEqual(now).toArray();
-  if (due.length === 0) return [];
+  return joinReviewsWithEntries(due);
+}
 
-  const chartIds = [...new Set(due.map((r) => r.chartId))];
+// Every review row, joined with live entry content — used by the scope picker
+// when the student wants to drill charts that aren't due yet.
+export async function getAllReviewCards() {
+  return joinReviewsWithEntries(await db.reviews.toArray());
+}
+
+async function joinReviewsWithEntries(rows) {
+  if (rows.length === 0) return [];
+
+  const chartIds = [...new Set(rows.map((r) => r.chartId))];
   const charts = await db.charts.bulkGet(chartIds);
   const chartById = new Map(charts.filter(Boolean).map((c) => [c.id, c]));
 
   const cards = [];
-  for (const review of due) {
+  for (const review of rows) {
     const chart = chartById.get(review.chartId);
     const entry = chart?.categories?.[review.categoryKey]?.entries?.find(
       (e) => e.id === review.entryId
@@ -252,12 +371,37 @@ export async function getReviewStats() {
   return stats;
 }
 
+// Raw review rows (current scheduling state + history[]). ProgressMap reads
+// these directly rather than an event log.
+export async function getAllReviews() {
+  return db.reviews.toArray();
+}
+
 export async function recordReviewMark(reviewId, mark, now = Date.now()) {
   const row = await db.reviews.get(reviewId);
   if (!row) return null;
   const next = { ...row, ...applyMark(row, mark, now) };
   await db.reviews.put(next);
   return next;
+}
+
+// ── Study sessions ─────────────────────────────────────────────────────────
+export async function startStudySession(mode) {
+  return db.studySessions.add({
+    mode,
+    startedAt: Date.now(),
+    endedAt: null,
+    itemsTotal: 0,
+    itemsCorrect: 0,
+  });
+}
+
+export async function endStudySession(id, itemsTotal, itemsCorrect) {
+  await db.studySessions.update(id, { endedAt: Date.now(), itemsTotal, itemsCorrect });
+}
+
+export async function getAllStudySessions() {
+  return db.studySessions.orderBy('startedAt').reverse().toArray();
 }
 
 export default db;
