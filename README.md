@@ -1,6 +1,8 @@
-# SPICE-T Charts
+# AP Theme Charts
 
-A local-first study tool for AP World History: Modern. Students create SPICE-T charts (Social, Political, Interactions, Cultural, Economic, Technological), compare empires side-by-side, and study with an AI tutor that reasons only over their own work.
+A local-first study tool for AP World History: Modern. Students build charts organized by the six official CED themes — Humans & the Environment (ENV), Cultural Developments & Interactions (CDI), Governance (GOV), Economic Systems (ECN), Social Interactions & Organization (SIO), and Technology & Innovation (TEC) — compare empires side-by-side, and study with an AI tutor that reasons only over their own work.
+
+*(Formerly "SPICE-T Charts" — the course now uses the CED's official theme names. Internal category keys are unchanged, so existing saved charts carry over.)*
 
 **Live app:** https://spicet-app.vercel.app
 

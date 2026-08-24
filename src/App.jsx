@@ -7,6 +7,7 @@ import Settings from './components/Settings';
 import WelcomeSetup from './components/WelcomeSetup';
 import Header from './components/Header';
 import AITutor from './components/AITutor';
+import ReviewSession from './components/ReviewSession';
 
 function App() {
   const [screen, setScreen] = useState('loading');
@@ -79,8 +80,10 @@ function App() {
             onEditChart={handleEditChart}
             onNewChart={handleNewChart}
             onCompare={handleCompare}
+            onReview={() => setScreen('review')}
           />
         )}
+        {screen === 'review' && <ReviewSession onBack={handleBack} />}
         {screen === 'editor' && (
           <ChartEditor chartId={editingChartId} onBack={handleBack} />
         )}

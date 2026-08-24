@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronRight, Plus, Trash2, HelpCircle } from 'lucide-react';
 import EntryRow from './EntryRow';
+import { createEmptyEntry } from '../lib/db';
 
 export default function CategorySection({ config, entries, onUpdate }) {
   const [expanded, setExpanded] = useState(true);
   const [showPrompts, setShowPrompts] = useState(false);
 
   function addEntry() {
-    onUpdate([...entries, { claim: '', evidence: '', citation: '' }]);
+    onUpdate([...entries, createEmptyEntry()]);
   }
 
   function removeEntry(index) {

@@ -20,7 +20,7 @@ export default function WelcomeSetup({ onSave }) {
             <BookOpen size={40} className="text-white" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
-            Welcome to SPICE-T Charts
+            Welcome to AP Theme Charts
           </h1>
           <p className="text-gray-600">
             AP World History: Modern study tool

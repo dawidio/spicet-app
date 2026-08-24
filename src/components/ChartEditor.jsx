@@ -102,7 +102,7 @@ export default function ChartEditor({ chartId, onBack }) {
       {/* Save status bar */}
       <div className="flex flex-wrap items-center justify-between mb-4 gap-2">
         <h2 className="text-lg sm:text-xl font-bold text-gray-800">
-          {chart.id ? 'Edit Chart' : 'New SPICE-T Chart'}
+          {chart.id ? 'Edit Chart' : 'New Theme Chart'}
         </h2>
         <div className="flex items-center gap-2 sm:gap-3">
           {chart.id && (
@@ -199,7 +199,7 @@ export default function ChartEditor({ chartId, onBack }) {
         </div>
       </div>
 
-      {/* SPICE-T Categories */}
+      {/* CED theme categories */}
       <div className="space-y-4">
         {CATEGORIES_ORDER.map((catKey) => (
           <CategorySection

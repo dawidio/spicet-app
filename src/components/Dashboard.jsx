@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAllCharts, deleteChart, getStudentProfile } from '../lib/db';
+import { getAllCharts, deleteChart, getDueReviewCount } from '../lib/db';
 import { AP_WORLD_UNITS } from '../data/units';
 import { CATEGORIES_ORDER, CATEGORY_CONFIG } from '../data/prompts';
 import { exportChartPDF } from '../lib/export';
@@ -16,17 +16,20 @@ import {
   Square,
   FileDown,
   X,
+  Brain,
 } from 'lucide-react';
 
-export default function Dashboard({ onEditChart, onNewChart, onCompare }) {
+export default function Dashboard({ onEditChart, onNewChart, onCompare, onReview }) {
   const [charts, setCharts] = useState([]);
   const [search, setSearch] = useState('');
   const [unitFilter, setUnitFilter] = useState(null);
   const [compareMode, setCompareMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
+  const [dueCount, setDueCount] = useState(0);
 
   useEffect(() => {
     loadCharts();
+    getDueReviewCount().then(setDueCount);
   }, []);
 
   async function loadCharts() {
@@ -82,6 +85,44 @@ export default function Dashboard({ onEditChart, onNewChart, onCompare }) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
+      {/* Retrieval queue banner */}
+      {charts.length > 0 && (
+        <div
+          className={`mb-6 rounded-xl border-2 p-4 flex flex-col sm:flex-row sm:items-center gap-3 ${
+            dueCount > 0
+              ? 'border-accent bg-accent/5'
+              : 'border-gray-200 bg-white'
+          }`}
+        >
+          <div className="flex items-center gap-3 flex-1">
+            <div
+              className={`rounded-lg p-2 ${dueCount > 0 ? 'bg-accent' : 'bg-gray-200'}`}
+            >
+              <Brain size={20} className="text-white" />
+            </div>
+            <div>
+              <p className="font-semibold text-gray-900">
+                {dueCount > 0
+                  ? `${dueCount} ${dueCount === 1 ? 'entry is' : 'entries are'} due for retrieval`
+                  : 'Retrieval queue is clear'}
+              </p>
+              <p className="text-sm text-gray-500">
+                {dueCount > 0
+                  ? 'Recall each one from memory before you check — that’s what makes it stick.'
+                  : 'Entries come back on a spaced schedule as the exam approaches.'}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onReview}
+            disabled={dueCount === 0}
+            className="px-5 py-2.5 bg-accent text-white rounded-lg hover:bg-accent-light transition-colors font-medium disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
+          >
+            Start review
+          </button>
+        </div>
+      )}
+
       {/* Toolbar */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="flex-1 relative">
@@ -171,7 +212,7 @@ export default function Dashboard({ onEditChart, onNewChart, onCompare }) {
                 No charts yet
               </h2>
               <p className="text-gray-500 mb-6">
-                Create your first SPICE-T chart to start studying!
+                Create your first theme chart to start studying!
               </p>
               <button
                 onClick={onNewChart}

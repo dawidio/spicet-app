@@ -4,11 +4,14 @@ Guidance for Claude Code when working in this repository.
 
 ## What this is
 
-**SPICE-T Charts** is a local-first study tool for **AP World History: Modern**.
-Students build SPICE-T charts (Social, Political, Interactions, Cultural,
-Economic, Technological), compare empires side-by-side, and study with an AI
-tutor that reasons **only over the student's own work**. There is no backend —
-everything lives in the browser.
+**AP Theme Charts** (formerly SPICE-T Charts) is a local-first study tool for
+**AP World History: Modern**. Students build charts organized by the six
+official College Board CED themes — Humans & the Environment (ENV), Cultural
+Developments & Interactions (CDI), Governance (GOV), Economic Systems (ECN),
+Social Interactions & Organization (SIO), Technology & Innovation (TEC) —
+compare empires side-by-side, and study with an AI tutor that reasons **only
+over the student's own work**. There is no backend — everything lives in the
+browser.
 
 Live app: https://spicet-app.vercel.app
 
@@ -55,7 +58,7 @@ src/
     anti-paste.js       # Disables paste/drop on entry fields (anti-cheating)
   data/
     units.js            # AP_WORLD_UNITS — the 9 College Board units + date ranges
-    prompts.js          # CATEGORY_CONFIG + CATEGORIES_ORDER — the SPICE-T categories
+    prompts.js          # CATEGORY_CONFIG + CATEGORIES_ORDER — the six CED themes
 public/
   oer-knowledge/unitN.json  # Open Educational Resource knowledge per unit (1–9)
 ```
@@ -68,7 +71,7 @@ react-router.
 
 ### Data model (Dexie, `src/lib/db.js`)
 - `charts`: `++id, empireName, unitNumber, createdAt, updatedAt`. Each chart has
-  `categories` keyed by the six SPICE-T category keys, each holding
+  `categories` keyed by the six theme category keys (legacy names), each holding
   `entries: [{ claim, evidence, citation }]`.
 - `comparisons`: `++id, createdAt`. Holds `chartIds` + per-category
   `annotations` (`similarities`, `differences`, `ccot`).
@@ -77,7 +80,7 @@ react-router.
 When changing persisted shapes, bump the Dexie version in `db.js` and add a
 migration — never silently change `db.version(1)`.
 
-### The SPICE-T categories (read before touching category logic)
+### The CED theme categories (read before touching category logic)
 The six categories — `social`, `political`, `interactions`, `cultural`,
 `economic`, `technological` — are the spine of the app. Their canonical
 definition is `CATEGORY_CONFIG` / `CATEGORIES_ORDER` in `src/data/prompts.js`.
@@ -117,6 +120,6 @@ product's reason for existing, not an arbitrary limitation. The same goes for
 
 1. `npm run build` passes.
 2. If you changed a persisted data shape, the Dexie version/migration is handled.
-3. If you changed the SPICE-T categories, every duplicate site is updated
+3. If you changed the theme categories, every duplicate site is updated
    (`/check-spicet-consistency`).
 4. AI tutor guardrails and anti-paste behavior are preserved.

@@ -2,15 +2,15 @@ import { CATEGORIES_ORDER, CATEGORY_CONFIG } from '../data/prompts';
 import { AP_WORLD_UNITS } from '../data/units';
 
 /**
- * Serializes a student's SPICE-T charts into a text context block
+ * Serializes a student's theme charts into a text context block
  * that the AI tutor can reason over.
  */
 export function buildChartContext(charts) {
   if (!charts || charts.length === 0) {
-    return 'The student has not created any SPICE-T charts yet.';
+    return 'The student has not created any theme charts yet.';
   }
 
-  let context = `The student has created ${charts.length} SPICE-T chart(s):\n\n`;
+  let context = `The student has created ${charts.length} theme chart(s), organized by the six AP World History CED themes:\n\n`;
 
   for (const chart of charts) {
     const unit = AP_WORLD_UNITS.find((u) => u.number === chart.unitNumber);
@@ -97,7 +97,7 @@ export function buildComparisonContext(comparison, charts) {
  * Builds the full system prompt for the AI tutor
  */
 export function buildSystemPrompt(chartContext, comparisonContext, oerContext = '') {
-  return `You are an AP World History: Modern study tutor embedded in a SPICE-T chart application. Your role is to help students develop historical thinking skills by reasoning ONLY over the SPICE-T charts they have created.
+  return `You are an AP World History: Modern study tutor embedded in a theme-chart application. Students organize their notes by the six official College Board CED themes: Humans & the Environment (ENV), Cultural Developments & Interactions (CDI), Governance (GOV), Economic Systems (ECN), Social Interactions & Organization (SIO), and Technology & Innovation (TEC). Use these CED theme names when discussing categories. Your role is to help students develop historical thinking skills by reasoning ONLY over the theme charts they have created.
 
 STRICT RULES:
 1. NEVER generate new chart content, fill in entries, or write information the student hasn't entered.
@@ -126,7 +126,7 @@ Sourcing:
 
 ADDITIONAL BEHAVIORS:
 - When a student asks a vague question, help them sharpen it into a specific historical thinking skill question.
-- Point out gaps in their charts that might strengthen their analysis. Example: "Your Mongol Empire chart has strong Social entries but nothing in Economic — how might trade have connected to the social hierarchy you described?"
+- Point out gaps in their charts that might strengthen their analysis. Example: "Your Mongol Empire chart has strong Social Interactions & Organization entries but nothing in Economic Systems — how might trade have connected to the social hierarchy you described?"
 - If they ask about connections between empires, reference the specific entries from each chart.
 - Keep responses concise and focused. Students are studying, not reading essays.
 - Use encouraging but honest tone. Praise strong analysis, gently redirect weak claims.
