@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { getStudentProfile, setStudentProfile } from './lib/db';
+import { getStudentProfile, setStudentProfile, setSetting } from './lib/db';
 import Dashboard from './components/Dashboard';
 import ChartEditor from './components/ChartEditor';
 import CompareView from './components/CompareView';
@@ -8,11 +8,13 @@ import WelcomeSetup from './components/WelcomeSetup';
 import Header from './components/Header';
 import AITutor from './components/AITutor';
 import ReviewSession from './components/ReviewSession';
+import ProgressView from './components/ProgressView';
 
 function App() {
   const [screen, setScreen] = useState('loading');
   const [profile, setProfile] = useState({ name: '', classPeriod: '' });
   const [editingChartId, setEditingChartId] = useState(null);
+  const [newChartCourse, setNewChartCourse] = useState('apwhm');
   const [compareChartIds, setCompareChartIds] = useState([]);
 
   useEffect(() => {
@@ -26,8 +28,9 @@ function App() {
     });
   }, []);
 
-  const handleProfileSave = useCallback(async (name, classPeriod) => {
+  const handleProfileSave = useCallback(async (name, classPeriod, stayLocalOnly = true) => {
     await setStudentProfile(name, classPeriod);
+    await setSetting('stayLocalOnly', stayLocalOnly);
     setProfile({ name, classPeriod });
     setScreen('dashboard');
   }, []);
@@ -37,7 +40,8 @@ function App() {
     setScreen('editor');
   }, []);
 
-  const handleNewChart = useCallback(() => {
+  const handleNewChart = useCallback((course = 'apwhm') => {
+    setNewChartCourse(course);
     setEditingChartId(null);
     setScreen('editor');
   }, []);
@@ -81,11 +85,18 @@ function App() {
             onNewChart={handleNewChart}
             onCompare={handleCompare}
             onReview={() => setScreen('review')}
+            onProgress={() => setScreen('progress')}
+            profile={profile}
           />
         )}
         {screen === 'review' && <ReviewSession onBack={handleBack} />}
+        {screen === 'progress' && <ProgressView onBack={handleBack} />}
         {screen === 'editor' && (
-          <ChartEditor chartId={editingChartId} onBack={handleBack} />
+          <ChartEditor
+            chartId={editingChartId}
+            initialCourse={newChartCourse}
+            onBack={handleBack}
+          />
         )}
         {screen === 'compare' && (
           <CompareView chartIds={compareChartIds} onBack={handleBack} />

@@ -1,5 +1,13 @@
-import { CATEGORIES_ORDER, CATEGORY_CONFIG } from '../data/prompts';
-import { AP_WORLD_UNITS } from '../data/units';
+import { getCategoriesOrder, getCategoryConfig } from '../data/prompts';
+import { AP_WORLD_UNITS, APUSH_PERIODS } from '../data/units';
+
+function unitsForCourse(course) {
+  return course === 'apush' ? APUSH_PERIODS : AP_WORLD_UNITS;
+}
+
+function unitWord(course) {
+  return course === 'apush' ? 'Period' : 'Unit';
+}
 
 /**
  * Serializes a student's theme charts into a text context block
@@ -10,37 +18,41 @@ export function buildChartContext(charts) {
     return 'The student has not created any theme charts yet.';
   }
 
-  let context = `The student has created ${charts.length} theme chart(s), organized by the six AP World History CED themes:\n\n`;
+  let context = `The student has created ${charts.length} theme chart(s), each organized by the official College Board CED themes for its course:\n\n`;
 
   for (const chart of charts) {
-    const unit = AP_WORLD_UNITS.find((u) => u.number === chart.unitNumber);
+    const course = chart.course || 'apwhm';
+    const categoriesOrder = getCategoriesOrder(course);
+    const categoryConfig = getCategoryConfig(course);
+    const unit = unitsForCourse(course).find((u) => u.number === chart.unitNumber);
     const unitLabel = unit
-      ? `Unit ${unit.number}: ${unit.name} (${unit.dateRange})`
-      : 'No unit assigned';
+      ? `${unitWord(course)} ${unit.number}: ${unit.name} (${unit.dateRange})`
+      : `No ${unitWord(course).toLowerCase()} assigned`;
 
     context += `═══════════════════════════════════════\n`;
     context += `CHART: ${chart.empireName || 'Untitled'}\n`;
+    context += `Course: ${course === 'apush' ? 'AP United States History' : 'AP World History: Modern'}\n`;
     context += `Region: ${chart.region || 'Not specified'}\n`;
     context += `Date Range: ${chart.dateRange || 'Not specified'}\n`;
     context += `${unitLabel}\n`;
     context += `═══════════════════════════════════════\n\n`;
 
-    for (const catKey of CATEGORIES_ORDER) {
-      const config = CATEGORY_CONFIG[catKey];
+    for (const catKey of categoriesOrder) {
+      const config = categoryConfig[catKey];
       const entries = chart.categories?.[catKey]?.entries || [];
-      const filledEntries = entries.filter((e) => e.claim.trim());
+      const filledEntries = entries.filter((e) => e.claim?.trim());
 
-      context += `--- ${config.label.toUpperCase()} ---\n`;
+      context += `--- ${config.abbr} — ${config.label.toUpperCase()} ---\n`;
 
       if (filledEntries.length === 0) {
         context += '(No entries)\n\n';
       } else {
         filledEntries.forEach((entry, i) => {
           context += `  ${i + 1}. Claim: ${entry.claim}\n`;
-          if (entry.evidence.trim()) {
+          if (entry.evidence?.trim()) {
             context += `     Evidence: ${entry.evidence}\n`;
           }
-          if (entry.citation.trim()) {
+          if (entry.citation?.trim()) {
             context += `     Citation: ${entry.citation}\n`;
           }
         });
@@ -59,14 +71,18 @@ export function buildChartContext(charts) {
 export function buildComparisonContext(comparison, charts) {
   if (!comparison) return '';
 
+  const course = comparison.course || charts?.[0]?.course || 'apwhm';
+  const categoriesOrder = getCategoriesOrder(course);
+  const categoryConfig = getCategoryConfig(course);
+
   const chartNames = charts
     .map((c) => c.empireName || 'Untitled')
     .join(' vs. ');
 
   let context = `\nThe student has a comparison between: ${chartNames}\n\n`;
 
-  for (const catKey of CATEGORIES_ORDER) {
-    const config = CATEGORY_CONFIG[catKey];
+  for (const catKey of categoriesOrder) {
+    const config = categoryConfig[catKey];
     const ann = comparison.annotations?.[catKey];
     if (!ann) continue;
 
@@ -76,7 +92,7 @@ export function buildComparisonContext(comparison, charts) {
       ann.ccot?.trim();
 
     if (hasSomething) {
-      context += `--- ${config.label.toUpperCase()} ANALYSIS ---\n`;
+      context += `--- ${config.abbr} — ${config.label.toUpperCase()} ANALYSIS ---\n`;
       if (ann.similarities?.trim()) {
         context += `  Similarities: ${ann.similarities}\n`;
       }
@@ -97,12 +113,18 @@ export function buildComparisonContext(comparison, charts) {
  * Builds the full system prompt for the AI tutor
  */
 export function buildSystemPrompt(chartContext, comparisonContext, oerContext = '') {
-  return `You are an AP World History: Modern study tutor embedded in a theme-chart application. Students organize their notes by the six official College Board CED themes: Humans & the Environment (ENV), Cultural Developments & Interactions (CDI), Governance (GOV), Economic Systems (ECN), Social Interactions & Organization (SIO), and Technology & Innovation (TEC). Use these CED theme names when discussing categories. Your role is to help students develop historical thinking skills by reasoning ONLY over the theme charts they have created.
+  return `You are an AP history study tutor embedded in a theme-chart application serving two courses: AP World History: Modern and AP United States History. Students organize their notes by the official College Board CED themes for their course.
+
+AP World History: Modern — Humans and the Environment (ENV), Cultural Developments and Interactions (CDI), Governance (GOV), Economic Systems (ECN), Social Interactions and Organization (SIO), Technology and Innovation (TEC).
+
+AP United States History — American and National Identity (NAT), America in the World (WOR), Geography and the Environment (GEO), Migration and Settlement (MIG), Politics and Civic Engagement (PCE), Work, Exchange, and Technology (WXT), Social Structures (SOC), American and Regional Culture (ARC).
+
+Use these CED theme names and abbreviations when discussing categories, and use the ones that belong to the chart's own course. Your role is to help students develop historical thinking skills by reasoning ONLY over the theme charts they have created.
 
 STRICT RULES:
 1. NEVER generate new chart content, fill in entries, or write information the student hasn't entered.
 2. NEVER write essays, DBQs, LEQs, or SAQs for the student.
-3. NEVER answer questions unrelated to AP World History or the student's charts.
+3. NEVER answer questions unrelated to AP history or the student's charts.
 4. ONLY reason over the data the student has already entered in their charts and annotations.
 5. If a student asks about something not in their charts, say: "I don't see that in your charts yet. Add entries about that topic and I can help you analyze them."
 6. Always CITE specific charts by name when referencing information. Example: "Looking at your Mongol Empire chart (Unit 2)..."
@@ -126,8 +148,8 @@ Sourcing:
 
 ADDITIONAL BEHAVIORS:
 - When a student asks a vague question, help them sharpen it into a specific historical thinking skill question.
-- Point out gaps in their charts that might strengthen their analysis. Example: "Your Mongol Empire chart has strong Social Interactions & Organization entries but nothing in Economic Systems — how might trade have connected to the social hierarchy you described?"
-- If they ask about connections between empires, reference the specific entries from each chart.
+- Point out gaps in their charts that might strengthen their analysis. Example: "Your Mongol Empire chart has strong Social Interactions and Organization (SIO) entries but nothing in Economic Systems (ECN) — how might trade have connected to the social hierarchy you described?"
+- If they ask about connections between charts, reference the specific entries from each chart.
 - Keep responses concise and focused. Students are studying, not reading essays.
 - Use encouraging but honest tone. Praise strong analysis, gently redirect weak claims.
 

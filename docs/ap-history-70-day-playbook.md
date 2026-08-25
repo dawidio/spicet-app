@@ -397,7 +397,7 @@ Status after the first build pass:
 1. **Relearning scheduler** — ✅ shipped (`src/lib/spacing.js` + `reviews` store in `db.js`, Dexie v2): successive-relearning protocol, per-entry review state, "due today" queue on the Dashboard. Mark history is retained per entry, so a full calibration view (item 4) has its data already.
 2. **Retrieval mode** — ✅ shipped (`src/components/ReviewSession.jsx`): quizzes the student from their own entries (claim → recall evidence + significance), knew/lucky/wrong self-marks, in-session requeue until the 3-correct criterion, per-theme session summary. Fully inside the guardrails — no AI generation involved.
 3. **Lagged-opener generator (teacher view):** pull N items from current unit + M from ≥2 units back across the class's charts/OER base; export to slide. *(Next up.)*
-4. **Calibration tracker view:** surface the stored knew/lucky/wrong history per theme per unit — the student's April review plan generates itself. *(Data already captured by #1.)*
+4. **Calibration tracker view** — ✅ shipped (`src/components/ProgressView.jsx`): per-theme mastery bars and all-time knew/lucky/wrong tallies from the stored review history, reachable from the Dashboard's Progress button. The April review plan reads itself off the weakest rows.
 5. **Defense-prep mode:** tutor asks the student 3 escalating questions about their own comparison annotations (already guardrail-compliant) — rehearsal for Type D days.
 6. **Running Theme Tracker view** *(field-audit backport)*: one page per CED theme × 9 unit rows (CONTINUED vs CHANGED), filled at unit close — the app already holds per-unit, per-theme entries, so this is largely a rendering of existing data.
 

@@ -161,11 +161,15 @@ compare in July).
 
 ## Part 4 — Where everything lives
 
-- **Repo:** `dawidio/spicet-app`, branch `claude/ap-history-teaching-methods-zv2ss9`, PR #7 (draft)
+- **Repo:** `dawidio/spicet-app` — **the full system is MERGED to `main`** (PR #7,
+  2026-08-24). In-flight work rides PR #8 (Progress view + launch materials) on
+  branch `claude/ap-history-teaching-methods-zv2ss9`.
   - `docs/ap-history-70-day-playbook.md` — the full design, evidence tiers, citations, day types, grading system, AI layer, three adoption dial-settings, app build list
-  - `docs/ap-history-70-day-pacing.md` — the 70-block calendar with cut-order triage + APUSH conversion
-  - `.claude/skills/spiral-studio/` — the weekly-planning OS skill + references (day skeletons & scoring rotation, flipped pipeline, norming protocol). **Copy this folder into David's synced skills** so it fires outside the repo.
-  - App: `src/lib/spacing.js` (scheduler), `src/components/ReviewSession.jsx` (Review mode), Dexie v2 in `src/lib/db.js`
+  - `docs/ap-history-70-day-pacing.md` — the 70-block calendar (+ compressed 6-block review variant) with cut-order triage + APUSH conversion
+  - `docs/launch-materials/` — Block 1 experiment kit, student one-pager, calibration tracker, Unit 1 pre-work (.docx, ready to print)
+  - `docs/field-audit-*.md` — comparison-protocol results; `docs/session-logs/` — session state
+  - `.claude/skills/spiral-studio/` — the weekly-planning OS skill + references (day skeletons & scoring rotation, flipped pipeline, norming protocol). A copy was placed in David's synced-skills directory on 2026-08-24 — verify it survived sync; the repo copy is source of truth.
+  - App (live at spicet-app.vercel.app): `src/lib/spacing.js` (scheduler), `ReviewSession.jsx` (Review mode), `ProgressView.jsx` (calibration tracker, PR #8), Dexie v2 in `src/lib/db.js`
 - **Readable version:** artifact "The Spiral Studio" — https://claude.ai/code/artifact/a761e91f-5fed-48cd-9751-88b6607998a8
 - **Live preview with Review mode:** the PR's Vercel preview (spicet-app-git-claude-ap-history-teach-…vercel.app)
 - **His relevant skills** (already synced on his account): teaching-dispatcher,
@@ -173,12 +177,13 @@ compare in July).
   mini-lecture default), assessment-builder (SASPD tables), discussion-questions,
   ai-resistant-redesigner, grading-stress-test → student-feedback, sub-plans,
   udl-crp, frame, david-voice, docx, close.
-- **Pending manual fixes on his side:** (1) assessment-builder and
-  lesson-planner skills still document HAPPY — update their tables to **HIPP**
-  (Historical situation, Intended audience, Point of view, Purpose; drop the
-  trailing Y row); (2) sweep primers, skills docs, and student-facing handouts
-  so HIPP is the only sourcing acronym in circulation — HAPPY and HAPP
-  references are historical.
+- **Synced-skill updates applied 2026-08-24 (verify they survived sync):**
+  assessment-builder's sourcing table is now **HIPP** (Historical situation,
+  Intended audience, Point of view, Purpose — trailing Y retired to
+  complexity/thesis instruction) and lesson-planner's default 75-minute
+  structures are the Studio skeleton. If the sync reverted these, re-apply
+  from this note. **Still David-side:** sweep primers and student-facing
+  handouts so HIPP is the only sourcing acronym in circulation.
 
 ## Part 5 — How David uses this handoff
 

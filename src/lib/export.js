@@ -1,31 +1,60 @@
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import { CATEGORIES_ORDER, CATEGORY_CONFIG } from '../data/prompts';
-import { AP_WORLD_UNITS } from '../data/units';
+import { getCategoriesOrder, getCategoryConfig } from '../data/prompts';
+import { AP_WORLD_UNITS, APUSH_PERIODS } from '../data/units';
+import { SPICET_EXPORT_VERSION } from './pdf-import';
 
+// CED key → PDF color [R, G, B]
 const COLORS = {
-  social: [239, 68, 68],
-  political: [59, 130, 246],
-  interactions: [16, 185, 129],
-  cultural: [139, 92, 246],
-  economic: [245, 158, 11],
-  technological: [99, 102, 241],
+  // APWHM
+  ENV: [16, 185, 129],
+  CDI: [139, 92, 246],
+  GOV: [59, 130, 246],
+  ECN: [245, 158, 11],
+  SIO: [239, 68, 68],
+  TEC: [99, 102, 241],
+  // APUSH
+  NAT: [185, 28, 28],
+  WOR: [29, 78, 216],
+  GEO: [21, 128, 61],
+  MIG: [180, 83, 9],
+  PCE: [126, 34, 206],
+  WXT: [67, 56, 202],
+  SOC: [190, 18, 60],
+  ARC: [15, 118, 110],
 };
 
+const FALLBACK_COLOR = [100, 116, 139];
 const PRIMARY = [30, 64, 175];
 
-/**
- * Export a single theme chart as PDF
- */
+function getColor(catKey) {
+  return COLORS[catKey] || FALLBACK_COLOR;
+}
+
+function categoryHeading(config) {
+  return config.abbr ? `${config.abbr} — ${config.label}` : config.label;
+}
+
+function getUnitList(course) {
+  return course === 'apush' ? APUSH_PERIODS : AP_WORLD_UNITS;
+}
+
+function getCourseLabel(course) {
+  return course === 'apush' ? 'AP United States History' : 'AP World History: Modern';
+}
+
 export function exportChartPDF(chart, profile) {
+  const course = chart.course || 'apwhm';
+  const categoriesOrder = getCategoriesOrder(course);
+  const categoryConfig = getCategoryConfig(course);
+  const unitList = getUnitList(course);
+
   const doc = new jsPDF('p', 'mm', 'a4');
   const pageWidth = doc.internal.pageSize.getWidth();
   const margin = 15;
 
-  // Header
-  drawHeader(doc, pageWidth, margin, profile);
+  drawHeader(doc, pageWidth, margin, profile, course);
 
-  // Chart title block
   let y = 38;
   doc.setFontSize(16);
   doc.setFont('helvetica', 'bold');
@@ -37,44 +66,36 @@ export function exportChartPDF(chart, profile) {
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(100, 116, 139);
 
-  const unit = AP_WORLD_UNITS.find((u) => u.number === chart.unitNumber);
+  const unit = unitList.find((u) => u.number === chart.unitNumber);
   const meta = [
     chart.region,
     chart.dateRange,
-    unit ? `Unit ${unit.number}: ${unit.name}` : null,
+    unit ? `${course === 'apush' ? 'Period' : 'Unit'} ${unit.number}: ${unit.name}` : null,
   ]
     .filter(Boolean)
     .join('  |  ');
   doc.text(meta, margin, y);
 
   y += 8;
-
-  // Draw line
   doc.setDrawColor(226, 232, 240);
   doc.setLineWidth(0.3);
   doc.line(margin, y, pageWidth - margin, y);
   y += 6;
 
-  // Each CED theme as a table
-  for (const catKey of CATEGORIES_ORDER) {
-    const config = CATEGORY_CONFIG[catKey];
+  for (const catKey of categoriesOrder) {
+    const config = categoryConfig[catKey];
     const entries = chart.categories?.[catKey]?.entries || [];
     const filledEntries = entries.filter((e) => e.claim.trim());
 
-    // Check if we need a new page
-    if (y > 250) {
-      doc.addPage();
-      y = 20;
-    }
+    if (y > 250) { doc.addPage(); y = 20; }
 
-    // Category label
-    const color = COLORS[catKey];
+    const color = getColor(catKey);
     doc.setFillColor(color[0], color[1], color[2]);
     doc.roundedRect(margin, y, pageWidth - margin * 2, 7, 1, 1, 'F');
     doc.setFontSize(11);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(255, 255, 255);
-    doc.text(config.label.toUpperCase(), margin + 3, y + 5);
+    doc.text(categoryHeading(config), margin + 3, y + 5);
     y += 10;
 
     if (filledEntries.length === 0) {
@@ -88,11 +109,7 @@ export function exportChartPDF(chart, profile) {
         startY: y,
         margin: { left: margin, right: margin },
         head: [['Claim / Information', 'Evidence', 'Citation']],
-        body: filledEntries.map((e) => [
-          e.claim,
-          e.evidence || '—',
-          e.citation || '—',
-        ]),
+        body: filledEntries.map((e) => [e.claim, e.evidence || '—', e.citation || '—']),
         headStyles: {
           fillColor: [color[0], color[1], color[2]],
           textColor: 255,
@@ -111,41 +128,30 @@ export function exportChartPDF(chart, profile) {
         },
         alternateRowStyles: { fillColor: [248, 250, 252] },
         theme: 'grid',
-        styles: {
-          lineColor: [226, 232, 240],
-          lineWidth: 0.2,
-          overflow: 'linebreak',
-        },
+        styles: { lineColor: [226, 232, 240], lineWidth: 0.2, overflow: 'linebreak' },
       });
       y = doc.lastAutoTable.finalY + 6;
     }
   }
 
-  // Study prompt block
-  if (y > 230) {
-    doc.addPage();
-    y = 20;
-  }
+  if (y > 230) { doc.addPage(); y = 20; }
   y += 4;
   drawPromptBlock(doc, chart, null, pageWidth, margin, y);
+  addFooter(doc, course);
 
-  // Footer
-  addFooter(doc);
-
-  doc.save(`ThemeChart_${sanitizeFilename(chart.empireName || 'chart')}.pdf`);
+  doc.save(`APThemes_${sanitizeFilename(chart.empireName || 'chart')}.pdf`);
 }
 
-/**
- * Export a comparison as PDF
- */
 export function exportComparisonPDF(charts, comparison, profile) {
-  // Use landscape for side-by-side
+  const course = charts[0]?.course || 'apwhm';
+  const categoriesOrder = getCategoriesOrder(course);
+  const categoryConfig = getCategoryConfig(course);
+
   const doc = new jsPDF('l', 'mm', 'a4');
   const pageWidth = doc.internal.pageSize.getWidth();
   const margin = 12;
 
-  // Header
-  drawHeader(doc, pageWidth, margin, profile);
+  drawHeader(doc, pageWidth, margin, profile, course);
 
   let y = 38;
   doc.setFontSize(14);
@@ -155,16 +161,10 @@ export function exportComparisonPDF(charts, comparison, profile) {
   doc.text(title, margin, y);
   y += 10;
 
-  // Chart summary row
   const colWidth = (pageWidth - margin * 2) / charts.length;
   charts.forEach((chart, i) => {
     const x = margin + i * colWidth;
-    const color = [
-      [59, 130, 246],
-      [16, 185, 129],
-      [245, 158, 11],
-      [139, 92, 246],
-    ][i];
+    const color = [[59, 130, 246], [16, 185, 129], [245, 158, 11], [139, 92, 246]][i];
     doc.setFillColor(color[0], color[1], color[2]);
     doc.roundedRect(x, y, colWidth - 4, 12, 1, 1, 'F');
     doc.setFontSize(9);
@@ -173,33 +173,26 @@ export function exportComparisonPDF(charts, comparison, profile) {
     doc.text(chart.empireName || 'Untitled', x + 3, y + 5);
     doc.setFontSize(7);
     doc.setFont('helvetica', 'normal');
-    const sub = [chart.region, chart.dateRange, chart.unitNumber ? `Unit ${chart.unitNumber}` : null]
-      .filter(Boolean)
-      .join(' | ');
+    const sub = [chart.region, chart.dateRange, chart.unitNumber ? `${course === 'apush' ? 'Period' : 'Unit'} ${chart.unitNumber}` : null]
+      .filter(Boolean).join(' | ');
     doc.text(sub, x + 3, y + 9.5);
   });
   y += 16;
 
-  // Categories
-  for (const catKey of CATEGORIES_ORDER) {
-    const config = CATEGORY_CONFIG[catKey];
-    const color = COLORS[catKey];
+  for (const catKey of categoriesOrder) {
+    const config = categoryConfig[catKey];
+    const color = getColor(catKey);
 
-    if (y > 170) {
-      doc.addPage();
-      y = 15;
-    }
+    if (y > 170) { doc.addPage(); y = 15; }
 
-    // Category header
     doc.setFillColor(color[0], color[1], color[2]);
     doc.roundedRect(margin, y, pageWidth - margin * 2, 6, 1, 1, 'F');
     doc.setFontSize(9);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(255, 255, 255);
-    doc.text(config.label.toUpperCase(), margin + 3, y + 4.2);
+    doc.text(categoryHeading(config), margin + 3, y + 4.2);
     y += 8;
 
-    // Side-by-side entries
     let maxY = y;
     charts.forEach((chart, i) => {
       const x = margin + i * colWidth;
@@ -244,13 +237,9 @@ export function exportComparisonPDF(charts, comparison, profile) {
 
     y = maxY + 2;
 
-    // Annotations for this category
     const ann = comparison?.annotations?.[catKey];
     if (ann && (ann.similarities?.trim() || ann.differences?.trim() || ann.ccot?.trim())) {
-      if (y > 170) {
-        doc.addPage();
-        y = 15;
-      }
+      if (y > 170) { doc.addPage(); y = 15; }
 
       doc.setFillColor(248, 250, 252);
       doc.roundedRect(margin, y, pageWidth - margin * 2, 5, 0.5, 0.5, 'F');
@@ -272,7 +261,6 @@ export function exportComparisonPDF(charts, comparison, profile) {
           doc.setFont('helvetica', 'bold');
           doc.setTextColor(field.labelColor[0], field.labelColor[1], field.labelColor[2]);
           doc.text(`${field.label}:`, margin + 3, y + 3);
-
           doc.setFont('helvetica', 'normal');
           doc.setTextColor(71, 85, 105);
           const lines = doc.splitTextToSize(field.value, pageWidth - margin * 2 - 30);
@@ -282,37 +270,31 @@ export function exportComparisonPDF(charts, comparison, profile) {
       }
       y += 3;
     }
-
     y += 3;
   }
 
-  // Study prompt block
-  if (y > 155) {
-    doc.addPage();
-    y = 15;
-  }
+  if (y > 155) { doc.addPage(); y = 15; }
   drawPromptBlock(doc, null, charts, pageWidth, margin, y);
-
-  addFooter(doc);
+  addFooter(doc, course);
 
   const names = charts.map((c) => sanitizeFilename(c.empireName || 'chart')).join('_vs_');
-  doc.save(`ThemeChart_Compare_${names}.pdf`);
+  doc.save(`APThemes_Compare_${names}.pdf`);
 }
 
 // ── Helpers ──────────────────────────────────────────────────────
 
-function drawHeader(doc, pageWidth, margin, profile) {
+function drawHeader(doc, pageWidth, margin, profile, course = 'apwhm') {
   doc.setFillColor(PRIMARY[0], PRIMARY[1], PRIMARY[2]);
   doc.rect(0, 0, pageWidth, 28, 'F');
 
   doc.setFontSize(14);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(255, 255, 255);
-  doc.text('AP Theme Chart', margin, 12);
+  doc.text('AP Theme Charts', margin, 12);
 
   doc.setFontSize(8);
   doc.setFont('helvetica', 'normal');
-  doc.text('AP World History: Modern', margin, 18);
+  doc.text(getCourseLabel(course), margin, 18);
 
   if (profile?.name) {
     doc.setFontSize(9);
@@ -324,12 +306,7 @@ function drawHeader(doc, pageWidth, margin, profile) {
   }
 
   doc.setFontSize(7);
-  doc.text(
-    `Generated ${new Date().toLocaleDateString()}`,
-    pageWidth - margin,
-    24,
-    { align: 'right' }
-  );
+  doc.text(`Generated ${new Date().toLocaleDateString()}`, pageWidth - margin, 24, { align: 'right' });
 }
 
 function drawPromptBlock(doc, singleChart, multiCharts, pageWidth, margin, y) {
@@ -351,10 +328,10 @@ function drawPromptBlock(doc, singleChart, multiCharts, pageWidth, margin, y) {
 
   let prompt;
   if (singleChart) {
-    prompt = `Using my AP theme chart for the ${singleChart.empireName || 'this empire'}${singleChart.dateRange ? ` (${singleChart.dateRange})` : ''}, help me: 1) Identify the most important connections between the CED themes. 2) Suggest what I should compare this empire/region to and why. 3) Ask me 3 Socratic questions that would deepen my understanding.`;
+    prompt = `Using my theme chart for the ${singleChart.empireName || 'this topic'}${singleChart.dateRange ? ` (${singleChart.dateRange})` : ''}, help me: 1) Identify the most important connections between the AP themes. 2) Suggest what I should compare this to and why. 3) Ask me 3 Socratic questions that would deepen my understanding.`;
   } else if (multiCharts) {
     const names = multiCharts.map((c) => c.empireName || 'Untitled').join(', ');
-    prompt = `Using my AP theme-chart comparison of ${names}, help me: 1) Identify the strongest similarities and most significant differences across these societies. 2) Trace one change and one continuity over time across these charts. 3) Explain how developments in one society may have caused or influenced developments in another.`;
+    prompt = `Using my theme chart comparison of ${names}, help me: 1) Identify the strongest similarities and most significant differences across these entries. 2) Trace one change and one continuity over time across these charts. 3) Explain how developments in one may have caused or influenced developments in another.`;
   }
 
   if (prompt) {
@@ -364,15 +341,12 @@ function drawPromptBlock(doc, singleChart, multiCharts, pageWidth, margin, y) {
 
   doc.setFontSize(6);
   doc.setTextColor(148, 163, 184);
-  doc.text(
-    'Copy this prompt and paste into an AI tool for extended study help.',
-    margin + 4,
-    y + blockHeight - 3
-  );
+  doc.text('Copy this prompt and paste into an AI tool for extended study help.', margin + 4, y + blockHeight - 3);
 }
 
-function addFooter(doc) {
+function addFooter(doc, course = 'apwhm') {
   const pageCount = doc.getNumberOfPages();
+  const courseLabel = getCourseLabel(course);
   for (let i = 1; i <= pageCount; i++) {
     doc.setPage(i);
     const pageHeight = doc.internal.pageSize.getHeight();
@@ -381,7 +355,7 @@ function addFooter(doc) {
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(156, 163, 175);
     doc.text(
-      `AP Theme Charts — AP World History: Modern  |  Page ${i} of ${pageCount}`,
+      `AP Theme Charts — ${courseLabel}  |  Page ${i} of ${pageCount}`,
       pageWidth / 2,
       pageHeight - 7,
       { align: 'center' }
@@ -391,4 +365,27 @@ function addFooter(doc) {
 
 function sanitizeFilename(name) {
   return name.replace(/[^a-zA-Z0-9_-]/g, '_').substring(0, 40);
+}
+
+export async function exportChartJSON(chart, profile) {
+  const { hashChart } = await import('./hash');
+  const contentHash = await hashChart(chart);
+  const data = {
+    spicetVersion: SPICET_EXPORT_VERSION,
+    kind: 'chart',
+    exportedAt: new Date().toISOString(),
+    contentHash,
+    meta: {
+      studentName: profile?.name || '',
+      classPeriod: profile?.classPeriod || '',
+    },
+    chart,
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `APThemes_${sanitizeFilename(chart.empireName || 'chart')}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
 }
