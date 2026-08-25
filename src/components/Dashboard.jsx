@@ -19,7 +19,7 @@ import {
   Brain,
 } from 'lucide-react';
 
-export default function Dashboard({ onEditChart, onNewChart, onCompare, onReview }) {
+export default function Dashboard({ onEditChart, onNewChart, onCompare, onReview, onProgress }) {
   const [charts, setCharts] = useState([]);
   const [search, setSearch] = useState('');
   const [unitFilter, setUnitFilter] = useState(null);
@@ -113,13 +113,21 @@ export default function Dashboard({ onEditChart, onNewChart, onCompare, onReview
               </p>
             </div>
           </div>
-          <button
-            onClick={onReview}
-            disabled={dueCount === 0}
-            className="px-5 py-2.5 bg-accent text-white rounded-lg hover:bg-accent-light transition-colors font-medium disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
-          >
-            Start review
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={onProgress}
+              className="px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium whitespace-nowrap"
+            >
+              Progress
+            </button>
+            <button
+              onClick={onReview}
+              disabled={dueCount === 0}
+              className="px-5 py-2.5 bg-accent text-white rounded-lg hover:bg-accent-light transition-colors font-medium disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
+            >
+              Start review
+            </button>
+          </div>
         </div>
       )}
 

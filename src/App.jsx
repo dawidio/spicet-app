@@ -8,6 +8,7 @@ import WelcomeSetup from './components/WelcomeSetup';
 import Header from './components/Header';
 import AITutor from './components/AITutor';
 import ReviewSession from './components/ReviewSession';
+import ProgressView from './components/ProgressView';
 
 function App() {
   const [screen, setScreen] = useState('loading');
@@ -81,9 +82,11 @@ function App() {
             onNewChart={handleNewChart}
             onCompare={handleCompare}
             onReview={() => setScreen('review')}
+            onProgress={() => setScreen('progress')}
           />
         )}
         {screen === 'review' && <ReviewSession onBack={handleBack} />}
+        {screen === 'progress' && <ProgressView onBack={handleBack} />}
         {screen === 'editor' && (
           <ChartEditor chartId={editingChartId} onBack={handleBack} />
         )}

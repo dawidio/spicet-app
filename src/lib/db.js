@@ -226,6 +226,32 @@ export async function getDueReviewCount(now = Date.now()) {
   return db.reviews.where('nextDue').belowOrEqual(now).count();
 }
 
+// Per-theme calibration stats across all review history. Powers the
+// Progress view: entries tracked, mastered (past the learning phase), and
+// the honest knew/lucky/wrong tallies.
+export async function getReviewStats() {
+  await syncReviews();
+  const rows = await db.reviews.toArray();
+  const stats = {};
+  for (const row of rows) {
+    const cat = row.categoryKey;
+    if (!stats[cat]) {
+      stats[cat] = {
+        total: 0,
+        mastered: 0,
+        marks: { knew: 0, lucky: 0, wrong: 0 },
+      };
+    }
+    const s = stats[cat];
+    s.total += 1;
+    if (row.stage > 0) s.mastered += 1;
+    for (const h of row.history || []) {
+      if (s.marks[h.mark] !== undefined) s.marks[h.mark] += 1;
+    }
+  }
+  return stats;
+}
+
 export async function recordReviewMark(reviewId, mark, now = Date.now()) {
   const row = await db.reviews.get(reviewId);
   if (!row) return null;
